@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ChangingFond | NKU</title>
+  <title>ChangingFond</title>
   <subtitle>不会写代码的咸鱼和人有什么区别</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>http://fangchengjin.cn/</id>
   
   <author>
-    <name>ChangingFond</name>
+    <name>FangChengjin</name>
     
   </author>
   
