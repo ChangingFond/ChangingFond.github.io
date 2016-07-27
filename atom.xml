@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fangchengjin.cn/"/>
-  <updated>2016-07-27T05:54:33.909Z</updated>
+  <updated>2016-07-27T05:57:23.224Z</updated>
   <id>http://fangchengjin.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://fangchengjin.cn/2016/07/19/Windows8-8-1-10%E5%AE%89%E8%A3%85-NET-Framework-3-5/"/>
     <id>http://fangchengjin.cn/2016/07/19/Windows8-8-1-10安装-NET-Framework-3-5/</id>
     <published>2016-07-19T15:11:24.000Z</published>
-    <updated>2016-07-27T05:54:33.909Z</updated>
+    <updated>2016-07-27T05:57:23.224Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;之前在帮某一学弟重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动，只能想办法自己安装。&lt;/p&gt;
@@ -32,12 +32,11 @@
 &lt;li&gt;&lt;p&gt;管理员权限运行命令提示符，方法：&lt;code&gt;command+X&lt;/code&gt;，找到命令提示符(管理员)，或者&lt;code&gt;command+R&lt;/code&gt;，输入&lt;code&gt;cmd&lt;/code&gt;，回车，然后将以下代码复制进命令提示符窗口&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Dism /online /&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;-feature /featurename:NetFx3 /All /Source:G:\sources\sxs /LimitAccess&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;&lt;p&gt;出现以下界面，大功告成！&lt;br&gt;&lt;img src=&quot;http://7xwh8v.com2.z0.glb.clouddn.com/16-7-27%2F1.png&quot; alt=&quot;success&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意将G:替换成你挂载系统所在的盘符&lt;/p&gt;
+&lt;p&gt;注意:将G:替换成你挂载系统所在的盘符&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;出现以下界面，大功告成！&lt;br&gt;&lt;img src=&quot;http://7xwh8v.com2.z0.glb.clouddn.com/16-7-27%2F1.png&quot; alt=&quot;success&quot;&gt;&lt;/li&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </content>
     
