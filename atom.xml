@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fangchengjin.cn/"/>
-  <updated>2016-07-18T13:11:09.579Z</updated>
+  <updated>2016-07-27T05:52:23.779Z</updated>
   <id>http://fangchengjin.cn/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows8/8.1/10安装.NET Framework 3.5</title>
+    <link href="http://fangchengjin.cn/2016/07/19/Windows8-8-1-10%E5%AE%89%E8%A3%85-NET-Framework-3-5/"/>
+    <id>http://fangchengjin.cn/2016/07/19/Windows8-8-1-10安装-NET-Framework-3-5/</id>
+    <published>2016-07-19T15:11:24.000Z</published>
+    <updated>2016-07-27T05:52:23.779Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;之前在帮某一学弟重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动，只能想办法自己安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;先挂载Win8&amp;amp;Win8.1&amp;amp;Win10的镜像（安装系统的那个iso镜像文件,可以使用Daemon虚拟光驱挂载,加载之后注意盘符名称，假设为G&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;管理员权限运行命令提示符，方法：&lt;code&gt;command+X&lt;/code&gt;，找到命令提示符(管理员)，或者&lt;code&gt;command+R&lt;/code&gt;，输入&lt;code&gt;cmd&lt;/code&gt;，回车，然后将以下代码复制进命令提示符窗口&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Dism /online /&lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt;-feature /featurename:NetFx3 /All /Source:G:\sources\sxs /LimitAccess&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意将G:替换成你挂载系统所在的盘符&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;出现以下界面，大功告成！&lt;br&gt;&lt;img src=&quot;http://7xwh8v.com2.z0.glb.clouddn.com/16-7-27%2F1.png&quot; alt=&quot;success&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;之前在帮某一学弟重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动，只能想办法自己安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="奇技淫巧" scheme="http://fangchengjin.cn/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+    
+      <category term="Windows" scheme="http://fangchengjin.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu Server折腾记</title>
