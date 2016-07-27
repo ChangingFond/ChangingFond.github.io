@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="ChangingFond">
 <meta property="og:description" content="之前在帮某一学弟重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动，只能想办法自己安装。">
 <meta property="og:image" content="http://7xwh8v.com2.z0.glb.clouddn.com/16-7-27%2F1.png">
-<meta property="og:updated_time" content="2016-07-27T05:52:23.779Z">
+<meta property="og:updated_time" content="2016-07-27T05:54:33.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows8/8.1/10安装.NET Framework 3.5">
 <meta name="twitter:description" content="之前在帮某一学弟重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动，只能想办法自己安装。">
@@ -410,7 +410,7 @@
 </blockquote>
 <a id="more"></a>
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li><p>先挂载Win8&amp;Win8.1&amp;Win10的镜像（安装系统的那个iso镜像文件,可以使用Daemon虚拟光驱挂载,加载之后注意盘符名称，假设为G</p>
+<li><p>先挂载Win8&amp;Win8.1&amp;Win10的镜像(安装系统的那个iso镜像文件,可以使用Daemon虚拟光驱挂载,加载之后注意盘符名称，假设为G)</p>
 </li>
 <li><p>管理员权限运行命令提示符，方法：<code>command+X</code>，找到命令提示符(管理员)，或者<code>command+R</code>，输入<code>cmd</code>，回车，然后将以下代码复制进命令提示符窗口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Dism /online /<span class="built_in">enable</span>-feature /featurename:NetFx3 /All /Source:G:\sources\sxs /LimitAccess</div></pre></td></tr></table></figure>
