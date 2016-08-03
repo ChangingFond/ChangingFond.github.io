@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fangchengjin.cn/"/>
-  <updated>2016-07-27T05:57:23.224Z</updated>
+  <updated>2016-07-27T06:07:48.519Z</updated>
   <id>http://fangchengjin.cn/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Deploy your blog to VPS</title>
+    <link href="http://fangchengjin.cn/2016/07/27/Deploy-your-blog-to-VPS/"/>
+    <id>http://fangchengjin.cn/2016/07/27/Deploy-your-blog-to-VPS/</id>
+    <published>2016-07-27T06:07:16.000Z</published>
+    <updated>2016-07-27T06:07:48.519Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="技术教程" scheme="http://fangchengjin.cn/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Linux" scheme="http://fangchengjin.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows8/8.1/10安装.NET Framework 3.5</title>
