@@ -1,4 +1,4 @@
-# Hexo Configuration
+﻿# Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
@@ -71,7 +71,7 @@ theme: next
 deploy:
   type: git
   repo:
-    github: https://github.com/ChangingFond/ChangingFond.github.io.git  #同步到GitHub
-    vps: ssh://git@123.206.93.28:blog.git,master  #同步到自己的VPS
+    github: git@github.com:ChangingFond/ChangingFond.github.io.git  #同步到GitHub
+    vps: git@123.206.93.28:blog.git,master  #同步到自己的VPS
   branch: master
-  message: Hexo Blog updated: {{ now('YYYY-MM-DD HH:mm:ss') }})
+  message: Hexo Blog updated - {{ now('YYYY-MM-DD HH:mm:ss') }})
