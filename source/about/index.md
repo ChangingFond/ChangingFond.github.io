@@ -1,6 +1,6 @@
 ---
-title: 分类
+title: 关于我
 date: 2016-09-08 10:31:57
-type: "categories"
+type: "about"
 comments: false
 ---
