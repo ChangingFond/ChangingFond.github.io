@@ -10,7 +10,10 @@ tags:
 ---
 
 - php5.2.x自带php_mssql.dll的扩展连接SQL Server，但这个扩展只能支持SQL Server 2000以下版本。
-- php连接方式 ``` mssql_connect('localhost', '用户名', '密码');```
+- php连接方式
+```
+mssql_connect('localhost', '用户名', '密码');
+```
 - php5.3.x不再支持php_mssql.dll扩展库
 
 <!--more-->

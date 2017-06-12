@@ -5,7 +5,7 @@ tags: Markdown
 date: 2016-8-25 11:52:50
 ---
 
-![Markdown](/uploads/markdown.jpg)
+![Markdown](http://upload-images.jianshu.io/upload_images/1335096-c81fc640acb42a3d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 > We believe that writing is about content, about what you want to say – not about fancy formatting.  
 我们坚信写作写的是内容，所思所想，而不是花样格式。  
