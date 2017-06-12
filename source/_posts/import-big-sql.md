@@ -2,7 +2,7 @@
 title: SQL Server导入超大SQL文件的方法
 date: 2016-10-28
 categories: 编程笔记
-tags: SQL
+tags: [SQL, SQL Server]
 ---
 
 > 在实验室处理数据时，遇到一张20w记录的表需要恢复，初以为直接在dbms中直接导入sql即可，然而显示内存不够，无法导入。
