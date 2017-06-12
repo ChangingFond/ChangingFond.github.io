@@ -1,8 +1,8 @@
 ---
-title: SQL Server导入超大SQL文件的方法
+title: 分分钟学会Python3
 date: 2016-10-28
 categories: 编程笔记
-tags: SQL
+tags: python
 ---
 
 Python was created by Guido Van Rossum in the early 90s. It is now one of the most popular
