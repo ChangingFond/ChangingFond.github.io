@@ -108,13 +108,14 @@ font:
   global:
     # external: true will load this font family from host.
     external: true
-    family: Lato
+    family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6)
   # Fallback to `global` font settings.
   headings:
     external: true
-    family: Roboto Slab
+    # family: Roboto Slab
+    family: 
 
   # Font settings for posts
   # Fallback to `global` font settings.
