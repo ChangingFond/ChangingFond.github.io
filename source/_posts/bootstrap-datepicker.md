@@ -1,4 +1,4 @@
----
+﻿---
 title: bootstrap-datepicker插件汉化
 date: 2016-10-27 19:21:29
 categories:
@@ -8,7 +8,7 @@ tags:
 - JavaScript
 ---
 
-近期在做项目时用到bootstrap-datepicker这个插件，默认是英文显示日期，查阅相关资料后改动即可汉化
+近期在做项目时用到bootstrap-datepicker这个插件，默认英文显示日期，查阅相关资料后改动即可汉化
 
 - 先将bootstrap-datepicker.js另存为UTF-8编码格式
 - 增加cn语言选项
