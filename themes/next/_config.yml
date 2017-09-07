@@ -115,7 +115,7 @@ font:
   headings:
     external: true
     # family: Roboto Slab
-    family: 
+    family:
 
   # Font settings for posts
   # Fallback to `global` font settings.
@@ -332,9 +332,9 @@ gentie_productKey: 10735977c586441d962f1abcf5ec2c0b
 
 # changyan
 changyan:
-  enable: false
-  appid:
-  appkey:
+  enable: true
+  appid: cytcDoj5z
+  appkey: 4e93ea99e3030a58171f306f452698c3
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
