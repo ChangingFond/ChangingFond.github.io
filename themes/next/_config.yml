@@ -328,7 +328,7 @@ disqus:
 #hypercomments_id:
 
 # Gentie productKey
-gentie_productKey: 10735977c586441d962f1abcf5ec2c0b
+gentie_productKey: #your-gentie-product-key
 
 # changyan
 changyan:
