@@ -51,6 +51,13 @@ baidusitemap:
 sitemap:
   path: sitemap.xml
 
+# Local search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
 # Category & Tag
 default_category: uncategorized
 category_map:
