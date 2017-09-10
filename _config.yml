@@ -45,7 +45,11 @@ highlight:
 
 # BaiduSitemap
 baidusitemap:
-path: baidusitemap.xml
+  path: baidusitemap.xml
+
+# Sitemap
+sitemap:
+  path: sitemap.xml
 
 # Category & Tag
 default_category: uncategorized
