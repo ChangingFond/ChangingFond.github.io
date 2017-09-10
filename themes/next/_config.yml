@@ -327,9 +327,6 @@ disqus:
 # Hypercomments
 #hypercomments_id:
 
-# Gentie productKey
-gentie_productKey: #your-gentie-product-key
-
 # changyan
 changyan:
   enable: true
