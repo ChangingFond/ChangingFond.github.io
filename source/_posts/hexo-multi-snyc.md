@@ -39,7 +39,9 @@ Hexo博客的本质是将Markdown格式的文章转化成html页面发布到托�
 
 - 当更换机器或者重装电脑（无博客源代码）
     1.使用`git clone -b hexo git@github.com:ChangingFond/ChangingFond.github.io.git`拷贝仓库
-    2.在本地新拷贝的`ChangingFond.github.io.git`文件夹下通过`git bash`执行`npm install`指令
+    2.在本地新拷贝的`ChangingFond.github.io.git`文件夹下通过`git bash`执行`npm install`指令（无需执行hexo init）
+    > 若使用hexo init，则站点的配置文件_config.yml里面内容会被清空使用默认值
+
     3.在多台电脑上同时写作，只需要在写作之前进行`git pull`，写作之后进行`git push` `hexo g -d`
 
 ## 参考资料
