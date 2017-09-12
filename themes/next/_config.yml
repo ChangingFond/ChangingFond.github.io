@@ -109,7 +109,7 @@ font:
     # external: true will load this font family from host.
     external: true
     # family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif
-    family: Lato, sans-serif
+    family: Proxima Nova, sans-serif # Lato
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6)
   # Fallback to `global` font settings.
@@ -122,20 +122,20 @@ font:
   # Fallback to `global` font settings.
   posts:
     external: true
-    family: Lato
+    family: Proxima Nova
 
   # Font settings for Logo
   # Fallback to `global` font settings.
   # The `size` option use `px` as unit
   logo:
     external: true
-    family: Lobster Two
+    family: Proxima Nova
     size:
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: Lato
+    family: Proxima Nova
     size: 15
 
 
