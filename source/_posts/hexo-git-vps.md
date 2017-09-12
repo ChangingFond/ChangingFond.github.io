@@ -27,7 +27,7 @@ VPS以CentOS 7为例，使用Xshell5连接到VPS，登录root账户。
 
 ### 安装Git
 
-```
+```bash
     git --version    # 查看系统是否安装git
     yum install git  # 安装git
     yum remove git   # 卸载git
@@ -35,33 +35,33 @@ VPS以CentOS 7为例，使用Xshell5连接到VPS，登录root账户。
 
 ### 新建用户
 
-```
+```bash
     adduser git
     chmod 740 /etc/sudoers
     vi /etc/sudoers
 ```
 在vi编辑器中找到如下行
 
-```
+```bash
     ## Allow root to run any commands anywhere
     root    ALL=(ALL)     ALL
 ```
 
 在下面新增一行
 
-```
+```bash
     git   ALL=(ALL)     ALL
 ```
 
 保存后退出(linux命令 :wq)，执行
 
-```
+```bash
     chmod 440 /etc/sudoers
 ```
 
 ### 新建git仓库
 
-```
+```bash
     su git
     cd ~
     mkdir .ssh && cd .ssh
@@ -74,7 +74,7 @@ VPS以CentOS 7为例，使用Xshell5连接到VPS，登录root账户。
 
 ### ssh连接测试
 
-在``git bash``命令行中输入`ssh git@VPS的IP地址`，如果能登录远程主机，则表示Git配置成功
+在`git bash`命令行中输入`ssh git@VPS的IP地址`，如果能登录远程主机，则表示Git配置成功
 
 > ssh可同时支持publickey和password两种授权方式，publickey默认不开启，开启配置为yes。
 如果客户端不存在.ssh/id_rsa，则使用password授权。
@@ -82,7 +82,7 @@ VPS以CentOS 7为例，使用Xshell5连接到VPS，登录root账户。
 
 ### 赋予git用户对网站目录的权限
 
-```
+```bash
     cd /var/www/html                        # apache服务器的网站根目录
     mkdir blog                              # 新建blog文件夹用以放置hexo博客文件
     chown git:git -R /var/www/html/blog     # 将目录所有者改为git用户
@@ -90,32 +90,32 @@ VPS以CentOS 7为例，使用Xshell5连接到VPS，登录root账户。
 
 ### 配置Git Hooks
 
-```
-su git
-cd /home/git/hexo.git/hooks
-touch post-receive      #  新建脚本文件
-vi post-receive
+```bash
+  su git
+  cd /home/git/hexo.git/hooks
+  touch post-receive      #  新建脚本文件
+  vi post-receive
 ```
 
 在vi编辑中输入以下代码后保存退出
 
-```
+```bash
 #!/bin/bash
-GIT_REPO=/home/git/hexo.git    # git仓库
-TMP_GIT_CLONE=/tmp/hexo
-PUBLIC_WWW=/var/www/html/blog  # 网站目录
-rm -rf ${TMP_GIT_CLONE}
-git clone $GIT_REPO $TMP_GIT_CLONE
-rm -rf ${PUBLIC_WWW}/*
-cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
-chmod +x post-receive          # 赋予脚本的执行权限
+  GIT_REPO=/home/git/hexo.git    # git仓库
+  TMP_GIT_CLONE=/tmp/hexo
+  PUBLIC_WWW=/var/www/html/blog  # 网站目录
+  rm -rf ${TMP_GIT_CLONE}
+  git clone $GIT_REPO $TMP_GIT_CLONE
+  rm -rf ${PUBLIC_WWW}/*
+  cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
+  chmod +x post-receive          # 赋予脚本的执行权限
 ```
 
 ## 本机配置工作
 
 进入本地hexo博客文件夹，打开站点配置文件`_config.yml`,修改deploy选项
 
-```
+```bash
 deploy:
   type: git
   repo:
@@ -141,13 +141,13 @@ deploy:
 
     尝试以下步骤：
     1.运行`vi /etc/ssh/sshd_config`，找到以下代码，按如下格式修改
-    ```
+    ```bash
         RSAAuthentication yes  
         PubkeyAuthentication yes  
         AuthorizedKeysFile  .ssh/authorized_keys  
     ```
     保存后退出，重启sshd服务
-    ```
+    ```bash
         # sshd服务相关命令
         systemctl restart sshd.service
         systemctl status sshd.service   # 查看ssh服务的状态
@@ -156,12 +156,12 @@ deploy:
         systemctl stop sshd.ervice      # 停止ssh服务
         ```
     2.修改文件夹以及文件权限
-    ```
+    ```bash
         chmod 700 /home/git/.ssh
         chmod 644 /home/git/.ssh/authorized_keys
     ```
     3.关闭SELinux
-    ```
+    ```bash
         setenforce 0            # 暂时关闭，重启后恢复
 
         vi /etc/selinux/config  # 永久关闭
