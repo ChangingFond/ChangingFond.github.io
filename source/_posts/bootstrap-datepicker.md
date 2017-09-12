@@ -10,10 +10,12 @@ tags:
 
 近期在做项目时用到bootstrap-datepicker这个插件，默认英文显示日期，查阅相关资料后改动即可汉化
 
+<!-- more -->
+
 - 先将bootstrap-datepicker.js另存为UTF-8编码格式
 - 增加cn语言选项
 
-``` javascript
+```javascript
 var dates = $.fn.datepicker.dates = {
   en: {
     days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -37,7 +39,7 @@ var dates = $.fn.datepicker.dates = {
 ```
 - 修改默认语言参数language为cn
 
-``` javascript
+```javascript
 
 var defaults = $.fn.datepicker.defaults = {
 	autoclose: false,
