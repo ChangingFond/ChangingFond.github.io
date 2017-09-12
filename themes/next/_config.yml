@@ -116,13 +116,13 @@ font:
   headings:
     external: true
     # family: Roboto Slab
-    family:
+    family: STZhongsong
 
   # Font settings for posts
   # Fallback to `global` font settings.
   posts:
     external: true
-    family:
+    family: Lato
 
   # Font settings for Logo
   # Fallback to `global` font settings.
