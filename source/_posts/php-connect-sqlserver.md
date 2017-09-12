@@ -24,9 +24,8 @@ mssql_connect('localhost', '用户名', '密码');
 
 ## 下载Microsoft Drivers for PHP for SQL Server
 进入[https://www.microsoft.com/en-us/download/details.aspx?id=20098](https://www.microsoft.com/en-us/download/details.aspx?id=20098)  
-　　点击download  
-　　本人安装的是php环境是5.6.21，选择SQLSRV32.EXE下载
->
+点击download,本人安装的是php环境是5.6.21，选择SQLSRV32.EXE下载
+
 - Version 4.0 supports PHP 7.0+
 - Version 3.2 supports PHP 5.6, 5.5, and 5.4
 - Version 3.1 supports PHP 5.5 and 5.4
