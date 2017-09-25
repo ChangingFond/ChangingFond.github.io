@@ -107,3 +107,76 @@ JavaScript学习过程中的一些笔记，不定期更新。
 - 内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。如果内部环境中存在着同名标识符，就不会使用位于外部环境的标识符。
 - 不存在块级作用域，如由for循环创建的变量i即使在for循环执行结束后，也会存在于循环外部的执行环境中。
 - '标记清除'是目前主流的垃圾收集算法，给当前不使用的值加上标记，然后回收其内存。
+
+## ES6
+
+- 函数的Rest参数
+```javascript
+  function sum(...m) {
+    let total = 0;
+    for(var i of m) {
+      total += i;
+    }
+  }
+```
+
+- 扩展
+```javascript
+  console.log(...[4, 8]); // 4 8
+  [...arr1, ...arr2]      // 拼接数组arr1和arr2
+  var [x, ...y] = [4, 8, 10, 30]   // y = [8, 10, 30]
+  let [a, b, c] = 'ES6'  // a='E' b='S' c='6'
+  let d = [...'ES6']     // d = ['E', 'S', '6']
+```
+
+- Promise
+```javascript
+  let checkLogin = function() {
+    /* 固定写法 */
+    return new Promise(function (resolve, reject) {
+      let flag = true;
+      if(flag) {
+        resolve({
+          status: 0,
+          result: true
+        })
+      }else {
+        reject("error");
+      }
+    });
+  };
+
+  let getUserInfo = ()=> {
+    return new Promise((resolve, reject) => {
+      let userInfo = {
+        userId: '101'
+      };
+      resolve(userInfo);
+    });
+  };
+
+  checkLogin().then((res) => {
+    if(res.status == 0) {
+      console.log("login success");
+      return getUserInfo();
+    }
+  }).catch((err) => {
+    console.log(`errors:${ err }`);
+  }).then((res2) => {
+    console.log(`userId:${ res2.userId }`);
+  });
+  /* 同时调用多个接口 */
+  Promise.all([checkLogin(), getUserInfo)()]).then(([res1, res2]) => {
+    console.log(`res1:${ res1.result}, res2:${ res2.userId }`);
+  });
+```
+
+## import与export
+```javascript
+  /* util.js */
+  export let sum = (x, y)=>{
+    return x + y;
+  };
+
+  import { sum } from './util'    // sum()直接调用
+  import * as util from './util'  // util.sum()调用
