@@ -14,7 +14,7 @@ JavaScript学习过程中的一些笔记，不定期更新。
 <!-- more -->
 
 ## JavaScript与Html
-- JavaScript=ECMAScript + DOM + BOM  
+- JavaScript = ECMAScript + DOM(文档对象模型) + BOM(浏览器对象模型)  
 - HTML页面中`<script>`标签type属性默认为text/javascript。
 - 在使用`<script>`标签嵌入html页面时，只需指定type属性即可。嵌入的js代码中不要包含`</script>`字符串，浏览器会认为其是结束标签。
 - html包含外部js文件时，必需指定src属性，必需有闭合标签`</script>`，两个标签之中不能含有js代码（不会被执行）。
@@ -180,3 +180,4 @@ JavaScript学习过程中的一些笔记，不定期更新。
 
   import { sum } from './util'    // sum()直接调用
   import * as util from './util'  // util.sum()调用
+```
