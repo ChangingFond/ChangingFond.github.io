@@ -88,18 +88,20 @@ Ubuntu16.04安装Cuda8.0、Cudnn6.0，配置Caffe环境步骤全记录
 4. 进入lib64文件夹，执行`sudo cp lib* /usr/local/cuda/lib64/          # 复制动态链接库`
 5. 执行
 ```
-cd /usr/local/cuda/lib64/
-sudo rm -rf libcudnn.so libcudnn.so.6           # 删除原有动态文件
-sudo ln -s libcudnn.so.6.0.21 libcudnn.so.6     # 生成软链接
-sudo ln -s libcudnn.so.6 libcudnn.so            # 生成软链接
+  cd /usr/local/cuda/lib64/
+  sudo rm -rf libcudnn.so libcudnn.so.6           # 删除原有动态文件
+  sudo ln -s libcudnn.so.6.0.21 libcudnn.so.6     # 生成软链接
+  sudo ln -s libcudnn.so.6 libcudnn.so            # 生成软链接
 
-locate libcudnn.so                              # 查看安装位置
+  locate libcudnn.so                              # 查看安装位置
 ```
 安装完成后可用 `nvcc -V` 命令验证是否安装成功
 
 ## 安装caffe
 
-从git中clone出源码后，修改Makefile.config：
+从git中clone出源码:
+　　`git clone https://github.com/BVLC/caffe.git`
+修改Makefile.config：
 　　`cp Makefile.config.example Makefile.config`
 　　`vi Makefile.config`
 找到`#USE_CUDNN := 1`,取消注释（设置为GPU模式）
@@ -115,3 +117,9 @@ locate libcudnn.so                              # 查看安装位置
 　　`make all -j8`
 编译成功后可运行测试：
 　　`make runtest -j8`
+
+## 参考链接
+
+- [Ubuntu16.04 Caffe 安装步骤记录（超详尽）](https://blog.csdn.net/yhaolpz/article/details/71375762)
+- [【深度学习】一、Ubuntu16.04 安装配置Caffe](https://www.cnblogs.com/XTech/p/7226114.html)
+- [Ubuntu16.04安装Nvidia显卡驱动+Cuda8.0+Cudnn6.0](https://www.cnblogs.com/wmxfd/p/installation_of_nvidia_graphics_driver_and_cuda8_and_cudnn6.html)
