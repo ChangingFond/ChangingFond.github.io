@@ -77,6 +77,7 @@ tags:
 
 - **Domain Transfer Support Vector Ranking for Person Re-Identification without Target Camera Label Information.** *Andy Jinhua Ma, Pong Chi Yuen, Jiawei Li*
 
+- **Human Re-identification by Matching Compositional Template with Cluster Sampling.** *Yuanlu Xu, Liang Lin, Wei-Shi Zheng, Xiaobai Liu*
 
 # CVPR
 
@@ -96,7 +97,7 @@ tags:
 
 - **A Pose-Sensitive Embedding for Person Re-Identification with Expanded Cross Neighborhood Re-Ranking.** *M. Saquib Sarfraz, Arne Schumann, Andreas Eberle, Rainer Stiefelhagen*
 
-- **Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification.** *Weijian Deng, Liang Zheng, GUOLIANG KANG, Yi Yang, Qixiang Ye, Jianbin Jiao*
+- **Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification.** *Weijian Deng, Liang Zheng, Guoliang Kang, Yi Yang, Qixiang Ye, Jianbin Jiao*
 
 - **Human Semantic Parsing for Person Re-identification.** *Mahdi Kalayeh, Emrah Basaran, Mubarak Shah*
 
@@ -210,21 +211,25 @@ tags:
 
 - **Person Re-Identification by Local Maximal Occurrence Representation and Metric Learning.** *Shengcai Liao, Yang Hu, Xiangyu Zhu, Stan Z. Li*
 
-- **An Improved Deep Learning Architecture for Person Re-Identification.** *Ejaz Ahmed, Michael Jones, Tim K. Marks*
+- **An Improved Deep Learning Architecture for Person Re-Identification.** *Ejaz Ahmed, Michael Jones, Tim K. Marks.*【[PDF](https://www.cv-foundation.org/openaccess/content_cvpr_2015/app/2B_062.pdf)】
 
 - **Transferring a Semantic Representation for Person Re-Identification and Search.** *Zhiyuan Shi, Timothy M. Hospedales, Tao Xiang*
 
 ## CVPR 2014
 
-- **Learning Mid-level Filters for Person Re-identification.** *Rui Zhao, Wanli Ouyang, Xiaogang Wang*
+- **Learning Mid-level Filters for Person Re-identification.** *Rui Zhao, Wanli Ouyang, Xiaogang Wang.*【[PDF](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Zhao_Learning_Mid-level_Filters_2014_CVPR_paper.pdf)】
 
 - **Semi-Supervised Coupled Dictionary Learning for Person Re-identification.** *Xiao Liu, Mingli Song, Dacheng Tao, Xingchen Zhou , Chun Chen, Jiajun Bu*
 
-- **DeepReID: Deep Filter Pairing Neural Network for Person Re-identification.** *Wei Li, Rui Zhao, Tong Xiao, Xiaogang Wang*
+- **DeepReID: Deep Filter Pairing Neural Network for Person Re-identification.** *Wei Li, Rui Zhao, Tong Xiao, Xiaogang Wang.*【[PDF](http://zhaorui.xyz/project/fpnn_cvpr14/liZXWcvpr14.pdf)】
 
 ## CVPR 2013
 
 - **Unsupervised Salience Learning for Person Re-identification.** *Rui Zhao, Wanli Ouyang, Xiaogang Wang*
+
+- **Locally Aligned Feature Transforms across Views.** *Wei Li, Xiaogang Wang*
+
+- **Learning Locally-Adaptive Decision Functions for Person Verification.** *Zhen Li, Shiyu Chang, Feng Liang, Thomas S. Huang, Liangliang Cao, John R. Smith.*
 
 
 # ECCV
@@ -234,6 +239,8 @@ tags:
 - **Embedding Deep Metric for Person Re-identification: A Study Against Large Variations.** *Hailin Shi, Yang Yang, Xiangyu Zhu, Shengcai Liao, Zhen Lei, Wei-Shi Zheng, Stan Li*
 
 - **Person Re-identification by Unsupervised L1 Graph Learning.** *Elyor Kodirov, Tao Xiang, Zhenyong Fu, Shaogang Gong*
+
+- **Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification.** *Rahul Rama Varior, Mrinal Haloi, Gang Wang*
 
 - **Deep Attributes Driven Person Re-identification.** *Chi Su, Shiliang Zhang, Junliang Xing, Wen Gao, Qi Tian*
 
@@ -252,6 +259,14 @@ tags:
 - **Person Re-Identification by Video Ranking.** *Taiqing Wang, Shaogang Gong, Xiatian Zhu, Shengjin Wang*
 
 - **Person Re-Identification using Kernel-based Metric Learning Methods.**  *Fei Xiong, Mengran Gou, Octavia Camps, Mario Sznaier*
+
+## ECCV 2014 Workshop on Visual Surveillance and Re-identification
+
+- **A Novel Visual Word Co-occurrence Model for Person Re-identification.** *Ziming Zhang, Yuting Chen, Venkatesh Saligrama.*
+
+- **Saliency Weighted Features for Person Re-identification.** *Niki Martinel, Christian Micheloni, Gian Luca Foresti.*
+
+- **Joint Learning for Attribute-Consistent Person Re-Identification.** *Sameh Khamis, Cheng-Hao Kuo, Vivek K.Singh, Vinay D.Shet, Larry S.Davis.*
 
 # BMVC
 
@@ -290,6 +305,12 @@ tags:
 - **Unsupervised Learning of Generative Topic Saliency for Person Re-identification.** *Hanxiao Wang, Shaogang Gong, Tao Xiang*
 
 - **Open-world Person Re-Identification by Multi-Label Assignment Inference.** *Brais Cancela, Timothy M. Hospedales, Shaogang Gong*
+
+# ICPR
+
+## ICPR 2014
+
+- **Deep Metric Learning for Person Re-Identification**. *Dong Yi, Zhen Lei, Shengcai Liao, Stan Z. Li.*【[PDF](http://www.cbsr.ia.ac.cn/users/zlei/papers/ICPR2014/Yi-ICPR-14.pdf)】
 
 # AAAI
 
