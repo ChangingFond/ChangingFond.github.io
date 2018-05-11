@@ -11,6 +11,3 @@ date: 2017-06-10 08:27:39
 所以现在要做的，不是加法，而是减法，最终能够形成「有闻」→「能行」→「又闻」这样一个良性的循环
 
 > So，Come with me……
-
-> 最近访客
-<div class="ds-recent-visitors" data-num-items="28" data-avatar-size="42" id="ds-recent-visitors"></div>

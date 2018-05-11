@@ -72,12 +72,9 @@ tags:
 ## ICCV 2013
 
 - **POP: Person re-identification post-rank optimisation.** *S. G. C. Liu, C. C. Loy, G. Wang*
-
 - **Person re-identification by salience matching.** *R. Zhao, W. Ouyang,  X. Wang*
-
 - **Domain Transfer Support Vector Ranking for Person Re-Identification without Target Camera Label Information.** *Andy Jinhua Ma, Pong Chi Yuen, Jiawei Li*
-
-- **Human Re-identification by Matching Compositional Template with Cluster Sampling.** *Yuanlu Xu, Liang Lin, Wei-Shi Zheng, Xiaobai Liu*
+- **Human Re-identification by Matching Compositional Template with Cluster Sampling.** *Yuanlu Xu, Liang Lin, Weishi Zheng, Xiaobai Liu*
 
 # CVPR
 
@@ -197,7 +194,7 @@ tags:
 
 - **Improving Person Re-identification via Pose-Aware Multi-shot Matching.** *Yeong-Jun Cho, Kuk-Jin Yoon*
 
-- **Hierarchical Gaussian Descriptor for Person Re-identification.**	*Tetsu Matsukawa, Takahiro Okabe, Einoshin Suzuki, Yoichi Sato*
+	 **Hierarchical Gaussian Descriptor for Person Re-identification.**	*Tetsu Matsukawa, Takahiro Okabe, Einoshin Suzuki, Yoichi Sato*
 
 ## CVPR 2015
 

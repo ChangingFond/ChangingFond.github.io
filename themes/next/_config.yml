@@ -73,9 +73,9 @@ menu_icons:
   guestbook: book
 
 # 打赏功能配置
-reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
-wechatpay: /images/wechat-reward.JPG
-alipay: /images/alipay-reward.JPG
+# reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+# wechatpay: /images/wechat-reward.JPG
+# alipay: /images/alipay-reward.JPG
 
 #站点建立时间
 since: 2016
@@ -250,8 +250,8 @@ auto_excerpt:
 post_meta:
   item_text: true
   created_at: true
-  updated_at: false
-  categories: true
+  updated_at: true
+  categories: false
 
 # Post wordcount display settings
 # Dependencies: https://github.com/willin/hexo-wordcount
@@ -269,7 +269,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
