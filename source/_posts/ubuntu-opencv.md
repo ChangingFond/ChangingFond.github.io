@@ -62,3 +62,8 @@ Ubuntu 16.04安装配置OpenCV 2.4.9
   ./build_all.sh
   ./find_obj
 ```
+
+## 参考链接
+
+- [Ubuntu16.04 caffe Opencv2.4.13 GPU环境配置](https://blog.csdn.net/sinat_17196995/article/details/53466524)
+- [Opencv 2.4.9在Ubuntu下的配置与安装](https://blog.csdn.net/surgewong/article/details/39078251)

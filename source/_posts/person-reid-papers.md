@@ -72,8 +72,11 @@ tags:
 ## ICCV 2013
 
 - **POP: Person re-identification post-rank optimisation.** *S. G. C. Liu, C. C. Loy, G. Wang*
+
 - **Person re-identification by salience matching.** *R. Zhao, W. Ouyang,  X. Wang*
+
 - **Domain Transfer Support Vector Ranking for Person Re-Identification without Target Camera Label Information.** *Andy Jinhua Ma, Pong Chi Yuen, Jiawei Li*
+
 - **Human Re-identification by Matching Compositional Template with Cluster Sampling.** *Yuanlu Xu, Liang Lin, Weishi Zheng, Xiaobai Liu*
 
 # CVPR
@@ -235,6 +238,8 @@ tags:
 
 - **Embedding Deep Metric for Person Re-identification: A Study Against Large Variations.** *Hailin Shi, Yang Yang, Xiangyu Zhu, Shengcai Liao, Zhen Lei, Wei-Shi Zheng, Stan Li*
 
+- **Human Re-identification in Crowd Videos Using Personal, Social and Environmental Constraints.** *Shayan Modiri Assari, Haroon Idrees, Mubarak Shah*
+
 - **Person Re-identification by Unsupervised L1 Graph Learning.** *Elyor Kodirov, Tao Xiang, Zhenyong Fu, Shaogang Gong*
 
 - **Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification.** *Rahul Rama Varior, Mrinal Haloi, Gang Wang*
@@ -245,9 +250,13 @@ tags:
 
 - **Temporal Model Adaptation for Person Re-Identification.** *Niki Martinel, Abir Das, Christian Micheloni, Amit Roy-Chowdhury*
 
+- **Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification.**　*Rahul Rama Varior, Mrinal Haloi, Gang Wang*
+
 - **Person Re-Identification via Recurrent Feature Aggregation.** *Yichao Yan, Bingbing Ni, Zhichao Song, chao Ma, Yan Yan, xiaokang Yang*
 
 - **MARS: A Video Benchmark for Large-Scale Person Re-identification.** *Liang Zheng, Zhi Bie, Yifan Sun, Jingdong Wang, Chi Su, Shengjin Wang, Qi Tian*
+
+- **A Siamese Long Short-Term Memory Architecture for Human Re-Identification.** *Rahul Rama Varior, Bing Shuai, Jiwen Lu, Dong Xu, Gang Wang*
 
 ## ECCV 2014
 
@@ -361,6 +370,22 @@ tags:
 
 
 # IJCAI
+
+## IJCAI 2018
+
+- **Cascaded SR-GAN for Scale-Adaptive Low Resolution Person Re-identification.** *heng Wang, Mang Ye, Fan Yang, Xiang Bai, Shin'ichi Satoh*
+
+- **Adversarial Attribute-Image Person Re-identification.** *Zhou Yin, Wei-Shi Zheng, Ancong Wu, Hong-Xing Yu, Hai Wan, Xiaowei Guo, Feiyue Huang, Jianhuang Lai*
+
+- **Learning with Sparse and Biased Feedback for Personal Search.** *Michael Bendersky, Xuanhui Wang, Marc Najork, Donald Metzler*
+
+- **Deep View-Aware Metric Learning for Person Re-Identification.** *Pu Chen, Xinyi Xu, Cheng Deng*
+
+- **Cross-Modality Person Re-Identification with Generative Adversarial Training.** *Pingyang Dai, Rongrong Ji, Haibin Wang, Qiong Wu, Yuyu Huang*
+
+- **SafeNet: Scale-normalization and Anchor-based Feature Extraction Network for Person Re-identification.** *Kun Yuan, Qian Zhang, Chang Huang, Shiming Xiang, Chunhong Pan*
+
+- **Visible Thermal Person Re-Identification via Dual-Constrained Top-Ranking.** *Mang Ye, Zheng Wang, Xiangyuan Lan, Pong C. Yuen*
 
 ## IJCAI 2017
 
