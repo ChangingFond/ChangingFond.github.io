@@ -1,7 +1,7 @@
 ---
 title: Windows常见问题及解决技巧
 date: 2018-05-01 17:31:56
-updated: 2018-05-02 17:31:56
+updated: 2018-06-20 9:49:12
 tags: Windows
 categories: 奇技淫巧
 ---
@@ -39,3 +39,14 @@ categories: 奇技淫巧
 　`cmd.exe /s /k pushd "%V"`
 4. 如果想要取消修改的话，把默认值的数值数据改回如下值即可：
 　`powershell.exe -noexit -command Set-Location -literalPath '%V'`
+
+## Win 10家庭中文版打开组策略
+　　在桌面新建记事本文件，粘贴下列代码，并将文件格式改为bat。
+```bash
+   @echo off
+   pushd "%~dp0"
+   dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt
+   dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt
+   for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"C:\Windows\servicing\Packages\%%i"
+   pause
+```

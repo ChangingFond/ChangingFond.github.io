@@ -89,7 +89,7 @@ sqlsrv_rows_affected
 ## 注意事项
 
 需安装``` ODBC Driver 11 or Microsoft ODBC Driver 13  ```
-  - [ODBC Driver 11 下载地址](href="https://www.microsoft.com/en-us/download/details.aspx?id=36434")
-  - [ODBC Driver 13 下载地址](href="https://www.microsoft.com/en-us/download/details.aspx?id=50420")
+  - [ODBC Driver 11 下载地址](https://www.microsoft.com/en-us/download/details.aspx?id=36434)
+  - [ODBC Driver 13 下载地址](https://www.microsoft.com/en-us/download/details.aspx?id=50420)
 
 具体安装版本可参见下载页面说明，安装后重启即可。
