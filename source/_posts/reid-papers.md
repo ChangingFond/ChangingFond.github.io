@@ -1,15 +1,54 @@
 ---
-title: 行人重识别顶级会议论文汇总
+title: 行人重识别(Person Re-identification)顶级会议论文汇总
 date: 2018-04-20 11:20:22
 categories: 行人重识别
 tags:
 - 论文
+- Person Re-ID
 ---
 
-近五年ICCV、CVPR、ECCV等顶级国际会议关于行人重识别(person re-identification)的论文汇总，不定期更新。
+近几年ICCV、CVPR、ECCV等顶级国际会议关于行人重识别(person re-identification)的论文汇总，不定期更新。
 如有疏漏或不足之处，欢迎指正。
 
 <!-- more -->
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# **索引目录**  
+*generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [ICCV](#ICCV)
+  - [ICCV 2017](#ICCV-2017)
+  - [ICCV 2015](#ICCV-2015)
+  - [ICCV 2013](#ICCV-2013)
+- [CVPR](#CVPR)
+  - [CVPR 2018](#CVPR-2018)
+  - [CVPR 2017](#CVPR-2017)
+  - [CVPR 2016](#CVPR-2016)
+  - [CVPR 2015](#CVPR-2015)
+  - [CVPR 2014](#CVPR-2014)
+  - [CVPR 2013](#CVPR-2013)
+- [ECCV](#ECCV)
+  - [ECCV 2016](#ECCV-2016)
+  - [ECCV 2014](#ECCV-2014)
+- [BMVC](#BMVC)
+  - [BMVC 2017](#BMVC-2017)
+  - [BMVC 2016](#BMVC-2016)
+  - [BMVC 2015](#BMVC-2015)
+  - [BMVC 2014](#BMVC-2014)
+- [ICPR](#ICPR)
+  - [ICPR 2014](#ICPR-2014)
+- [AAAI](#AAAI)
+  - [AAAI 2018](#AAAI-2018)
+  - [AAAI 2017](#AAAI-2017)
+  - [AAAI 2016](#AAAI-2016)
+  - [AAAI 2015](#AAAI-2015)
+  - [NIPS 2016](#NIPS-2016)
+- [IJCAI](#IJCAI)
+  - [IJCAI 2018](#IJCAI-2018)
+  - [IJCAI 2017](#IJCAI-2017)
+  - [IJCAI 2016](#IJCAI-2016)
+  - [IJCAI 2015](#IJCAI-2015)
 
 # ICCV
 

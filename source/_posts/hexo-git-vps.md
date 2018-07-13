@@ -154,7 +154,7 @@ deploy:
         systemctl start sshd.service    # 开启ssh服务
         sytemctl enable sshd.service    # ssh服务随开机启动，反之disabled
         systemctl stop sshd.ervice      # 停止ssh服务
-        ```
+    ```
     2.修改文件夹以及文件权限
     ```bash
         chmod 700 /home/git/.ssh
