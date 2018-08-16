@@ -7,14 +7,15 @@ title: ChangingFond #网站标题
 subtitle: 活着，努力着，并收获着快乐 #网站副标题
 description:                       #网站描述
 author: ChangingFond  #网站作者
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://blog.fangchengjin.cn
 root: /
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
+permalink: :title.html
 permalink_defaults:
 
 # Directory
@@ -27,7 +28,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - README.md
-  # - about/*
+  - googlebd03028478f9b467.html
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -81,7 +82,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 ## Muse,Mist
-theme: next
+theme: next-6
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
