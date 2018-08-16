@@ -22,7 +22,7 @@ tags:
 
 ## 2.fork me on github ribbon
 
-打开[此网页](https://github.com/blog/273-github-ribbons)选择一个样式，复制样式对应的代码，粘贴到`themes/next/layout/_layout.swig`文件的`<div class="headband"></div>`这一行代码下面，并将a标签的href属性改成你的github地址。
+打开[网页1](https://github.com/blog/273-github-ribbons)或[网页2](http://tholman.com/github-corners)选择一个样式，复制样式对应的代码，粘贴到`themes/next/layout/_layout.swig`文件的`<div class="headband"></div>`这一行代码下面，并将a标签的href属性改成你的github地址。
 
 ## 3.修改网站字体大小与行高
 

@@ -1,0 +1,800 @@
+
+---
+title: 行人重识别Person Re-identification总结
+date: 2018-07-14 1:10:22
+categories: 行人重识别
+tags:
+- Deep Learning
+- Person Re-ID
+---
+
+　　Person re-identification, also known as person retrieval, is to match pedestrian images observed from non-overlapping camera views based on appearance.It receives increasing attentions in video surveillance for its important applications in threat detection, human retrieval, and multi-camera tracking. It saves a lot of human labor in exhaustively searching for a person of interest from large amounts of video sequences.
+
+<!-- more -->
+
+Last Updated: Jul 4, 2018
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents** *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+- [Leaderboard](#Leaderboard)
+- [Person Re-identification / Person Retrieval](#Person-Re-identification-Person-Retrieval)
+- [Person Search](#Person-Search)
+- [Pose/View for Re-ID](#Pose-View-for-Re-ID)
+- [GAN for Re-ID](#GAN-for-Re-ID)
+- [Human Parsing for Re-ID](#Human-Parsing-for-Re-ID)
+- [Partial Person Re-ID](#Partial-Person-Re-ID)
+- [Reinforcement Learning for Re-ID](#Reinforcement-Learning-for-Re-ID)
+- [Attributes Prediction for Re-ID](#Attributes-Prediction-for-Re-ID)
+- [Video Person Re-Identification](#Video-Person-Re-Identification)
+- [Re-ranking](#Re-ranking)
+- [Unsupervised Re-ID](#Unsupervised-Re-ID)
+- [Vehicle Re-ID](#Vehicle-Re-ID)
+- [Deep Metric Learning](#Deep-Metric-Learning)
+- [Projects](#Projects)
+- [Datasets](#Datasets)
+- [Evaluation](#Evaluation)
+- [Tutorials](#Tutorials)
+- [Experts](#Experts)
+- [Resources](#Resources)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+## Leaderboard
+
+| Method           | backbone   | test size | Market1501    | CUHK03 (detected)   | CUHK03 (detected/new) | CUHK03 (labeled/new) | CUHK-SYSU   | DukeMTMC-reID | MARS          |
+| :------------:   | :-----:    | :-----:   | :-----:       | :-----:             | :----------:          | :---------:          | :--------:  | :----------:  | :--------:    |
+|                  |            |           | rank1 / mAP   | rank1/  5   / 10    | rank1 / mAP           | rank1 / mAP          | rank1 / mAP |               | rank1 / mAP   |
+| AlignedReID      | ResNet50-X |           | 92.6 / 82.3   | 91.9 / 98.7 / 99.4  |                       | 86.8 / 79.1          |             |               | 95.3 / 93.7   |
+| AlignedReID (RK) |            |           | 94.0 / 91.2   | 96.1 / 99.5 / 99.6  |                       | 87.5 / 85.6          |             |               |               |
+| Deep-Person(SQ)  | ResNet-50  | 256×128   | 92.31 / 79.58 | 89.4 / 98.2 / 99.1  |                       |                      |             |               | 80.90 / 64.80 |
+| Deep-Person(MQ)  | ResNet-50  | 256×128   | 94.48 / 85.09 |                     |                       |                      |             |               |               |
+| PCB(SQ)          | ResNet-50  | 384x128   | 92.4 / 77.3   |                     | 61.3 / 54.2           |                      |             | 81.9 / 65.3   |               |
+| PCB+RPP(SQ)      | ResNet-50  | 384x128   | 93.8 / 81.6   |                     | 63.7 / 57.5           |                      |             | 83.3 / 69.2   |               |
+| PN-GAN (SQ)      | ResNet-50  |           | 95.52 / 89.94 | 92.66 / 99.84 / 100 |                       |                      |             |               | 91.47 / 81.39 |
+| PN-GAN (MQ)      | ResNet-50  |           | 95.90 / 91.37 |                     |                       |                      |             |               |               |
+| MGN (SQ)         | ResNet-50  |           | 95.7 /  86.9  |                     | 66.8 / 66.0           | 68.0 / 67.4          |             | 88.7 / 78.4   |               |
+| MGN (MQ)         | ResNet-50  |           | 96.9 /  90.7  |                     |                       |                      |             |               |               |
+| MGN (SQ+RK)      | ResNet-50  |           | 96.6 /  94.2  |                     |                       |                      |             |               |               |
+| MGN (MQ+RK)      | ResNet-50  |           | 97.1 /  95.9  |                     |                       |                      |             |               |               |
+| HPM(SQ)          | ResNet-50  | 384x128   | 94.2 /  82.7  |                     | 63.1 / 57.5           |                      |             | 86.6 / 74.3   |               |
+| HPM+HRE(SQ)      | ResNet-50  | 384x128   | 93.9 /  83.1  |                     | 63.2 / 59.7           |                      |             | 86.3 / 74.5   |               |
+
+## Person Re-identification / Person Retrieval
+
+**DeepReID: Deep Filter Pairing Neural Network for Person Re-Identification**
+　　intro: CVPR 2014
+　　paper: [http://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf)
+
+**An Improved Deep Learning Architecture for Person Re-Identification**
+　　intro: CVPR 2015
+　　paper: [http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Ahmed_An_Improved_Deep_2015_CVPR_paper.pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Ahmed_An_Improved_Deep_2015_CVPR_paper.pdf)
+　　github: [https://github.com/Ning-Ding/Implementation-CVPR2015-CNN-for-ReID](https://github.com/Ning-Ding/Implementation-CVPR2015-CNN-for-ReID)
+
+**Deep Ranking for Person Re-identification via Joint Representation Learning**
+　　intro: IEEE Transactions on Image Processing (TIP), 2016
+　　arxiv: [https://arxiv.org/abs/1505.06821](https://arxiv.org/abs/1505.06821)
+
+**PersonNet: Person Re-identification with Deep Convolutional Neural Networks**
+　　arxiv: [http://arxiv.org/abs/1601.07255](http://arxiv.org/abs/1601.07255)
+
+**Learning Deep Feature Representations with Domain Guided Dropout for Person Re-identification**
+　　intro: CVPR 2016
+　　arxiv: [https://arxiv.org/abs/1604.07528](https://arxiv.org/abs/1604.07528)
+　　github: [https://github.com/Cysu/dgd_person_reid](https://github.com/Cysu/dgd_person_reid)
+
+**Person Re-Identification by Multi-Channel Parts-Based CNN with Improved Triplet Loss Function**
+　　intro: CVPR 2016
+　　paper: [http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Cheng_Person_Re-Identification_by_CVPR_2016_paper.pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Cheng_Person_Re-Identification_by_CVPR_2016_paper.pdf)
+
+**Joint Learning of Single-image and Cross-image Representations for Person Re-identification**
+　　intro: CVPR 2016
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2016/papers/Wang_Joint_Learning_of_CVPR_2016_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2016/papers/Wang_Joint_Learning_of_CVPR_2016_paper.pdf)
+
+**End-to-End Comparative Attention Networks for Person Re-identification**
+　　paper: [https://arxiv.org/abs/1606.04404](https://arxiv.org/abs/1606.04404)
+
+**A Multi-task Deep Network for Person Re-identification**
+　　intro: AAAI 2017
+　　arxiv: [http://arxiv.org/abs/1607.05369](http://arxiv.org/abs/1607.05369)
+
+**A Siamese Long Short-Term Memory Architecture for Human Re-Identification**
+　　arxiv: [http://arxiv.org/abs/1607.08381](http://arxiv.org/abs/1607.08381)
+
+**Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification**
+　　intro: ECCV 2016
+　　keywords: Market1501 rank1 = 65.9%
+　　arxiv: [https://arxiv.org/abs/1607.08378](https://arxiv.org/abs/1607.08378)
+
+**Deep Neural Networks with Inexact Matching for Person Re-Identification**
+　　intro: NIPS 2016
+　　keywords: Normalized correlation layer, CUHK03/CUHK01/QMULGRID
+　　paper: [https://papers.nips.cc/paper/6367-deep-neural-networks-with-inexact-matching-for-person-re-identification](https://papers.nips.cc/paper/6367-deep-neural-networks-with-inexact-matching-for-person-re-identification)
+　　github: [https://github.com/InnovArul/personreid_normxcorr](https://github.com/InnovArul/personreid_normxcorr)
+
+**Person Re-identification: Past, Present and Future**
+　　paper: [https://arxiv.org/abs/1610.02984](https://arxiv.org/abs/1610.02984)
+　　note: https://blog.csdn.net/zdh2010xyz/article/details/53741682
+
+**Deep Learning Prototype Domains for Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1610.05047](https://arxiv.org/abs/1610.05047)
+
+**Deep Transfer Learning for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1611.05244](https://arxiv.org/abs/1611.05244)
+　　note: https://blog.csdn.net/shenxiaolu1984/article/details/53607268
+
+**A Discriminatively Learned CNN Embedding for Person Re-identification**
+　　intro: TOMM 2017
+　　arxiv: [https://arxiv.org/abs/1611.05666](https://arxiv.org/abs/1611.05666)
+　　github(official, MatConvnet): [https://github.com/layumi/2016_person_re-ID](https://github.com/layumi/2016_person_re-ID)
+　　github: [https://github.com/D-X-Y/caffe-reid](https://github.com/D-X-Y/caffe-reid)
+
+**Person Re-Identification via Recurrent Feature Aggregation**
+　　intro: ECCV 2016
+　　keywords: recurrent feature aggregation network (RFA-Net)
+　　arxiv: [https://arxiv.org/abs/1701.06351](https://arxiv.org/abs/1701.06351)
+　　code: [https://sites.google.com/site/yanyichao91sjtu/](https://sites.google.com/site/yanyichao91sjtu/)
+　　github(official): [https://github.com/daodaofr/caffe-re-id](https://github.com/daodaofr/caffe-re-id)
+
+**Structured Deep Hashing with Convolutional Neural Networks for Fast Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1702.04179](https://arxiv.org/abs/1702.04179)
+
+**SVDNet for Pedestrian Retrieval**
+　　intro: ICCV 2017 spotlight
+　　intro: On the Market-1501 dataset, rank-1 accuracy is improved from 55.2% to 80.5% for CaffeNet,
+and from 73.8% to 83.1% for ResNet-50
+　　arxiv: [https://arxiv.org/abs/1703.05693](https://arxiv.org/abs/1703.05693)
+　　github: [https://github.com/syfafterzy/SVDNet-for-Pedestrian-Retrieval](https://github.com/syfafterzy/SVDNet-for-Pedestrian-Retrieval)
+
+**In Defense of the Triplet Loss for Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1703.07737](https://arxiv.org/abs/1703.07737)
+　　github(Theano): [https://github.com/VisualComputingInstitute/triplet-reid](https://github.com/VisualComputingInstitute/triplet-reid)
+
+**Beyond triplet loss: a deep quadruplet network for person re-identification**
+　　intro: CVPR 2017
+　　arxiv: [https://arxiv.org/abs/1704.01719](https://arxiv.org/abs/1704.01719)
+　　ppaper: [http://cvip.computing.dundee.ac.uk/papers/Chen_CVPR_2017_paper.pdf](http://cvip.computing.dundee.ac.uk/papers/Chen_CVPR_2017_paper.pdf)
+
+**Quality Aware Network for Set to Set Recognition**
+　　intro: CVPR 2017
+　　arxiv: [https://arxiv.org/abs/1704.03373](https://arxiv.org/abs/1704.03373)
+　　github: [https://github.com/sciencefans/Quality-Aware-Network](https://github.com/sciencefans/Quality-Aware-Network)
+
+**Learning Deep Context-aware Features over Body and Latent Parts for Person Re-identification**
+　　intro: CVPR 2017. CASIA
+　　keywords: Multi-Scale Context-Aware Network (MSCAN)
+　　arxiv: [https://arxiv.org/abs/1710.06555](https://arxiv.org/abs/1710.06555)
+　　supplemental: [Li_Learning_Deep_Context-Aware_2017_CVPR_supplemental.pdf](http://openaccess.thecvf.com/content_cvpr_2017/supplemental/Li_Learning_Deep_Context-Aware_2017_CVPR_supplemental.pdf)
+
+**Point to Set Similarity Based Deep Feature Learning for Person Re-identification**
+　　intro: CVPR 2017
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2017/papers/Zhou_Point_to_Set_CVPR_2017_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2017/papers/Zhou_Point_to_Set_CVPR_2017_paper.pdf)
+　　github(stay tuned): [https://github.com/samaonline/Point-to-Set-Similarity-Based-Deep-Feature-Learning-for-Person-Re-identification](https://github.com/samaonline/Point-to-Set-Similarity-Based-Deep-Feature-Learning-for-Person-Re-identification)
+
+**Scalable Person Re-identification on Supervised Smoothed Manifold**
+　　intro: CVPR 2017 spotlight
+　　arxiv: [https://arxiv.org/abs/1703.08359](https://arxiv.org/abs/1703.08359)
+　　youtube: [https://www.youtube.com/watch?v=bESdJgalQrg](https://www.youtube.com/watch?v=bESdJgalQrg)
+
+**Attention-based Natural Language Person Retrieval**
+　　intro: CVPR 2017 Workshop (vision meets cognition)
+　　keywords: Bidirectional Long Short　　Term Memory (BLSTM)
+　　arxiv: [https://arxiv.org/abs/1705.08923](https://arxiv.org/abs/1705.08923)
+
+**Part-based Deep Hashing for Large-scale Person Re-identification**
+　　intro: IEEE Transactions on Image Processing, 2017
+　　arxiv: [https://arxiv.org/abs/1705.02145](https://arxiv.org/abs/1705.02145)
+
+**Deep Person Re-Identification with Improved Embedding and Efficient Training**
+　　intro: IJCB 2017
+　　arxiv: [https://arxiv.org/abs/1705.03332](https://arxiv.org/abs/1705.03332)
+
+**Towards a Principled Integration of Multi-Camera Re-Identification and Tracking through Optimal Bayes Filters**
+　　arxiv: [https://arxiv.org/abs/1705.04608](https://arxiv.org/abs/1705.04608)
+　　github: [https://github.com/VisualComputingInstitute/towards-reid-tracking](https://github.com/VisualComputingInstitute/towards-reid-tracking)
+
+**Person Re-Identification by Deep Joint Learning of Multi-Loss Classification**
+　　intro: IJCAI 2017
+　　arxiv: [https://arxiv.org/abs/1705.04724](https://arxiv.org/abs/1705.04724)
+
+**Deep Representation Learning with Part Loss for Person Re-Identification**
+　　keywords: Part Loss Networks
+　　arxiv: [https://arxiv.org/abs/1707.00798](https://arxiv.org/abs/1707.00798)
+
+**Pedestrian Alignment Network for Large-scale Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1707.00408](https://arxiv.org/abs/1707.00408)
+　　github: [https://github.com/layumi/Pedestrian_Alignment](https://github.com/layumi/Pedestrian_Alignment)
+
+**Learning Efficient Image Representation for Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1707.02319](https://arxiv.org/abs/1707.02319)
+
+**Person Re-identification Using Visual Attention**
+　　intro: ICIP 2017
+　　arxiv: [https://arxiv.org/abs/1707.07336](https://arxiv.org/abs/1707.07336)
+
+**What-and-Where to Match: Deep Spatially Multiplicative Integration Networks for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1707.07074](https://arxiv.org/abs/1707.07074)
+
+**Deep Feature Learning via Structured Graph Laplacian Embedding for Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1707.07791](https://arxiv.org/abs/1707.07791)
+
+**Large Margin Learning in Set to Set Similarity Comparison for Person Re-identification**
+　　intro: IEEE Transactions on Multimedia
+　　arxiv: [https://arxiv.org/abs/1708.05512](https://arxiv.org/abs/1708.05512)
+
+**Multi-scale Deep Learning Architectures for Person Re-identification**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1709.05165](https://arxiv.org/abs/1709.05165)
+
+**Person Re-Identification by Deep Learning Multi-Scale Representations**
+　　intro: ICCV 2017
+　　keywords: Deep Pyramid Feature Learning (DPFL)
+　　paper: [Chen_Person_Re-Identification_by_ICCV_2017_paper.pdf](http://openaccess.thecvf.com/content_ICCV_2017_workshops/papers/w37/Chen_Person_Re-Identification_by_ICCV_2017_paper.pdf)
+　　paper: [http://www.eecs.qmul.ac.uk/~sgg/papers/ChenEtAl_ICCV2017WK_CHI.pdf](http://www.eecs.qmul.ac.uk/~sgg/papers/ChenEtAl_ICCV2017WK_CHI.pdf)
+
+**HydraPlus-Net: Attentive Deep Features for Pedestrian Analysis**
+　　intro: ICCV 2017. CUHK & SenseTime,
+　　arxiv: [https://arxiv.org/abs/1709.09930](https://arxiv.org/abs/1709.09930)
+　　github: [https://github.com/xh-liu/HydraPlus-Net](https://github.com/xh-liu/HydraPlus-Net)
+
+**Person Re-Identification with Vision and Language**
+　　arxiv: [https://arxiv.org/abs/1710.01202](https://arxiv.org/abs/1710.01202)
+
+**Margin Sample Mining Loss: A Deep Learning Based Method for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1710.00478](https://arxiv.org/abs/1710.00478)
+
+**Pseudo-positive regularization for deep person re-identification**
+　　arxiv: [https://arxiv.org/abs/1711.06500](https://arxiv.org/abs/1711.06500)
+
+**Let Features Decide for Themselves: Feature Mask Network for Person Re-identification**
+　　keywords: Feature Mask Network (FMN)
+　　arxiv: [https://arxiv.org/abs/1711.07155](https://arxiv.org/abs/1711.07155)
+
+**AlignedReID: Surpassing Human-Level Performance in Person Re-Identification**
+　　intro: Megvii Inc & Zhejiang University
+　　arxiv: [https://arxiv.org/abs/1711.08184](https://arxiv.org/abs/1711.08184)
+　　evaluation website: (Market1501): [http://reid-challenge.megvii.com/](http://reid-challenge.megvii.com/)
+　　evaluation website: (CUHK03): [http://reid-challenge.megvii.com/cuhk03](http://reid-challenge.megvii.com/cuhk03)
+　　github: [https://github.com/huanghoujing/AlignedReID-Re-Production-Pytorch](https://github.com/huanghoujing/AlignedReID-Re-Production-Pytorch)
+
+**Region-based Quality Estimation Network for Large-scale Person Re-identification**
+　　intro: AAAI 2018
+　　arxiv: [https://arxiv.org/abs/1711.08766](https://arxiv.org/abs/1711.08766)
+
+**Beyond Part Models: Person Retrieval with Refined Part Pooling**
+　　keywords: Part-based Convolutional Baseline (PCB), Refined Part Pooling (RPP)
+　　arxiv: [https://arxiv.org/abs/1711.09349](https://arxiv.org/abs/1711.09349)
+
+**Deep-Person: Learning Discriminative Deep Features for Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1711.10658](https://arxiv.org/abs/1711.10658)
+
+**Hierarchical Cross Network for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1712.06820](https://arxiv.org/abs/1712.06820)
+
+**Re-ID done right: towards good practices for person re-identification**
+　　arxiv: [https://arxiv.org/abs/1801.05339](https://arxiv.org/abs/1801.05339)
+
+**Triplet-based Deep Similarity Learning for Person Re-Identification**
+　　intro: ICCV Workshops 2017
+　　arxiv: [https://arxiv.org/abs/1802.03254](https://arxiv.org/abs/1802.03254)
+
+**Group Consistent Similarity Learning via Deep CRFs for Person Re-Identification**
+　　intro: CVPR 2018 oral
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Chen_Group_Consistent_Similarity_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Chen_Group_Consistent_Similarity_CVPR_2018_paper.pdf)
+
+**Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification**
+　　intro: CVPR 2018
+　　keywords: similarity preserving generative adversarial network (SPGAN), Siamese network, CycleGAN, domain adaptation
+　　arxiv: [https://arxiv.org/abs/1711.07027](https://arxiv.org/abs/1711.07027)
+
+**Harmonious Attention Network for Person Re-Identification**
+　　intro: CVPR 2018
+　　keywords: Harmonious Attention CNN (HA-CNN)
+　　arxiv: [https://arxiv.org/abs/1802.08122](https://arxiv.org/abs/1802.08122)
+
+**Camera Style Adaptation for Person Re-identfication**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1711.10295](https://arxiv.org/abs/1711.10295)
+　　github: [https://github.com/zhunzhong07/CamStyle](https://github.com/zhunzhong07/CamStyle)
+
+**Image-Image Domain Adaptation with Preserved Self-Similarity and Domain-Dissimilarity for Person Re-identification**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1711.07027](https://arxiv.org/abs/1711.07027)
+
+**Dual Attention Matching Network for Context-Aware Feature Sequence based Person Re-Identification**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1803.09937](https://arxiv.org/abs/1803.09937)
+
+**Multi-Level Factorisation Net for Person Re-Identification**
+　　intro: CVPR 2018
+　　keywords: Multi-Level Factorisation Net (MLFN)
+　　arxiv: [https://arxiv.org/abs/1803.09132](https://arxiv.org/abs/1803.09132)
+
+**Features for Multi-Target Multi-Camera Tracking and Re-Identification**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1803.10859](https://arxiv.org/abs/1803.10859)
+
+**Good Appearance Features for Multi-Target Multi-Camera Tracking**
+　　intro: CVPR 2018 spotlight. Duke University
+　　keywords: adaptive weighted triplet loss, hard-identity mining
+　　project page: [http://vision.cs.duke.edu/DukeMTMC/](http://vision.cs.duke.edu/DukeMTMC/)
+　　arxiv: [https://arxiv.org/abs/1803.10859](https://arxiv.org/abs/1803.10859)
+
+**Mask-guided Contrastive Attention Model for Person Re-Identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Song_Mask-Guided_Contrastive_Attention_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Song_Mask-Guided_Contrastive_Attention_CVPR_2018_paper.pdf)
+
+**Efficient and Deep Person Re-Identification using Multi-Level Similarity**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1803.11353](https://arxiv.org/abs/1803.11353)
+
+**Person Re-identification with Cascaded Pairwise Convolutions**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Person_Re-Identification_With_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Person_Re-Identification_With_CVPR_2018_paper.pdf)
+
+**Attention-Aware Compositional Network for Person Re-identification**
+　　intro: CVPR 2018
+　　intro: Sensets Technology Limited & University of Sydney
+　　keywords: Attention-Aware Compositional Network (AACN), Pose-guided Part Attention (PPA), Attention-aware Feature Composition (AFC)
+　　arxiv: [https://arxiv.org/abs/1805.03344](https://arxiv.org/abs/1805.03344)
+
+**Deep Group-shuffling Random Walk for Person Re-identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Shen_Deep_Group-Shuffling_Random_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Shen_Deep_Group-Shuffling_Random_CVPR_2018_paper.pdf)
+
+**Adversarially Occluded Samples for Person Re-identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Huang_Adversarially_Occluded_Samples_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Huang_Adversarially_Occluded_Samples_CVPR_2018_paper.pdf)
+
+**Easy Identification from Better Constraints: Multi-Shot Person Re-Identification from Reference Constraints**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhou_Easy_Identification_From_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhou_Easy_Identification_From_CVPR_2018_paper.pdf)
+
+**Eliminating Background-bias for Robust Person Re-identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Tian_Eliminating_Background-Bias_for_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Tian_Eliminating_Background-Bias_for_CVPR_2018_paper.pdf)
+
+**End-to-End Deep Kronecker-Product Matching for Person Re-identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Shen_End-to-End_Deep_Kronecker-Product_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Shen_End-to-End_Deep_Kronecker-Product_CVPR_2018_paper.pdf)
+
+**Exploiting Transitivity for Learning Person Re-identification Models on a Budget**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Roy_Exploiting_Transitivity_for_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Roy_Exploiting_Transitivity_for_CVPR_2018_paper.pdf)
+
+**Resource Aware Person Re-identification across Multiple Resolutions**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Resource_Aware_Person_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Resource_Aware_Person_CVPR_2018_paper.pdf)
+
+**Multi-Channel Pyramid Person Matching Network for Person Re-Identification**
+　　intro: 32nd AAAI Conference on Artificial Intelligence
+　　keywords: Multi-Channel deep convolutional Pyramid Person Matching Network (MC-PPMN)
+　　arxiv: [https://arxiv.org/abs/1803.02558](https://arxiv.org/abs/1803.02558)
+
+**Pyramid Person Matching Network for Person Re-identification**
+　　intro: 9th Asian Conference on Machine Learning (ACML2017) JMLR Workshop and Conference Proceedings
+　　arxiv: [https://arxiv.org/abs/1803.02547](https://arxiv.org/abs/1803.02547)
+
+**Virtual CNN Branching: Efficient Feature Ensemble for Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1803.05872](https://arxiv.org/abs/1803.05872)
+
+**Adversarial Binary Coding for Efficient Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1803.10914](https://arxiv.org/abs/1803.10914)
+
+**Learning View-Specific Deep Networks for Person Re-Identification**
+　　intro: IEEE Transactions on image processing. Sun Yat-Sen University
+　　keywords: cross-view Euclidean constraint (CV-EC), cross-view center loss (CV-CL)
+　　arxiv: [https://arxiv.org/abs/1803.11333](https://arxiv.org/abs/1803.11333)
+
+**Learning Discriminative Features with Multiple Granularities for Person Re-Identification**
+　　intro: Shanghai Jiao Tong University & CloudWalk
+　　keywords: Multiple Granularity Network (MGN)
+　　arxiv: [https://arxiv.org/abs/1804.01438](https://arxiv.org/abs/1804.01438)
+
+**Recurrent Neural Networks for Person Re-identification Revisited**
+　　intro: Stanford University & Google AI
+　　arxiv: [https://arxiv.org/abs/1804.03281](https://arxiv.org/abs/1804.03281)
+
+**MaskReID: A Mask Based Deep Ranking Neural Network for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1804.03864](https://arxiv.org/abs/1804.03864)
+
+**Horizontal Pyramid Matching for Person Re-identification**
+　　intro: UIUC & IBM Research & Cornell University & Stevens Institute of Technology &CloudWalk Technology
+　　keywords: Horizontal Pyramid Matching (HPM), Horizontal Pyramid Pooling (HPP), horizontal random erasing (HRE)
+　　arxiv: [https://arxiv.org/abs/1804.05275](https://arxiv.org/abs/1804.05275)
+
+**Part-Aligned Bilinear Representations for Person Re-identification**
+　　intro: Seoul National University & Microsoft Research & Max Planck Institute & University of Tubingen & JD.COM
+　　arxiv: [https://arxiv.org/abs/1804.07094](https://arxiv.org/abs/1804.07094)
+
+**Deep Co-attention based Comparators For Relative Representation Learning in Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1804.11027](https://arxiv.org/abs/1804.11027)
+
+**Feature Affinity based Pseudo Labeling for Semi-supervised Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1805.06118](https://arxiv.org/abs/1805.06118)
+
+**Resource Aware Person Re-identification across Multiple Resolutions**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1805.08805](https://arxiv.org/abs/1805.08805)
+
+**Semantically Selective Augmentation for Deep Compact Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1806.04074](https://arxiv.org/abs/1806.04074)
+
+**SphereReID: Deep Hypersphere Manifold Embedding for Person Re-Identification**
+　　intro: it achieves 94.4% rank-1 accuracy on Market-1501 and 83.9% rank-1 accuracy on DukeMTMC-reID
+　　arxiv: [https://arxiv.org/abs/1807.00537](https://arxiv.org/abs/1807.00537)
+
+## Person Search
+
+**Joint Detection and Identification Feature Learning for Person Search**
+　　intro: CVPR 2017 Spotlight
+　　keywords: Online Instance Matching (OIM) loss function
+　　homepage(dataset+code):[http://www.ee.cuhk.edu.hk/~xgwang/PS/dataset.html](http://www.ee.cuhk.edu.hk/~xgwang/PS/dataset.html)
+　　arxiv: [https://arxiv.org/abs/1604.01850](https://arxiv.org/abs/1604.01850)
+　　paper: [http://www.ee.cuhk.edu.hk/~xgwang/PS/paper.pdf](http://www.ee.cuhk.edu.hk/~xgwang/PS/paper.pdf)
+　　github(official. Caffe): [https://github.com/ShuangLI59/person_search](https://github.com/ShuangLI59/person_search)
+
+**Person Re-identification in the Wild**
+　　intro: CVPR 2017 spotlight
+　　keywords: PRW dataset
+　　project page: [http://www.liangzheng.com.cn/Project/project_prw.html](http://www.liangzheng.com.cn/Project/project_prw.html)
+　　arxiv: [https://arxiv.org/abs/1604.02531](https://arxiv.org/abs/1604.02531)
+　　github: [https://github.com/liangzheng06/PRW-baseline](https://github.com/liangzheng06/PRW-baseline)
+　　youtube: [https://www.youtube.com/watch?v=dbOGwBITJqo](https://www.youtube.com/watch?v=dbOGwBITJqo)
+
+**IAN: The Individual Aggregation Network for Person Search**
+　　arxiv: [https://arxiv.org/abs/1705.05552](https://arxiv.org/abs/1705.05552)
+
+**Neural Person Search Machines**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1707.06777](https://arxiv.org/abs/1707.06777)
+
+**End-to-End Detection and Re-identification Integrated Net for Person Search**
+　　keywords: I-Net
+　　arxiv: [https://arxiv.org/abs/1804.00376](https://arxiv.org/abs/1804.00376)
+
+## Pose/View for Re-ID
+
+**Pose Invariant Embedding for Deep Person Re-identification**
+　　keywords: pose invariant embedding (PIE), PoseBox fusion (PBF) CNN
+　　arixv: [https://arxiv.org/abs/1701.07732](https://arxiv.org/abs/1701.07732)
+
+**Deeply-Learned Part-Aligned Representations for Person Re-Identification**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1707.07256](https://arxiv.org/abs/1707.07256)
+　　github(official, Caffe): [https://github.com/zlmzju/part_reid](https://github.com/zlmzju/part_reid)
+
+**Spindle Net: Person Re-identification with Human Body Region Guided Feature Decomposition and Fusion**
+　　intro: CVPR 2017
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2017/papers/Zhao_Spindle_Net_Person_CVPR_2017_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2017/papers/Zhao_Spindle_Net_Person_CVPR_2017_paper.pdf)
+　　github: [https://github.com/yokattame/SpindleNet](https://github.com/yokattame/SpindleNet)
+
+**Pose-driven Deep Convolutional Model for Person Re-identification**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1709.08325](https://arxiv.org/abs/1709.08325)
+
+**A Pose-Sensitive Embedding for Person Re-Identification with Expanded Cross Neighborhood Re-Ranking**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1711.10378](https://arxiv.org/abs/1711.10378)
+　　github(official): [https://github.com/pse-ecn/pose-sensitive-embedding](https://github.com/pse-ecn/pose-sensitive-embedding)
+
+**Pose-Driven Deep Models for Person Re-Identification**
+　　intro: Masters thesis
+　　arxiv: [https://arxiv.org/abs/1803.08709](https://arxiv.org/abs/1803.08709)
+
+**Pose Transferrable Person Re-Identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Liu_Pose_Transferrable_Person_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Liu_Pose_Transferrable_Person_CVPR_2018_paper.pdf)
+
+**Person re-identification with fusion of hand-crafted and deep pose-based body region features**
+　　arxiv: [https://arxiv.org/abs/1803.10630](https://arxiv.org/abs/1803.10630)
+
+## GAN for Re-ID
+
+**Unlabeled Samples Generated by GAN Improve the Person Re-identification Baseline in vitro**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1701.07717](https://arxiv.org/abs/1701.07717)
+　　github(official, Matlab): [https://github.com/layumi/Person-reID_GAN](https://github.com/layumi/Person-reID_GAN)
+　　github: [https://github.com/qiaoguan/Person-reid-GAN-pytorch](https://github.com/qiaoguan/Person-reid-GAN-pytorch)
+
+**Person Transfer GAN to Bridge Domain Gap for Person Re-Identification**
+　　intro: CVPR 2018 spotlight
+　　intro: PTGAN
+　　arxiv: [https://arxiv.org/abs/1711.08565](https://arxiv.org/abs/1711.08565)
+　　github: [https://github.com/JoinWei-PKU/PTGAN](https://github.com/JoinWei-PKU/PTGAN)
+
+**Pose-Normalized Image Generation for Person Re-identification**
+　　keywords: PN-GAN
+　　arxiv: [https://arxiv.org/abs/1712.02225](https://arxiv.org/abs/1712.02225)
+　　github: [https://github.com/naiq/PN_GAN](https://github.com/naiq/PN_GAN)
+
+**Multi-pseudo Regularized Label for Generated Samples in Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1801.06742](https://arxiv.org/abs/1801.06742)
+
+## Human Parsing for Re-ID
+
+**Human Semantic Parsing for Person Re-identification**
+　　intro: CVPR 2018. SPReID
+　　arxiv: [https://arxiv.org/abs/1804.00216](https://arxiv.org/abs/1804.00216)
+
+## Partial Person Re-ID
+
+**Deep Spatial Feature Reconstruction for Partial Person Re-identification: Alignment-Free Approach**
+　　intro: CVPR 2018.
+　　keywords: Market1501 rank1=83.58%
+　　arxiv: [https://arxiv.org/abs/1801.00881](https://arxiv.org/abs/1801.00881)
+
+**Occluded Person Re-identification**
+　　intro: ICME 2018
+　　arxiv: [https://arxiv.org/abs/1804.02792](https://arxiv.org/abs/1804.02792)
+
+## Reinforcement Learning for Re-ID
+
+**Deep Reinforcement Learning Attention Selection for Person Re-Identification**
+**Identity Alignment by Noisy Pixel Removal**
+　　intro: BMVC 2017
+　　arxiv: [https://arxiv.org/abs/1707.02785](https://arxiv.org/abs/1707.02785)
+　　paper: [http://www.eecs.qmul.ac.uk/~sgg/papers/LanEtAl_2017BMVC.pdf](http://www.eecs.qmul.ac.uk/~sgg/papers/LanEtAl_2017BMVC.pdf)
+
+## Attributes Prediction for Re-ID
+
+**Multi-Task Learning with Low Rank Attribute Embedding for Person Re-identification**
+　　intro: ICCV 2015
+　　paper: [http://legacydirs.umiacs.umd.edu/~fyang/papers/iccv15.pdf](http://legacydirs.umiacs.umd.edu/~fyang/papers/iccv15.pdf)
+
+**Deep Attributes Driven Multi-Camera Person Re-identification**
+　　intro: ECCV 2016
+　　arxiv: [https://arxiv.org/abs/1605.03259](https://arxiv.org/abs/1605.03259)
+
+**Improving Person Re-identification by Attribute and Identity Learning**
+　　arxiv: [https://arxiv.org/abs/1703.07220](https://arxiv.org/abs/1703.07220)
+
+**Person Re-identification by Deep Learning Attribute-Complementary Information**
+　　intro: CVPR 2017 workshop
+　　paper: [https://sci-hub.tw/10.1109/CVPRW.2017.186](https://sci-hub.tw/10.1109/CVPRW.2017.186)
+
+## Video Person Re-Identification
+
+**Recurrent Convolutional Network for Video-based Person Re-Identification**
+　　intro: CVPR 2016
+　　paper: [McLaughlin_Recurrent_Convolutional_Network_CVPR_2016_paper.pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/McLaughlin_Recurrent_Convolutional_Network_CVPR_2016_paper.pdf)
+　　github: [https://github.com/niallmcl/Recurrent-Convolutional-Video-ReID](https://github.com/niallmcl/Recurrent-Convolutional-Video-ReID)
+
+**Deep Recurrent Convolutional Networks for Video-based Person Re-identification: An End-to-End Approach**
+　　arxiv: [https://arxiv.org/abs/1606.01609](https://arxiv.org/abs/1606.01609)
+
+**Jointly Attentive Spatial-Temporal Pooling Networks for Video-based Person Re-Identification**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1708.02286](https://arxiv.org/abs/1708.02286)
+
+**Three-Stream Convolutional Networks for Video-based Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1712.01652](https://arxiv.org/abs/1712.01652)
+
+**LVreID: Person Re-Identification with Long Sequence Videos**
+　　arxiv: [https://arxiv.org/abs/1712.07286](https://arxiv.org/abs/1712.07286)
+
+**Multi-shot Pedestrian Re-identification via Sequential Decision Making**
+　　intro: CVPR 2018. TuSimple
+　　keywords: reinforcement learning
+　　arxiv: [https://arxiv.org/abs/1712.07257](https://arxiv.org/abs/1712.07257)
+　　github: [https://github.com/TuSimple/rl-multishot-reid](https://github.com/TuSimple/rl-multishot-reid)
+
+**LVreID: Person Re-Identification with Long Sequence Videos**
+　　arxiv: [https://arxiv.org/abs/1712.07286](https://arxiv.org/abs/1712.07286)
+
+**Diversity Regularized Spatiotemporal Attention for Video-based Person Re-identification**
+　　intro: CUHK-SenseTime & Argo AI
+　　arxiv: [https://arxiv.org/abs/1803.09882](https://arxiv.org/abs/1803.09882)
+
+**Video Person Re-identification with Competitive Snippet-similarity Aggregation and Co-attentive Snippet Embedding**
+　　intro: CVPR 2018 Poster
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Chen_Video_Person_Re-Identification_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Chen_Video_Person_Re-Identification_CVPR_2018_paper.pdf)
+
+**Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Exploit_the_Unknown_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_Exploit_the_Unknown_CVPR_2018_paper.pdf)
+
+**Revisiting Temporal Modeling for Video-based Person ReID**
+　　arxiv: [https://arxiv.org/abs/1805.02104](https://arxiv.org/abs/1805.02104)
+　　github: [https://github.com/jiyanggao/Video-Person-ReID](https://github.com/jiyanggao/Video-Person-ReID)
+
+**Video Person Re-identification by Temporal Residual Learning**
+　　arxiv: [https://arxiv.org/abs/1802.07918](https://arxiv.org/abs/1802.07918)
+
+## Re-ranking
+
+**Divide and Fuse: A Re-ranking Approach for Person Re-identification**
+　　intro: BMVC 2017
+　　arxiv: [https://arxiv.org/abs/1708.04169](https://arxiv.org/abs/1708.04169)
+
+**Re-ranking Person Re-identification with k-reciprocal Encoding**
+　　intro: CVPR 2017
+　　arxiv: [https://arxiv.org/abs/1701.08398](https://arxiv.org/abs/1701.08398)
+　　github: [https://github.com/zhunzhong07/person-re-ranking](https://github.com/zhunzhong07/person-re-ranking)
+
+**A Pose-Sensitive Embedding for Person Re-Identification with Expanded Cross Neighborhood Re-Ranking**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1711.10378](https://arxiv.org/abs/1711.10378)
+　　github(official): [https://github.com/pse-ecn/expanded-cross-neighborhood](https://github.com/pse-ecn/expanded-cross-neighborhood)
+
+## Unsupervised Re-ID
+
+**Unsupervised Person Re-identification: Clustering and Fine-tuning**
+　　arxiv: [https://arxiv.org/abs/1705.10444](https://arxiv.org/abs/1705.10444)
+　　github: [https://github.com/hehefan/Unsupervised-Person-Re-identification-Clustering-and-Fine-tuning](https://github.com/hehefan/Unsupervised-Person-Re-identification-Clustering-and-Fine-tuning)
+
+**Stepwise Metric Promotion for Unsupervised Video Person Re-identification**
+　　intro: ICCV 2017
+　　paper: [http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_Stepwise_Metric_Promotion_ICCV_2017_paper.pdf](http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_Stepwise_Metric_Promotion_ICCV_2017_paper.pdf)
+　　github: [https://github.com/lilithliu/StepwiseMetricPromotion-code](https://github.com/lilithliu/StepwiseMetricPromotion-code)
+
+**Dynamic Label Graph Matching for Unsupervised Video Re-Identification**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1709.09297](https://arxiv.org/abs/1709.09297)
+　　github: [https://github.com/mangye16/dgm_re-id](https://github.com/mangye16/dgm_re-id)
+
+**Unsupervised Cross-dataset Person Re-identification by Transfer Learning of Spatio-temporal Patterns**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1803.07293](https://arxiv.org/abs/1803.07293)
+　　github: [https://github.com/ahangchen/TFusion](https://github.com/ahangchen/TFusion)
+　　blog: [https://zhuanlan.zhihu.com/p/34778414](https://zhuanlan.zhihu.com/p/34778414)
+
+**Cross-dataset Person Re-Identification Using Similarity Preserved Generative Adversarial Networks**
+　　arxiv: [https://arxiv.org/abs/1806.04533](https://arxiv.org/abs/1806.04533)
+
+**Transferable Joint Attribute-Identity Deep Learning for Unsupervised Person Re-Identification**
+　　intro: CVPR 2018
+　　arxiv: [https://arxiv.org/abs/1803.09786](https://arxiv.org/abs/1803.09786)
+
+**Adaptation and Re-Identification Network: An Unsupervised Deep Transfer Learning Approach to Person Re-Identification**
+　　intro: CVPR 2018 workshop. National Taiwan University & Umbo Computer Vision
+　　keywords: adaptation and re-identification network (ARN)
+　　arxiv: [https://arxiv.org/abs/1804.09347](https://arxiv.org/abs/1804.09347)
+
+**Domain Adaptation through Synthesis for Unsupervised Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1804.10094](https://arxiv.org/abs/1804.10094)
+
+## Vehicle Re-ID
+
+**Learning Deep Neural Networks for Vehicle Re-ID with Visual-spatio-temporal Path Proposals**
+　　intro: ICCV 2017
+　　arxiv: [https://arxiv.org/abs/1708.03918](https://arxiv.org/abs/1708.03918)
+
+**Viewpoint-Aware Attentive Multi-View Inference for Vehicle Re-Identification**
+　　intro: CVPR 2018
+　　paper: [http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhou_Viewpoint-Aware_Attentive_Multi-View_CVPR_2018_paper.pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhou_Viewpoint-Aware_Attentive_Multi-View_CVPR_2018_paper.pdf)
+
+**RAM: A Region-Aware Deep Model for Vehicle Re-Identification**
+　　intro: ICME 2018
+　　arxiv: [https://arxiv.org/abs/1806.09283](https://arxiv.org/abs/1806.09283)
+
+## Deep Metric Learning
+
+**Deep Metric Learning for Person Re-Identification**
+　　intro: ICPR 2014
+　　paper: [http://www.cbsr.ia.ac.cn/users/zlei/papers/ICPR2014/Yi-ICPR-14.pdf](http://www.cbsr.ia.ac.cn/users/zlei/papers/ICPR2014/Yi-ICPR-14.pdf)
+
+**Deep Metric Learning for Practical Person Re-Identification**
+　　arxiv: [https://arxiv.org/abs/1407.4979](https://arxiv.org/abs/1407.4979)
+
+**Constrained Deep Metric Learning for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1511.07545](https://arxiv.org/abs/1511.07545)
+
+**Embedding Deep Metric for Person Re-identication A Study Against Large Variations**
+　　intro: ECCV 2016
+　　arxiv: [https://arxiv.org/abs/1611.00137](https://arxiv.org/abs/1611.00137)
+
+**DarkRank: Accelerating Deep Metric Learning via Cross Sample Similarities Transfer**
+　　intro: TuSimple
+　　keywords: pedestrian re-identification
+　　arxiv: [https://arxiv.org/abs/1707.01220](https://arxiv.org/abs/1707.01220)
+
+## Projects
+
+**Open-ReID: Open source person re-identification library in python**
+　　intro: Open-ReID is a lightweight library of person re-identification for research purpose. It aims to provide a uniform interface for different datasets, a full set of models and evaluation metrics, as well as examples to reproduce (near) state-of-the-art results.
+　　project page: [https://cysu.github.io/open-reid/](https://cysu.github.io/open-reid/)
+　　github(PyTorch): [https://github.com/Cysu/open-reid](https://github.com/Cysu/open-reid)
+　　examples: [https://cysu.github.io/open-reid/examples/training_id.html](https://cysu.github.io/open-reid/examples/training_id.html)
+　　benchmarks: [https://cysu.github.io/open-reid/examples/benchmarks.html](https://cysu.github.io/open-reid/examples/benchmarks.html)
+
+**caffe-PersonReID**
+　　intro: Person Re-Identification: Multi-Task Deep CNN with Triplet Loss
+　　gtihub: [https://github.com/agjayant/caffe-Person-ReID](https://github.com/agjayant/caffe-Person-ReID)
+
+**Person_reID_baseline_pytorch**
+　　intro: Pytorch implement of Person re-identification baseline
+　　arxiv: [https://github.com/layumi/Person_reID_baseline_pytorch](https://github.com/layumi/Person_reID_baseline_pytorch)
+
+**deep-person-reid**
+　　intro: Pytorch implementation of deep person re-identification models.
+　　github: [https://github.com/KaiyangZhou/deep-person-reid](https://github.com/KaiyangZhou/deep-person-reid)
+
+## Evaluation
+
+**DukeMTMC-reID**
+　　intro: The Person re-ID Evaluation Code for DukeMTMC-reID Dataset (Including Dataset Download)
+　　github: [https://github.com/layumi/DukeMTMC-reID_evaluation](https://github.com/layumi/DukeMTMC-reID_evaluation)
+
+**DukeMTMC-reID_baseline (Matlab)**
+　　github: [https://github.com/layumi/DukeMTMC-reID_baseline](https://github.com/layumi/DukeMTMC-reID_baseline)
+
+**Code for IDE baseline on Market-1501**
+　　github: [https://github.com/zhunzhong07/IDE-baseline-Market-1501](https://github.com/zhunzhong07/IDE-baseline-Market-1501)
+
+## Datasets
+
+**Re-ID 数据集汇总**
+https://robustsystems.coe.neu.edu/sites/robustsystems.coe.neu.edu/files/systems/projectpages/reiddataset.html
+
+**Attribute相关数据集**
+RAP: http://rap.idealtest.org/
+Attribute for Market-1501 and DukeMTMC_reID: https://vana77.github.io/
+
+**视频相关数据集**
+Mars: http://liangzheng.org/Project/project_mars.html
+PRID2011: https://www.tugraz.at/institute/icg/research/team-bischof/lrs/downloads/
+
+**NLP相关数据集**
+自然语言搜图像: http://xiaotong.me/static/projects/person-search-language/dataset.html
+自然语言搜行人所在视频: http://www.mi.t.u-tokyo.ac.jp/projects/person_search
+
+## Tutorials
+
+**1st Workshop on Target Re-Identification and Multi-Target Multi-Camera Tracking**
+[https://reid-mct.github.io/](https://reid-mct.github.io/)
+
+**Target Re-Identification and Multi-Target Multi-Camera Tracking**
+[http://openaccess.thecvf.com/CVPR2017_workshops/CVPR2017_W17.py](http://openaccess.thecvf.com/CVPR2017_workshops/CVPR2017_W17.py)
+
+**Person Re-Identification: Theory and Best Practice**
+http://www.micc.unifi.it/reid-tutorial/
+
+## Experts
+> Listed in No Particular Order
+
+- **Shaogang Gong** - [http://www.eecs.qmul.ac.uk/~sgg/]
+- **Xiaogang Wang** - [http://www.ee.cuhk.edu.hk/~xgwang/]
+- **Weishi Zheng** - [http://isee.sysu.edu.cn/~zhwshi/]
+- **Liang Zheng** - [http://www.liangzheng.com.cn/]
+- **Li Zhang** - [http://www.robots.ox.ac.uk/~lz/]
+- **Xiatian Zhu** - [http://www.eecs.qmul.ac.uk/~xiatian/index.html]
+- **Chen Change Loy** - [https://staff.ie.cuhk.edu.hk/~ccloy/]
+- **Qi Tian** - [http://www.cs.utsa.edu/~qitian/tian-publication-year.html]
+- **Shengcai Liao** - [http://www.cbsr.ia.ac.cn/users/scliao/]
+- **Rui Zhao** - [http://www.ee.cuhk.edu.hk/~rzhao/]
+- **Yang Yang** - [http://www.cbsr.ia.ac.cn/users/yyang/main.htm]
+- **Ling Shao** - [http://lshao.staff.shef.ac.uk]
+- **Ziyan Wu** - [http://wuziyan.com/]
+- **DaPeng Chen** - [http://gr.xjtu.edu.cn/web/dapengchen/home]
+- **Horst Bischof** - [https://www.tugraz.at/institute/icg/research/team-bischof/lrs/downloads/prid450s]
+- **Niki Martinel** - [http://users.dimi.uniud.it/~niki.martinel/]
+- **Liang Lin** - [http://hcp.sysu.edu.cn/home/]
+- **Le An** - [http://auto.hust.edu.cn/index.php?a=shows&catid=28&id=134]
+- **Xiang Bai** - [http://mc.eistar.net/~xbai/index.html]
+- **Xiaoyuan Jing** - [http://mla.whu.edu.cn/plus/list.php?tid=2]
+- **Fei Xiong** - [http://robustsystems.coe.neu.edu/?q=content/research]
+- **DaPeng Chen** - [http://gr.xjtu.edu.cn/web/dapengchen/home]
+- **Zhedong Zheng** - [http://zdzheng.xyz/]
+- **Zhun Zhong** - [http://zhunzhong.site/]
+
+## Resources
+
+**Re-id Resources**
+https://wangzwhu.github.io/home/re_id_resources.html
+
+**Zhuanzhi**
+http://www.zhuanzhi.ai/topic/2001183057160970
+
+**Zhihu**
+行人重识别: https://zhuanlan.zhihu.com/personReid
+Person Re-id: https://zhuanlan.zhihu.com/re-id
+Topci: https://www.zhihu.com/topic/20087378/hot
+
+**Blogs**
+行人重识别简介: https://www.jianshu.com/p/98cc04cca0ae
+基于深度学习的Person Re-ID（综述）: https://blog.csdn.net/linolzhang/article/details/71075756
+行人再识别（行人重识别）【包含与行人检测的对比】: https://blog.csdn.net/liuqinglong110/article/details/41699861
+行人重识别综述（Person Re-identification: Past, Present and Future）: https://blog.csdn.net/auto1993/article/details/74091803
+行人重识别: http://cweihang.cn/ml/reid/

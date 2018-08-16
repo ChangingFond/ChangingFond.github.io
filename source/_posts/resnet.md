@@ -16,7 +16,7 @@ tags:
 
 　　现有的深度学习思想可能认为深层的网络一般会比浅层的网络效果好，如果要进一步地提升模型的准确率，最直接的方法就是把网络设计得越深越好，这样模型的准确率也就会越来越准确。例如在图像处理任务中，CNN 能够提取 low / mid / high-level 的特征，网络的层数越多，意味着能够提取到不同 level 的特征越丰富。越深的网络提取的特征越抽象，越具有语义信息。
 　　Kaiming 博士在论文中做了这样一组实验：在 CIFAR-10 数据集上分别训练了一个 20 层和 56 层的 plain network (卷积、池化、全连接构成的传统 CNN )，发现 56 层网络的训练误差和测试误差都大于 20 层网络的训练误差，即网络层数加深时，模型效果却越来越差，在训练集上的准确率甚至下降了，因此这个显然不是由于 overfitting 导致的，因为 overfitting 应该表现为在训练集上效果更好才对。
-![1](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-12/40883154.jpg)
+![1](https://pic1.zhimg.com/80/v2-610d3278e94bf1eee9d9bebc0820b680_hd.jpg)
 
 ## 分析思考
 
@@ -40,7 +40,7 @@ tags:
 
 ### Residual Block
 
-<div align="center">![resnet](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-12/19251915.jpg)</div>
+<div align="center">![resnet](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-12/19251915.jpg "残差网络结构图")</div>
 
 在上图的残差网络结构图中，通过“shortcut connections (捷径连接)”的方式，直接把输入x传到输出作为初始结果，输出结果为 H(x) = F(x) + x，当 F(x) = 0 时，那么 H(x) = x，也就是上面所提到的恒等映射。于是，ResNet相当于将学习目标改变了，不再是学习一个完整的输出，而是目标值H(X)和x的差值，即所谓的残差F(x) = H(x) - x，因此，后面的训练目标就是要将残差结果逼近于 0，使得随着网络加深，准确率不下降。
 

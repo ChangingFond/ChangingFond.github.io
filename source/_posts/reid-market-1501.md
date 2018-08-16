@@ -76,7 +76,7 @@ Market-1501中 Query 和 gallery 集可能来自相同的摄像头视角，但�
 1. [Google Drive](https://drive.google.com/file/d/0B8-rUzbwVRk0c054eEozWG9COHM/view?usp=sharing)
 2. [Baidu Disk](https://pan.baidu.com/s/1ntIi2Op)
 
-# State of the art
+## State of the art
 
 - [State of the art on the Market-1501 dataset](http://www.liangzheng.org/Project/state_of_the_art_market1501.html)
 
