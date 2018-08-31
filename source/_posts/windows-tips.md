@@ -1,7 +1,7 @@
 ---
 title: Windows常见问题及解决技巧
 date: 2018-05-01 17:31:56
-updated: 2018-06-20 9:49:12
+updated: 2018-08-31 12:04:12
 tags: Windows
 categories: 奇技淫巧
 ---
@@ -14,9 +14,19 @@ categories: 奇技淫巧
 
 　　之前在重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动。
 
-1. 先挂载Win8&Win8.1&Win10的镜像(安装系统的那个iso镜像文件,可以使用Daemon虚拟光驱挂载,加载之后注意盘符名称，假设为G)
-2. 管理员权限运行命令提示符，方法：``command+X``，找到命令提示符(管理员)，或者``command+R``，输入`cmd`，回车，然后将以下代码复制进命令提示符窗口
-`Dism /online /enable-feature /featurename:NetFx3 /All /Source:G:\sources\sxs /LimitAccess`　　注意:将G:替换成你挂载系统所在的盘符
+方法一：
+　　先挂载Win8&Win8.1&Win10的镜像（安装系统的那个iso镜像文件，可以使用Daemon虚拟光驱挂载，加载之后注意盘符名称，假设为G）;
+　　然后以管理员身份运行命令提示符，输入并回车运行以下命令：
+　　`Dism /online /enable-feature /featurename:NetFx3 /All /Source:G:\sources\sxs /LimitAccess`
+　　注意将G:替换成你挂载系统所在的盘符，等待部署进度100%即可。
+
+方法二：
+　　上述方法安装过程中可能会出现错误提示安装失败，可使用cab格式的.NET Framework 3.5离线安装包进行安装。
+　　cab格式.NET Framework 3.5离线安装包下载地址：[百度网盘](https://pan.baidu.com/s/1geAjsaf)
+　　先把下载的名为NetFx3.cab的离线安装包放到Win10系统盘C:\Windows文件夹里；
+　　然后以管理员身份运行命令提示符，输入并回车运行以下命令：
+　　`Dism /online /Enable-Feature /FeatureName:NetFx3 /Source:"%windir%" /LimitAccess`
+　　等待部署进度100%即可。
 
 ## 关闭Win 10自动更新
 
