@@ -12,11 +12,12 @@ tags:
 
 <!-- more -->
 
-Last Updated: Jul 4, 2018
+Last Updated: Aug 31, 2018
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents** *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+## **Table of Contents**
+*generated with [DocToc](https://github.com/thlorenz/doctoc)*
 - [Leaderboard](#Leaderboard)
 - [Person Re-identification / Person Retrieval](#Person-Re-identification-Person-Retrieval)
 - [Person Search](#Person-Search)
@@ -24,6 +25,7 @@ Last Updated: Jul 4, 2018
 - [GAN for Re-ID](#GAN-for-Re-ID)
 - [Human Parsing for Re-ID](#Human-Parsing-for-Re-ID)
 - [Partial Person Re-ID](#Partial-Person-Re-ID)
+- [Low Resolution Re-ID](#Low-Resolution-Re-ID)
 - [Reinforcement Learning for Re-ID](#Reinforcement-Learning-for-Re-ID)
 - [Attributes Prediction for Re-ID](#Attributes-Prediction-for-Re-ID)
 - [Video Person Re-Identification](#Video-Person-Re-Identification)
@@ -32,8 +34,8 @@ Last Updated: Jul 4, 2018
 - [Vehicle Re-ID](#Vehicle-Re-ID)
 - [Deep Metric Learning](#Deep-Metric-Learning)
 - [Projects](#Projects)
-- [Datasets](#Datasets)
 - [Evaluation](#Evaluation)
+- [Datasets](#Datasets)
 - [Tutorials](#Tutorials)
 - [Experts](#Experts)
 - [Resources](#Resources)
@@ -52,14 +54,14 @@ Last Updated: Jul 4, 2018
 | Deep-Person(MQ)  | ResNet-50  | 256×128   | 94.48 / 85.09 |                     |                       |                      |             |               |               |
 | PCB(SQ)          | ResNet-50  | 384x128   | 92.4 / 77.3   |                     | 61.3 / 54.2           |                      |             | 81.9 / 65.3   |               |
 | PCB+RPP(SQ)      | ResNet-50  | 384x128   | 93.8 / 81.6   |                     | 63.7 / 57.5           |                      |             | 83.3 / 69.2   |               |
-| PN-GAN (SQ)      | ResNet-50  |           | 95.52 / 89.94 | 92.66 / 99.84 / 100 |                       |                      |             |               | 91.47 / 81.39 |
+| PN-GAN (SQ)      | ResNet-50  |           | 89.43 / 72.58 | 79.76 / 96.24 / 98.56 |                       |                      |             |               | 73.58 / 53.20 |
 | PN-GAN (MQ)      | ResNet-50  |           | 95.90 / 91.37 |                     |                       |                      |             |               |               |
 | MGN (SQ)         | ResNet-50  |           | 95.7 /  86.9  |                     | 66.8 / 66.0           | 68.0 / 67.4          |             | 88.7 / 78.4   |               |
 | MGN (MQ)         | ResNet-50  |           | 96.9 /  90.7  |                     |                       |                      |             |               |               |
 | MGN (SQ+RK)      | ResNet-50  |           | 96.6 /  94.2  |                     |                       |                      |             |               |               |
 | MGN (MQ+RK)      | ResNet-50  |           | 97.1 /  95.9  |                     |                       |                      |             |               |               |
 | HPM(SQ)          | ResNet-50  | 384x128   | 94.2 /  82.7  |                     | 63.1 / 57.5           |                      |             | 86.6 / 74.3   |               |
-| HPM+HRE(SQ)      | ResNet-50  | 384x128   | 93.9 /  83.1  |                     | 63.2 / 59.7           |                      |             | 86.3 / 74.5   |               |
+| HPM+HRE(SQ)      | ResNet-50  | 384x128   | 93.9 /  83.1  |                     | 63.2 / 59.7           |                      |             | 86.3 / 74.5   |       -       |
 
 ## Person Re-identification / Person Retrieval
 
@@ -425,6 +427,34 @@ and from 73.8% to 83.1% for ResNet-50
 　　intro: it achieves 94.4% rank-1 accuracy on Market-1501 and 83.9% rank-1 accuracy on DukeMTMC-reID
 　　arxiv: [https://arxiv.org/abs/1807.00537](https://arxiv.org/abs/1807.00537)
 
+**Multi-task Mid-level Feature Alignment Network for Unsupervised Cross-Dataset Person Re-Identification**
+　　intro: BMVC 2018. University of Warwick & Nanyang Technological University & Charles Sturt University
+　　arxiv: [https://arxiv.org/abs/1807.01440](https://arxiv.org/abs/1807.01440)
+
+**Discriminative Feature Learning with Foreground Attention for Person Re-Identification**
+
+[https://arxiv.org/abs/1807.01455](https://arxiv.org/abs/1807.01455)
+
+**Part-Aligned Bilinear Representations for Person Re-identification**
+　　intro: ECCV 2018
+　　intro: Seoul National University & Microsoft Research & Max Planck Institute & University of Tubingen & JD.COM
+　　arxiv: [https://arxiv.org/abs/1804.07094](https://arxiv.org/abs/1804.07094)
+　　github: [https://github.com/yuminsuh/part_bilinear_reid](https://github.com/yuminsuh/part_bilinear_reid)
+
+**Mancs: A Multi-task Attentional Network with Curriculum Sampling for Person Re-identification**
+　　intro: ECCV 2018. Huazhong University of Science and Technology & Horizon Robotics Inc.
+
+**Improving Deep Visual Representation for Person Re-identification by Global and Local Image-language Association**
+　　intro: ECCV 2018
+　　arxiv: [https://arxiv.org/abs/1808.01571](https://arxiv.org/abs/1808.01571)
+
+**Deep Sequential Multi-camera Feature Fusion for Person Re-identification**
+　　arxiv: [https://arxiv.org/abs/1807.07295](https://arxiv.org/abs/1807.07295)
+
+**Improving Deep Models of Person Re-identification for Cross-Dataset Usage**
+　　intro: AIAI 2018 (14th International Conference on Artificial Intelligence Applications and Innovations) proceeding
+　　arxiv: [https://arxiv.org/abs/1807.08526](https://arxiv.org/abs/1807.08526)
+
 ## Person Search
 
 **Joint Detection and Identification Feature Learning for Person Search**
@@ -453,6 +483,14 @@ and from 73.8% to 83.1% for ResNet-50
 **End-to-End Detection and Re-identification Integrated Net for Person Search**
 　　keywords: I-Net
 　　arxiv: [https://arxiv.org/abs/1804.00376](https://arxiv.org/abs/1804.00376)
+
+**Person Search via A Mask-guided Two-stream CNN Model**
+　　intro: ECCV 2018
+　　arxiv: https://arxiv.org/abs/1807.08107
+
+**Person Search by Multi-Scale Matching**
+　　intro: ECCV 2018
+　　arxiv: https://arxiv.org/abs/1807.08582
 
 ## Pose/View for Re-ID
 
@@ -518,7 +556,16 @@ and from 73.8% to 83.1% for ResNet-50
 　　intro: CVPR 2018. SPReID
 　　arxiv: [https://arxiv.org/abs/1804.00216](https://arxiv.org/abs/1804.00216)
 
+**Improved Person Re-Identification Based on Saliency and Semantic Parsing with Deep Neural Network Models**
+　　keywords: Saliency-Semantic Parsing Re-Identification (SSP-ReID)
+　　arxiv: https://arxiv.org/abs/1807.05618
+
 ## Partial Person Re-ID
+
+Partial Person Re-identification
+
+intro: ICCV 2015
+arxiv: https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Partial_Person_Re-Identification_ICCV_2015_paper.pdf
 
 **Deep Spatial Feature Reconstruction for Partial Person Re-identification: Alignment-Free Approach**
 　　intro: CVPR 2018.
@@ -528,6 +575,21 @@ and from 73.8% to 83.1% for ResNet-50
 **Occluded Person Re-identification**
 　　intro: ICME 2018
 　　arxiv: [https://arxiv.org/abs/1804.02792](https://arxiv.org/abs/1804.02792)
+
+**Partial Person Re-identification with Alignment and Hallucination**
+　　intro: Imperial College London
+　　keywords: Partial Matching Net (PMN)
+　　arxiv: https://arxiv.org/abs/1807.09162
+
+## Low Resolution Re-ID
+
+**Multi-scale Learning for Low-resolution Person Re-identification**
+　　intro: ICCV 2015
+　　arxiv: https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Li_Multi-Scale_Learning_for_ICCV_2015_paper.pdf
+
+**Cascaded SR-GAN for Scale-Adaptive Low Resolution Person Re-identification**
+　　intro: IJCAI 2018
+　　arxiv: https://www.ijcai.org/proceedings/2018/0541.pdf
 
 ## Reinforcement Learning for Re-ID
 
@@ -601,6 +663,24 @@ and from 73.8% to 83.1% for ResNet-50
 
 **Video Person Re-identification by Temporal Residual Learning**
 　　arxiv: [https://arxiv.org/abs/1802.07918](https://arxiv.org/abs/1802.07918)
+
+**A Spatial and Temporal Features Mixture Model with Body Parts for Video-based Person Re-Identification**
+　　arxiv: https://arxiv.org/abs/1807.00975
+
+**Video-based Person Re-identification via 3D Convolutional Networks and Non-local Attention**
+
+intro: University of Science and Technology of China & University of Chinese Academy of Sciences
+　　arxiv: https://arxiv.org/abs/1807.05073
+
+**Spatial-Temporal Synergic Residual Learning for Video Person Re-Identification**
+　　arxiv: https://arxiv.org/abs/1807.05799
+
+**SCAN: Self-and-Collaborative Attention Network for Video Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1807.05688
+
+**Where-and-When to Look: Deep Siamese Attention Networks for Video-based Person Re-identification**
+　　intro: IEEE Transactions on Multimedia
+　　arxiv: https://arxiv.org/abs/1808.01911
 
 ## Re-ranking
 
@@ -710,6 +790,15 @@ and from 73.8% to 83.1% for ResNet-50
 **deep-person-reid**
 　　intro: Pytorch implementation of deep person re-identification models.
 　　github: [https://github.com/KaiyangZhou/deep-person-reid](https://github.com/KaiyangZhou/deep-person-reid)
+
+**ReID_baseline**
+　　intro: Baseline model (with bottleneck) for person ReID (using softmax and triplet loss).
+　　github: https://github.com/L1aoXingyu/reid_baseline
+　　blog: https://zhuanlan.zhihu.com/p/40514536
+
+**gluon-reid**
+　　intro: A code gallery for person re-identification with mxnet-gluon, and I will reproduce many STOA algorithm.
+　　github: https://github.com/xiaolai-sqlai/gluon-reid
 
 ## Evaluation
 
