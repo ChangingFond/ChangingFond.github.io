@@ -12,6 +12,9 @@ tags:
 
 <!-- more -->
 
+Last Updated: Oct 26, 2018
+Updated Content: add BMVC 2018、ECCV 2018、NIPS 2018
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # **索引目录**  
@@ -29,9 +32,11 @@ tags:
   - [CVPR 2014](#CVPR-2014)
   - [CVPR 2013](#CVPR-2013)
 - [ECCV](#ECCV)
+  - [ECCV 2018](#ECCV-2018)
   - [ECCV 2016](#ECCV-2016)
   - [ECCV 2014](#ECCV-2014)
 - [BMVC](#BMVC)
+  - [BMVC 2018](#BMVC-2018)
   - [BMVC 2017](#BMVC-2017)
   - [BMVC 2016](#BMVC-2016)
   - [BMVC 2015](#BMVC-2015)
@@ -44,6 +49,7 @@ tags:
   - [AAAI 2016](#AAAI-2016)
   - [AAAI 2015](#AAAI-2015)
   - [NIPS 2016](#NIPS-2016)
+  - [NIPS 2018](#NIPS-2018)
 - [IJCAI](#IJCAI)
   - [IJCAI 2018](#IJCAI-2018)
   - [IJCAI 2017](#IJCAI-2017)
@@ -273,6 +279,22 @@ tags:
 
 # ECCV
 
+## ECCV 2018
+
+- **Part-Aligned Bilinear Representations for Person Re-identification.** **
+
+- **Mancs: A Multi-task Attentional Network with Curriculum Sampling for Person Re-identification.** **
+
+- **Improving Deep Visual Representation for Person Re-identification by Global and Local Image-language Association.** **
+
+- **Person Search via A Mask-guided Two-stream CNN Model.** **
+
+- **Person Search by Multi-Scale Matching.** **
+
+- **Reinforced Temporal Attention and Split-Rate Transfer for Depth-Based Person Re-Identification.** **
+
+- **Unsupervised Person Re-identification by Deep Learning Tracklet Association** **
+
 ## ECCV 2016
 
 - **Embedding Deep Metric for Person Re-identification: A Study Against Large Variations.** *Hailin Shi, Yang Yang, Xiangyu Zhu, Shengcai Liao, Zhen Lei, Wei-Shi Zheng, Stan Li*
@@ -314,6 +336,12 @@ tags:
 - **Joint Learning for Attribute-Consistent Person Re-Identification.** *Sameh Khamis, Cheng-Hao Kuo, Vivek K.Singh, Vinay D.Shet, Larry S.Davis.*
 
 # BMVC
+
+## BMVC 2018
+
+- **Multi-task Mid-level Feature Alignment Network for Unsupervised Cross-Dataset Person Re-Identification.** **
+
+- **Deep Association Learning for Unsupervised Video Person Re-identification.** **
 
 ## BMVC 2017
 
@@ -407,6 +435,9 @@ tags:
 
 - **Deep Neural Networks with Inexact Matching for Person Re-Identification.** *Arulkumar Subramaniam, Moitreya Chatterjee, Anurag Mittal.*
 
+## NIPS 2018
+
+- **FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification.** **
 
 # IJCAI
 
