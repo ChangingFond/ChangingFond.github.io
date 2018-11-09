@@ -8,7 +8,7 @@ tags:
 - git
 - hexo
 photos:
-- http://7xwh8v.com1.z0.glb.clouddn.com/17-3-10/QQ%E6%88%AA%E5%9B%BE20170910155849.jpg
+- http://changingfond.oss-cn-hangzhou.aliyuncs.com/17-3-10/1152358.jpg
 
 ---
 

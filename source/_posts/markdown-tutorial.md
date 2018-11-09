@@ -4,7 +4,7 @@ categories: 编程笔记
 tags: Markdown
 date: 2016-8-25 11:52:50
 photos:
-- http://upload-images.jianshu.io/upload_images/1335096-c81fc640acb42a3d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+- http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-8-25/60310193.jpg
 ---
 
 > We believe that writing is about content, about what you want to say – not about fancy formatting.  
@@ -70,10 +70,10 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
 ## 图片
 
 ```
-![Markdown](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/36478356.jpg "Optional title")
+![Markdown](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/36478356.jpg "Optional title")
 ```
 就会出现以下效果
-![Markdown](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/36478356.jpg "Optional title")
+![Markdown](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/36478356.jpg "Optional title")
 
 ## 粗体与斜体
 

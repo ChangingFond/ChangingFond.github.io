@@ -16,7 +16,7 @@ tags:
 
 　　现有的深度学习思想可能认为深层的网络一般会比浅层的网络效果好，如果要进一步地提升模型的准确率，最直接的方法就是把网络设计得越深越好，这样模型的准确率也就会越来越准确。例如在图像处理任务中，CNN 能够提取 low / mid / high-level 的特征，网络的层数越多，意味着能够提取到不同 level 的特征越丰富。越深的网络提取的特征越抽象，越具有语义信息。
 　　Kaiming 博士在论文中做了这样一组实验：在 CIFAR-10 数据集上分别训练了一个 20 层和 56 层的 plain network (卷积、池化、全连接构成的传统 CNN )，发现 56 层网络的训练误差和测试误差都大于 20 层网络的训练误差，即网络层数加深时，模型效果却越来越差，在训练集上的准确率甚至下降了，因此这个显然不是由于 overfitting 导致的，因为 overfitting 应该表现为在训练集上效果更好才对。
-![1](https://pic1.zhimg.com/80/v2-610d3278e94bf1eee9d9bebc0820b680_hd.jpg)
+![1](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/43257140.jpg)
 
 ## 分析思考
 
@@ -40,7 +40,7 @@ tags:
 
 ### Residual Block
 
-<div align="center">![resnet](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-12/19251915.jpg "残差网络结构图")</div>
+<div align="center">![resnet](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/19251915.jpg "残差网络结构图")</div>
 
 在上图的残差网络结构图中，通过“shortcut connections (捷径连接)”的方式，直接把输入x传到输出作为初始结果，输出结果为 H(x) = F(x) + x，当 F(x) = 0 时，那么 H(x) = x，也就是上面所提到的恒等映射。于是，ResNet相当于将学习目标改变了，不再是学习一个完整的输出，而是目标值H(X)和x的差值，即所谓的残差F(x) = H(x) - x，因此，后面的训练目标就是要将残差结果逼近于 0，使得随着网络加深，准确率不下降。
 
@@ -62,7 +62,7 @@ $${y}= \mathcal{F}({x}, \{W_{i}\}) + W_s{x}.$$
 
 　　作者由 VGG19 设计出了 plain network 和 Resnet-34，如下图中部和右侧网络。
 
-<div align="center">![](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-13/54395655.jpg)</div>
+<div align="center">![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/54395655.jpg)</div>
 
 1. 对于输出 feature map 大小相同的层，有相同数量的 filters，即 channel 数相同；
 2. 当 feature map 大小减半时（pooling），filters数量翻倍。
@@ -72,11 +72,11 @@ $${y}= \mathcal{F}({x}, \{W_{i}\}) + W_s{x}.$$
 
 　　下图是Resnet对应于ImageNet的结构框架。中括号中为残差块的参数，多个残差块进行堆叠。下采样由 stride 为 2 的 conv3_1、conv4_1 和 conv5_1 来实现。
 
-![](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-13/99454670.jpg)
+![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/99454670.jpg)
 
 ### Bottle neck
 
-<div align="center">![](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-13/91444611.jpg)</div>
+<div align="center">![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/91444611.jpg)</div>
 　　考虑到时间花费和降低参数的数目，将原来的 Residual Block (残差学习结构) 改为 Bottleneck 结构，如上图。首端和末端的 1 x 1 卷积用来削减和恢复维度，相比于原本结构，只有中间 3 x 3 成为瓶颈部分。两种结构分别针对 ResNet-34 （左图）和 ResNet-50/ 101 / 152（右图）。
 
 　　左图是两个 3 x 3 x 256的卷积，参数数目: 3 x 3 x 256 x 256 x 2 = 1179648；右图是第一个 1 x 1 的卷积把 256 维通道降到 64 维，然后在最后通过 1 x 1 卷积恢复，整体上用的参数数目：1 x 1 x 256 x 64 + 3 x 3 x 64 x 64 + 1 x 1 x 64 x 256 = 69632，右图的参数量比左图减少了 16.94 倍。对于常规的ResNet，可以用于34层或者更少的网络中（左图），对于更深的网络（如50 / 101 / 152层），则使用右图，其目的是减少计算和参数量。

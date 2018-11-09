@@ -7,7 +7,7 @@ categories: 编程笔记
 
 > 今天偶尔逛某里云发现有个云翼计划， 针对大学生可9.9一个月购买一台ECS，虽然本人已经在某讯搭建有ECS，但鉴于其是Windows Server，特想试试Linux Server的一些花样，话不多说，先买为敬。一个月使用时间，足够我折腾一番。
 
-![1](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/36478356.jpg)
+![1](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/36478356.jpg)
 
 <!-- more --->
 
@@ -30,7 +30,7 @@ sudo apt-get install xrdp
 
 在本地输入cmd + mstsc输入账号密码时终于远程连接服务器。
 
-![2](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/20632477.jpg)
+![2](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/20632477.jpg)
 
 命令行实在是不会用，就想安装个图形界面
 
@@ -43,7 +43,7 @@ sudo apt-get install xinit
 ```
 安装完后终端由黑色变成了白底黑字，出现X型的鼠标指针
 
-![3](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/23562232.jpg)
+![3](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/23562232.jpg)
 
 安装桌面环境。本人安装的是KUbuntu。安装命令如下：
 
@@ -51,11 +51,11 @@ sudo apt-get install xinit
 sudo apt-get install kubuntu-desktop
 ```
 
-![4](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/5749201.jpg)
+![4](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/5749201.jpg)
 
 重启后我们看到了kubuntu界面了,这下我傻眼了，这个界面跟我之前用到的ubuntu看上去差别太大
 
-![5](http://7xwh8v.com1.z0.glb.clouddn.com/16-7-18/84508635.jpg)
+![5](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-7-18/84508635.jpg)
 
 
 略微体验了一下，

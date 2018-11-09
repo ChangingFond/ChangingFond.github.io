@@ -102,11 +102,11 @@ root账户登录，执行
 - ### 谷歌(360)浏览器 + Proxy SwitchyOmega
   1.安装好SwitchyOmega后，在选项-左侧情景模式点击新建情景模式
   2.选择代理服务器，填写名称（例如Vultr），按下图填写配置后保存
-  ![](http://7xwh8v.com1.z0.glb.clouddn.com/17-9-11/51747606.jpg)
+  ![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/17-9-11/51747606.jpg)
   3.再新建情景模式，选择自动切换模式，填写情景模式名称，导入在线列表规则-添加规则列表；
   4.规则列表规则选择第二步配置好的SS，规则列表格式选择AutoProxy；
   5.规则列表网址，填https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
-  ![](http://7xwh8v.com1.z0.glb.clouddn.com/17-9-11/6771281.jpg)
+  ![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/17-9-11/6771281.jpg)
 
 ## 参考资料
 

@@ -5,15 +5,15 @@ categories: 行人重识别
 tags:
 - Deep Learning
 - Person Re-ID
+photos:
+- http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/96590316.jpg
 ---
 
-![](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-13/96590316.jpg)
+CUHK03是第一个足以进行深度学习的大规模行人重识别数据集，该数据集的图像采集于香港中文大学（CUHK）校园。数据以"cuhk-03.mat"的 MAT 文件格式存储，含有 1467 个不同的人物，由 5 对摄像头采集。
 
-<!-- more -->
+<!--more-->
 
 ## 数据集简介
-
-CUHK03是第一个足以进行深度学习的大规模行人重识别数据集，该数据集的图像采集于香港中文大学（CUHK）校园。数据以"cuhk-03.mat"的 MAT 文件格式存储，含有 1467 个不同的人物，由 5 对摄像头采集。
 
 ### 目录结构
 

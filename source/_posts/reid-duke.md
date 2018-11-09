@@ -7,7 +7,7 @@ tags:
 - Person Re-ID
 ---
 
-![dataset](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-13/2293983.jpg)
+![dataset](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/2293983.jpg)
 
 <!-- more -->
 
@@ -53,7 +53,7 @@ DukeMTMC-reID
 ## Dataset Insights
 
 ### 数据分布
-![](http://7xwh8v.com1.z0.glb.clouddn.com/18-7-13/37515800.jpg)
+![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-7-13/37515800.jpg)
 
 Figure. The image distribution of DukeMTMC-reID training set. We note that the median of images per ID is 20. But some ID may contain lots of images, which may compromise some algorithms. (For example, ID 5388 contains 426 images.)
 

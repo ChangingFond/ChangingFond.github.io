@@ -85,7 +85,7 @@ cron.d/     cron.daily/   cron.hourly/  cron.monthly/ crontab   cron.weekly/
     tail -f /var/log/cron : 查看cron日志
 ```
 
-![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/3612810444-59ba4ebbe2014_articlex.png)
+![](http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-9-8/3612810444.png)
 
 ### 特殊符号
 

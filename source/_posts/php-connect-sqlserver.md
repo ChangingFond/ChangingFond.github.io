@@ -34,7 +34,7 @@ mssql_connect('localhost', '用户名', '密码');
 ## 配置Microsoft Drivers for PHP for SQL Server
 
 下载的文件是一个自解压的 EXE文件，将其解压，解压后会新增以下文件
-![Markdown](http://7xwh8v.com1.z0.glb.clouddn.com/16/11/19/1.png)
+![Markdown](http://changingfond.oss-cn-hangzhou.aliyuncs.com/16-11-19/42358957.png)
 
 1. 其中54、55、56表示php的5.4.x、5.5.x 和5.6.x版本；
 2. vc6或vc9的选择要看你使用的web服务器软件，如果使用的是IIS那就选择vc9，如果是Apache 则选择vc6；

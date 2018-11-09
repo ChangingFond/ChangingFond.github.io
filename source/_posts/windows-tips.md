@@ -4,6 +4,8 @@ date: 2018-05-01 17:31:56
 updated: 2018-08-31 12:04:12
 tags: Windows
 categories: 奇技淫巧
+photos:
+- http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/86848871.jpg
 ---
 
 > 收集整理Windows系统使用过程中遇到的一些问题和解决办法，不定期更新。
@@ -31,8 +33,10 @@ categories: 奇技淫巧
 ## 关闭Win 10自动更新
 
 1. 第一种方法适用win10所有版本系统。打开控制面板->管理工具->服务->双击Windows Update，点击停止按钮停止服务，将启动类型改为禁用。打开恢复选项卡，将第一次失败改为无操作
-![](http://7xwh8v.com1.z0.glb.clouddn.com/18-5-2/2543953.jpg)
-![](http://7xwh8v.com1.z0.glb.clouddn.com/18-5-2/34164800.jpg)
+![](
+https://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/2543953.jpg)
+![](
+https://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/34164800.jpg)
 
 2. 第二种方法适用于除了win10家庭版的其他系统。先按 win键+R 运行`gpedit.msc`，打开计算机配置-->管理模板-->Windows组件-->Windows更新，点击配置自动更新，选择已禁用后保存
 
