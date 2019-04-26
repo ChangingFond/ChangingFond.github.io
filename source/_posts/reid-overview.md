@@ -11,7 +11,7 @@ tags:
 
 <!-- more -->
 
-Last Updated: Oct 26, 2018
+Last Updated: Apr 26, 2019
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -32,6 +32,7 @@ Last Updated: Oct 26, 2018
 - [Video Person Re-Identification](#Video-Person-Re-Identification)
 - [Re-ranking](#Re-ranking)
 - [Unsupervised Re-ID](#Unsupervised-Re-ID)
+- [Weakly Supervised Person Re-identification](#Weakly-Supervised-Person-Re-identification)
 - [Vehicle Re-ID](#Vehicle-Re-ID)
 - [Deep Metric Learning](#Deep-Metric-Learning)
 - [Projects](#Projects)
@@ -47,7 +48,7 @@ Last Updated: Oct 26, 2018
 ## Leaderboard
 
 | Method           | backbone   | test size | Market1501    | CUHK03 (detected)   | CUHK03 (detected/new) | CUHK03 (labeled/new) | CUHK-SYSU   | DukeMTMC-reID | MARS          |
-| :------------:   | :-----:    | :-----:   | :-----:       | :-----:             | :----------:          | :---------:          | :--------:  | :----------:  | :--------:    |
+| :------------:   | :-----:    | :-----:   | :-----:       | :-----:             | :--------:            | :-------:            | :--------:  | :----------:  | :--------:    |
 |                  |            |           | rank1 / mAP   | rank1/  5   / 10    | rank1 / mAP           | rank1 / mAP          | rank1 / mAP |               | rank1 / mAP   |
 | AlignedReID      | ResNet50-X |           | 92.6 / 82.3   | 91.9 / 98.7 / 99.4  |                       | 86.8 / 79.1          |             |               | 95.3 / 93.7   |
 | AlignedReID (RK) |            |           | 94.0 / 91.2   | 96.1 / 99.5 / 99.6  |                       | 87.5 / 85.6          |             |               |               |
@@ -55,7 +56,7 @@ Last Updated: Oct 26, 2018
 | Deep-Person(MQ)  | ResNet-50  | 256×128   | 94.48 / 85.09 |                     |                       |                      |             |               |               |
 | PCB(SQ)          | ResNet-50  | 384x128   | 92.4 / 77.3   |                     | 61.3 / 54.2           |                      |             | 81.9 / 65.3   |               |
 | PCB+RPP(SQ)      | ResNet-50  | 384x128   | 93.8 / 81.6   |                     | 63.7 / 57.5           |                      |             | 83.3 / 69.2   |               |
-| PN-GAN (SQ)      | ResNet-50  |           | 89.43 / 72.58 | 79.76 / 96.24 / 98.56 |                       |                      |             |               | 73.58 / 53.20 |
+| PN-GAN (SQ)      | ResNet-50  |           | 89.43 / 72.58 | 79.76/ 96.24/ 98.56 |                       |                      |             |               | 73.58 / 53.20 |
 | PN-GAN (MQ)      | ResNet-50  |           | 95.90 / 91.37 |                     |                       |                      |             |               |               |
 | MGN (SQ)         | ResNet-50  |           | 95.7 /  86.9  |                     | 66.8 / 66.0           | 68.0 / 67.4          |             | 88.7 / 78.4   |               |
 | MGN (MQ)         | ResNet-50  |           | 96.9 /  90.7  |                     |                       |                      |             |               |               |
@@ -63,6 +64,8 @@ Last Updated: Oct 26, 2018
 | MGN (MQ+RK)      | ResNet-50  |           | 97.1 /  95.9  |                     |                       |                      |             |               |               |
 | HPM(SQ)          | ResNet-50  | 384x128   | 94.2 /  82.7  |                     | 63.1 / 57.5           |                      |             | 86.6 / 74.3   |               |
 | HPM+HRE(SQ)      | ResNet-50  | 384x128   | 93.9 /  83.1  |                     | 63.2 / 59.7           |                      |             | 86.3 / 74.5   |       -       |
+| SphereReID       | ResNet-50  | 288×144   | 94.4 /  83.6  | 93.1 / 98.7 / 99.4  | 63.2 / 59.7           |                      | 95.4 / 93.9 | 83.9 / 68.5   |       -       |
+| Auto-ReID        |            | 384x128   | 94.5 /  85.1  |                     | 73.3 / 69.3           |  77.9 / 73.0         |             | 88.5 / 75.1   |       -       |
 
 ## Person Re-identification / Person Retrieval
 
@@ -403,9 +406,11 @@ and from 73.8% to 83.1% for ResNet-50
 　　arxiv: [https://arxiv.org/abs/1804.03864](https://arxiv.org/abs/1804.03864)
 
 **Horizontal Pyramid Matching for Person Re-identification**
+　　intro: AAAI 2019
 　　intro: UIUC & IBM Research & Cornell University & Stevens Institute of Technology &CloudWalk Technology
 　　keywords: Horizontal Pyramid Matching (HPM), Horizontal Pyramid Pooling (HPP), horizontal random erasing (HRE)
 　　arxiv: [https://arxiv.org/abs/1804.05275](https://arxiv.org/abs/1804.05275)
+　　github: [https://github.com/OasisYang/HPM](https://github.com/OasisYang/HPM)
 
 **Part-Aligned Bilinear Representations for Person Re-identification**
 　　intro: Seoul National University & Microsoft Research & Max Planck Institute & University of Tubingen & JD.COM
@@ -456,30 +461,146 @@ and from 73.8% to 83.1% for ResNet-50
 　　arxiv: [https://arxiv.org/abs/1807.08526](https://arxiv.org/abs/1807.08526)
 
 **Measuring the Temporal Behavior of Real-World Person Re-Identification**
-   arxiv: [https://arxiv.org/abs/1808.05499](https://arxiv.org/abs/1808.05499)
+　　arxiv: [https://arxiv.org/abs/1808.05499](https://arxiv.org/abs/1808.05499)
 
 **Alignedreid＋+: Dynamically Matching Local Information for Person Re-Identification**
-   github: [https://github.com/michuanhaohao/AlignedReID](https://github.com/michuanhaohao/AlignedReID)
+　　github: [https://github.com/michuanhaohao/AlignedReID](https://github.com/michuanhaohao/AlignedReID)
 
 **Sparse Label Smoothing for Semi-supervised Person Re-Identification**
-   arxiv: [https://arxiv.org/abs/1809.04976](https://arxiv.org/abs/1809.04976)
-   github: [https://github.com/jpainam/SLS_ReID](https://github.com/jpainam/SLS_ReID)
+　　arxiv: [https://arxiv.org/abs/1809.04976](https://arxiv.org/abs/1809.04976)
+　　github: [https://github.com/jpainam/SLS_ReID](https://github.com/jpainam/SLS_ReID)
 
 **In Defense of the Classification Loss for Person Re-Identification**
-   intro: University of Science and Technology of China & Microsoft Research Asia
-   arxiv: [https://arxiv.org/abs/1809.05864](https://arxiv.org/abs/1809.05864)
+　　intro: University of Science and Technology of China & Microsoft Research Asia
+　　arxiv: [https://arxiv.org/abs/1809.05864](https://arxiv.org/abs/1809.05864)
 
 **FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification**
-   intro: NIPS 2018
-   arxiv: [https://arxiv.org/abs/1810.02936](https://arxiv.org/abs/1810.02936)
-   github(Pytorch, official): [https://github.com/yxgeee/FD-GAN](https://github.com/yxgeee/FD-GAN)
+　　intro: NIPS 2018
+　　arxiv: [https://arxiv.org/abs/1810.02936](https://arxiv.org/abs/1810.02936)
+　　github(Pytorch, official): [https://github.com/yxgeee/FD-GAN](https://github.com/yxgeee/FD-GAN)
 
 **Image-to-Video Person Re-Identification by Reusing Cross-modal Embeddings**
-   arxiv: [https://arxiv.org/abs/1810.03989](https://arxiv.org/abs/1810.03989)
+　　arxiv: [https://arxiv.org/abs/1810.03989](https://arxiv.org/abs/1810.03989)
 
 **Attention Driven Person Re-identification**
-   intro: Pattern Recognition (PR)
-   arxiv: [https://arxiv.org/abs/1810.05866](https://arxiv.org/abs/1810.05866)
+　　intro: Pattern Recognition (PR)
+　　arxiv: [https://arxiv.org/abs/1810.05866](https://arxiv.org/abs/1810.05866)
+
+**A Coarse-to-fine Pyramidal Model for Person Re-identification via Multi-Loss Dynamic Training**
+　　intro: YouTu Lab, Tencent
+　　arxiv: https://arxiv.org/abs/1810.12193
+
+**M2M-GAN: Many-to-Many Generative Adversarial Transfer Learning for Person Re-Identification**
+　　arxiv: https://arxiv.org/abs/1811.03768
+
+**Batch Feature Erasing for Person Re-identification and Beyond**
+　　arxiv: https://arxiv.org/abs/1811.07130
+　　github(official, Pytorch): https://github.com/daizuozhuo/batch-feature-erasing-network
+
+**Re-Identification with Consistent Attentive Siamese Networks**
+　　arxiv: https://arxiv.org/abs/1811.07487
+
+**One Shot Domain Adaptation for Person Re-Identification**
+　　arxiv: https://arxiv.org/abs/1811.10144
+
+**Parameter-Free Spatial Attention Network for Person Re-Identification**
+　　arxiv: https://arxiv.org/abs/1811.12150
+
+**Spectral Feature Transformation for Person Re-identification**
+　　intro: University of Chinese Academy of Sciences & TuSimple
+　　arxiv: https://arxiv.org/abs/1811.11405
+
+**Identity Preserving Generative Adversarial Network for Cross-Domain Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1811.11510
+
+**Dissecting Person Re-identification from the Viewpoint of Viewpoint**
+　　arxiv: https://arxiv.org/abs/1812.02162
+
+**Fast and Accurate Person Re-Identification with RMNet**
+　　intro: IOTG Computer Vision (ICV), Intel
+　　arxiv: https://arxiv.org/abs/1812.02465
+
+**Spatial-Temporal Person Re-identification**
+　　intro: AAAI 2019
+　　intro: Sun Yat-sen University
+　　arxiv: https://arxiv.org/abs/1812.03282
+　　github: https://github.com/Wanggcong/Spatial-Temporal-Re-identification
+
+**Omni-directional Feature Learning for Person Re-identification**
+　　intro: Tongji University
+　　keywords: OIM loss
+　　arxiv: https://arxiv.org/abs/1812.05319
+
+**Learning Incremental Triplet Margin for Person Re-identification**
+　　intro: AAAI 2019 spotlight
+　　intro: Hikvision Research Institute
+　　arxiv: https://arxiv.org/abs/1812.06576
+
+**Densely Semantically Aligned Person Re-Identification**
+　　intro: USTC & MSRA
+　　arxiv: https://arxiv.org/abs/1812.08967
+
+**EANet: Enhancing Alignment for Cross-Domain Person Re-identification**
+　　intro: CRISE & CASIA & Horizon Robotics
+　　arxiv: https://arxiv.org/abs/1812.11369
+　　github(official, Pytorch): https://github.com/huanghoujing/EANet
+　　blog: https://zhuanlan.zhihu.com/p/53660395
+
+**Backbone Can Not be Trained at Once: Rolling Back to Pre-trained Network for Person Re-Identification**
+　　intro: AAAI 2019
+　　intro: Seoul National University & Samsung SDS
+　　arxiv: https://arxiv.org/abs/1901.06140
+
+**Ensemble Feature for Person Re-Identification**
+　　keywords: EnsembleNet
+　　arxiv: https://arxiv.org/abs/1901.05798
+
+**Adversarial Metric Attack for Person Re-identification**
+　　intro: University of Oxford & Johns Hopkins University
+　　arxiv: https://arxiv.org/abs/1901.10650
+
+**Discovering Underlying Person Structure Pattern with Relative Local Distance for Person Re-identification**
+　　intro: SYSU
+　　arxiv: https://arxiv.org/abs/1901.10100
+　　github: https://github.com/Wanggcong/RLD_codes
+
+**Attributes-aided Part Detection and Refinement for Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1902.10528
+
+**Bags of Tricks and A Strong Baseline for Deep Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1903.07071
+　　github: https://github.com/michuanhaohao/reid-strong-baseline
+
+**Auto-ReID: Searching for a Part-aware ConvNet for Person Re-Identification**
+　　keywords: NAS
+　　arxiv: https://arxiv.org/abs/1903.09776
+
+**Perceive Where to Focus: Learning Visibility-aware Part-level Features for Partial Person Re-identification**
+　　intro: CVPR 2019
+　　intro: Tsinghua University & Megvii Technology
+　　keywords: Visibility-aware Part Model (VPM)
+　　arxiv: https://arxiv.org/abs/1904.00537
+
+**Pedestrian re-identification based on Tree branch network with local and global learning**
+　　intro: ICME 2019 oral
+　　arxiv: https://arxiv.org/abs/1904.00355
+
+**Invariance Matters: Exemplar Memory for Domain Adaptive Person Re-identification**
+　　intro: CVPR 2019
+　　arxiv: https://arxiv.org/abs/1904.01990
+　　github: https://github.com/zhunzhong07/ECN
+
+**Person Re-identification with Bias-controlled Adversarial Training**
+　　arxiv: https://arxiv.org/abs/1904.00244
+
+**Person Re-identification with Metric Learning using Privileged Information**
+　　intro: IEEE TIP
+　　arxiv: https://arxiv.org/abs/1904.05005
+
+**Joint Discriminative and Generative Learning for Person Re-identification**
+　　intro: CVPR 2019 oral
+　　intro: NVIDIA & University of Technology Sydney & Australian National University
+　　arxiv: https://arxiv.org/abs/1904.07223
 
 ## Person Search
 
@@ -518,6 +639,11 @@ and from 73.8% to 83.1% for ResNet-50
 　　intro: ECCV 2018
 　　keywords: Cross-Level Semantic Alignment (CLSA)
 　　arxiv: [https://arxiv.org/abs/1807.08582](https://arxiv.org/abs/1807.08582)
+
+**Learning Context Graph for Person Search**
+　　intro: CVPR 2019
+　　intro: Shanghai Jiao Tong University & Tencent YouTu Lab & Inception Institute of Artificial Intelligence, UAE
+　　arxiv: https://arxiv.org/abs/1904.01830
 
 ## Pose/View for Re-ID
 
@@ -611,6 +737,13 @@ and from 73.8% to 83.1% for ResNet-50
 　　intro: ACCV 2018
 　　arxiv: [https://arxiv.org/abs/1810.06996](https://arxiv.org/abs/1810.06996)
 
+**STNReID : Deep Convolutional Networks with Pairwise Spatial Transformer Networks for Partial Person Re-identification**
+　　intro: Zhejiang University & Megvii Inc
+　　arxiv: https://arxiv.org/abs/1903.07072
+
+**Foreground-aware Pyramid Reconstruction for Alignment-free Occluded Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1904.04975
+
 ## RGB-IR Re-ID
 
 **RGB-Infrared Cross-Modality Person Re-Identification**
@@ -621,6 +754,9 @@ and from 73.8% to 83.1% for ResNet-50
 **Reinforced Temporal Attention and Split-Rate Transfer for Depth-Based Person Re-Identification**
 　　intro: ECCV 2018
 　　arxiv: [Nikolaos_Karianakis_Reinforced_Temporal_Attention_ECCV_2018_paper.pdf](http://openaccess.thecvf.com/content_ECCV_2018/papers/Nikolaos_Karianakis_Reinforced_Temporal_Attention_ECCV_2018_paper.pdf)
+
+**A Cross-Modal Distillation Network for Person Re-identification in RGB-Depth**
+　　arxiv: https://arxiv.org/abs/1810.11641
 
 ## Low Resolution Re-ID
 
@@ -661,6 +797,9 @@ and from 73.8% to 83.1% for ResNet-50
 **Person Re-identification by Deep Learning Attribute-Complementary Information**
 　　intro: CVPR 2017 workshop
 　　paper: [https://sci-hub.tw/10.1109/CVPRW.2017.186](https://sci-hub.tw/10.1109/CVPRW.2017.186)
+
+**CA3Net: Contextual-Attentional Attribute-Appearance Network for Person Re-Identification**
+　　arxiv: https://arxiv.org/abs/1811.07544
 
 ## Video Person Re-Identification
 
@@ -714,19 +853,46 @@ and from 73.8% to 83.1% for ResNet-50
 　　arxiv: https://arxiv.org/abs/1807.00975
 
 **Video-based Person Re-identification via 3D Convolutional Networks and Non-local Attention**
-
-intro: University of Science and Technology of China & University of Chinese Academy of Sciences
+　　intro: University of Science and Technology of China & University of Chinese Academy of Sciences
 　　arxiv: https://arxiv.org/abs/1807.05073
 
 **Spatial-Temporal Synergic Residual Learning for Video Person Re-Identification**
 　　arxiv: https://arxiv.org/abs/1807.05799
 
-**SCAN: Self-and-Collaborative Attention Network for Video Person Re-identification**
-　　arxiv: https://arxiv.org/abs/1807.05688
-
 **Where-and-When to Look: Deep Siamese Attention Networks for Video-based Person Re-identification**
 　　intro: IEEE Transactions on Multimedia
 　　arxiv: https://arxiv.org/abs/1808.01911
+
+**STA: Spatial-Temporal Attention for Large-Scale Video-based Person Re-Identification**
+　　intro: AAAI 2019
+　　arxiv: https://arxiv.org/abs/1811.04129
+
+**Multi-scale 3D Convolution Network for Video Based Person Re-Identification**
+　　intro: AAAI 2019
+　　arxiv: https://arxiv.org/abs/1811.07468
+
+**Deep Active Learning for Video-based Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1812.05785
+
+**Spatial and Temporal Mutual Promotion for Video-based Person Re-identification**
+　　intro: AAAI 2019
+　　arxiv: https://arxiv.org/abs/1812.10305
+
+**3D PersonVLAD: Learning Deep Global Representations for Video-based Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1812.10222
+
+**SCAN: Self-and-Collaborative Attention Network for Video Person Re-identification**
+　　intro: TIP 2019
+　　arxiv: https://arxiv.org/abs/1807.05688
+
+**GAN-based Pose-aware Regulation for Video-based Person Re-identification**
+　　intro: Heriot-Watt University & University of Edinburgh & Queen’s University Belfast & Anyvision
+　　keywords: Weighted Fusion (WF) & Weighted-Pose Regulation (WPR)
+　　arxiv: https://arxiv.org/abs/1903.11552
+
+**Convolutional Temporal Attention Model for Video-based Person Re-identification**
+　　intro: ICME 2019
+　　arxiv: https://arxiv.org/abs/1904.04492
 
 ## Re-ranking
 
@@ -743,6 +909,9 @@ intro: University of Science and Technology of China & University of Chinese Aca
 　　intro: CVPR 2018
 　　arxiv: [https://arxiv.org/abs/1711.10378](https://arxiv.org/abs/1711.10378)
 　　github(official): [https://github.com/pse-ecn/expanded-cross-neighborhood](https://github.com/pse-ecn/expanded-cross-neighborhood)
+
+**Adaptive Re-ranking of Deep Feature for Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1811.08561
 
 ## Unsupervised Re-ID
 
@@ -793,6 +962,39 @@ intro: University of Science and Technology of China & University of Chinese Aca
 　　intro: ECCV 2018 Oral
 　　arxiv: [https://arxiv.org/abs/1809.02874](https://arxiv.org/abs/1809.02874)
 
+**Unsupervised Tracklet Person Re-Identification**
+　　intro: TPAMI 2019
+　　arxiv: https://arxiv.org/abs/1903.00535
+　　github: https://github.com/liminxian/DukeMTMC-SI-Tracklet
+
+**Unsupervised Person Re-identification by Deep Asymmetric Metric Embedding**
+　　intro: TPAMI
+　　keywords: DEep Clustering-based Asymmetric MEtric Learning (DECAMEL)
+　　arxiv: https://arxiv.org/abs/1901.10177
+　　github: https://github.com/KovenYu/DECAMEL
+
+**Unsupervised Person Re-identification by Soft Multilabel Learning**
+　　intro: CVPR 2019 oral
+　　intro: Sun Yat-sen University & YouTu Lab & Queen Mary University of London
+　　keywords: MAR (MultilAbel Reference learning), soft multilabel-guided hard negative mining
+　　project page: https://kovenyu.com/publication/2019-cvpr-mar/
+　　arxiv: https://arxiv.org/abs/1903.06325
+　　github(official, Pytorch): https://github.com/KovenYu/MAR
+
+**A Novel Unsupervised Camera-aware Domain Adaptation Framework for Person Re-identification**
+　　arxiv: https://arxiv.org/abs/1904.03425
+
+## Weakly Supervised Person Re-identification
+
+**Weakly Supervised Person Re-Identification**
+　　intro: CVPR 2019
+　　keywords: multi-instance multi-label learning (MIML), Cross-View MIML (CV-MIML)
+　　arxiv: https://arxiv.org/abs/1904.03832
+
+**Weakly Supervised Person Re-identification: Cost-effective Learning with A New Benchmark**
+　　keywords: SYSU-30k
+　　arxiv: https://arxiv.org/abs/1904.03845
+
 ## Vehicle Re-ID
 
 **Learning Deep Neural Networks for Vehicle Re-ID with Visual-spatio-temporal Path Proposals**
@@ -811,6 +1013,28 @@ intro: University of Science and Technology of China & University of Chinese Aca
 　　intro: Pattern Recognition - 40th German Conference, (GCPR) 2018, Stuttgart
 　　project page: [https://qmul-vric.github.io/](https://qmul-vric.github.io/)
 　　arxiv: [https://arxiv.org/abs/1809.09409](https://arxiv.org/abs/1809.09409)
+
+**Vehicle Re-identification Using Quadruple Directional Deep Learning Features**
+　　arxiv: https://arxiv.org/abs/1811.05163
+
+**Coarse-to-fine: A RNN-based hierarchical attention model for vehicle re-identification**
+　　intro: ACCV 2018
+　　arxiv: https://arxiv.org/abs/1812.04239
+
+**Vehicle Re-Identification: an Efficient Baseline Using Triplet Embedding**
+　　arxiv: https://arxiv.org/abs/1901.01015
+
+**A Two-Stream Siamese Neural Network for Vehicle Re-Identification by Using Non-Overlapping Cameras**
+　　intro: ICIP 2019
+　　arxiv: https://arxiv.org/abs/1902.01496
+
+**CityFlow: A City-Scale Benchmark for Multi-Target Multi-Camera Vehicle Tracking and Re-Identification**
+　　intro: Accepted for oral presentation at CVPR 2019 with review ratings of 2 strong accepts and 1 accept (work done during an internship at NVIDIA)
+　　arxiv: https://arxiv.org/abs/1903.09254
+
+**Vehicle Re-identification in Aerial Imagery: Dataset and Approach**
+　　intro: Northwestern Polytechnical University
+　　arxiv: https://arxiv.org/abs/1904.01400
 
 ## Deep Metric Learning
 
