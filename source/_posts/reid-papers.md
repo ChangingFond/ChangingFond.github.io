@@ -12,8 +12,8 @@ tags:
 
 <!-- more -->
 
-Last Updated: Oct 26, 2018
-Updated Content: add BMVC 2018、ECCV 2018、NIPS 2018
+Last Updated: Apr 26, 2019
+Updated Content: add AAAI 2019、ECCV 2018、NIPS 2018
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -25,6 +25,7 @@ Updated Content: add BMVC 2018、ECCV 2018、NIPS 2018
   - [ICCV 2015](#ICCV-2015)
   - [ICCV 2013](#ICCV-2013)
 - [CVPR](#CVPR)
+  - [CVPR 2019](#CVPR-2019)
   - [CVPR 2018](#CVPR-2018)
   - [CVPR 2017](#CVPR-2017)
   - [CVPR 2016](#CVPR-2016)
@@ -44,6 +45,7 @@ Updated Content: add BMVC 2018、ECCV 2018、NIPS 2018
 - [ICPR](#ICPR)
   - [ICPR 2014](#ICPR-2014)
 - [AAAI](#AAAI)
+  - [AAAI 2019](#AAAI-2019)
   - [AAAI 2018](#AAAI-2018)
   - [AAAI 2017](#AAAI-2017)
   - [AAAI 2016](#AAAI-2016)
@@ -125,6 +127,22 @@ Updated Content: add BMVC 2018、ECCV 2018、NIPS 2018
 - **Human Re-identification by Matching Compositional Template with Cluster Sampling.** *Yuanlu Xu, Liang Lin, Weishi Zheng, Xiaobai Liu*
 
 # CVPR
+
+## CVPR 2019
+
+- **Perceive Where to Focus: Learning Visibility-aware Part-level Features for Partial Person Re-identification.** *Yifan Sun, Qin Xu, Yali Li, Chi Zhang, Yikang Li, Shengjin Wang, Jian Sun*
+
+- **CityFlow: A City-Scale Benchmark for Multi-Target Multi-Camera Vehicle Tracking and Re-Identification.** *Zheng Tang, Milind Naphade, Ming-Yu Liu, Xiaodong Yang, Stan Birchfield, Shuo Wang, Ratnesh Kumar, David Anastasiu, Jenq-Neng Hwang*
+
+- **Weakly Supervised Person Re-Identification.** *Jingke Meng, Sheng Wu, Wei-Shi Zheng*
+
+- **Unsupervised Person Re-identification by Soft Multilabel Learning.** *Hong-Xing Yu, Wei-Shi Zheng, Ancong Wu, Xiaowei Guo, Shaogang Gong, Jian-Huang Lai*
+
+- **Learning Context Graph for Person Search.** *Yichao Yan, Qiang Zhang, Bingbing Ni, Wendong Zhang, Minghao Xu, Xiaokang Yang*
+
+- **Joint Discriminative and Generative Learning for Person Re-identification.** *Zhedong Zheng, Xiaodong Yang, Zhiding Yu, Liang Zheng, Yi Yang, Jan Kautz*
+
+- **Invariance Matters: Exemplar Memory for Domain Adaptive Person Re-identification.** *Zhun Zhong, Liang Zheng, Zhiming Luo, Shaozi Li, Yi Yang*
 
 ## CVPR 2018
 
@@ -386,6 +404,22 @@ Updated Content: add BMVC 2018、ECCV 2018、NIPS 2018
 - **Deep Metric Learning for Person Re-Identification**. *Dong Yi, Zhen Lei, Shengcai Liao, Stan Z. Li.*【[PDF](http://www.cbsr.ia.ac.cn/users/zlei/papers/ICPR2014/Yi-ICPR-14.pdf)】
 
 # AAAI
+
+## AAAI 2019
+
+- **Horizontal Pyramid Matching for Person Re-identification.** *Yang Fu, Yunchao Wei, Yuqian Zhou, Honghui Shi, Gao Huang, Xinchao Wang, Zhiqiang Yao, Thomas Huang*
+
+- **Spatial-Temporal Person Re-identification.** *Guangcong Wang, Jianhuang Lai, Peigen Huang, Xiaohua Xie*
+
+- **Learning Incremental Triplet Margin for Person Re-identification.** *Yingying Zhang, Qiaoyong Zhong, Liang Ma, Di Xie, Shiliang Pu*
+
+- **Backbone Can Not be Trained at Once: Rolling Back to Pre-trained Network for Person Re-Identification.** *Youngmin Ro, Jongwon Choi, Dae Ung Jo, Byeongho Heo, Jongin Lim, Jin Young Choi*
+
+- **STA: Spatial-Temporal Attention for Large-Scale Video-based Person Re-Identification.** *Yang Fu, Xiaoyang Wang, Yunchao Wei, Thomas Huang*
+
+- **Multi-scale 3D Convolution Network for Video Based Person Re-Identification.** *Jianing Li, Shiliang Zhang, Tiejun Huang*
+
+- **Spatial and Temporal Mutual Promotion for Video-based Person Re-identification.** *Yiheng Liu, Zhenxun Yuan, Wengang Zhou, Houqiang Li*
 
 ## AAAI 2018
 
