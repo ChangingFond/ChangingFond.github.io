@@ -13,7 +13,7 @@ tags:
 <!-- more -->
 
 Last Updated: Apr 26, 2019
-Updated Content: add AAAI 2019、ECCV 2018、NIPS 2018
+Updated Content: add AAAI 2019、CVPR 2019
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -133,6 +133,8 @@ Updated Content: add AAAI 2019、ECCV 2018、NIPS 2018
 - **Perceive Where to Focus: Learning Visibility-aware Part-level Features for Partial Person Re-identification.** *Yifan Sun, Qin Xu, Yali Li, Chi Zhang, Yikang Li, Shengjin Wang, Jian Sun*
 
 - **CityFlow: A City-Scale Benchmark for Multi-Target Multi-Camera Vehicle Tracking and Re-Identification.** *Zheng Tang, Milind Naphade, Ming-Yu Liu, Xiaodong Yang, Stan Birchfield, Shuo Wang, Ratnesh Kumar, David Anastasiu, Jenq-Neng Hwang*
+
+- **Dissecting Person Re-identification from the Viewpoint of Viewpoint.** *Xiaoxiao Sun, Liang Zheng*
 
 - **Weakly Supervised Person Re-Identification.** *Jingke Meng, Sheng Wu, Wei-Shi Zheng*
 
@@ -411,9 +413,15 @@ Updated Content: add AAAI 2019、ECCV 2018、NIPS 2018
 
 - **Spatial-Temporal Person Re-identification.** *Guangcong Wang, Jianhuang Lai, Peigen Huang, Xiaohua Xie*
 
+- **Learning Resolution-Invariant Deep Representations for Person Re-Identification.** *Yun-Chun Chen, Yu-Jhe Li, Xiaofei Du, Yu-Chiang Frank Wang*
+
 - **Learning Incremental Triplet Margin for Person Re-identification.** *Yingying Zhang, Qiaoyong Zhong, Liang Ma, Di Xie, Shiliang Pu*
 
 - **Backbone Can Not be Trained at Once: Rolling Back to Pre-trained Network for Person Re-Identification.** *Youngmin Ro, Jongwon Choi, Dae Ung Jo, Byeongho Heo, Jongin Lim, Jin Young Choi*
+
+- **A Bottom-Up Clustering Approach to Unsupervised Person Re-identification.** *Yutian Lin, Xuanyi Dong, Liang Zheng, Yan Yan, Yi Yang*
+
+- **HSME: Hypersphere Manifold Embedding for Visible Thermal Person Re-identification.** *Yi Hao, Nannan Wan, Li Jie, Xinbo Gao*
 
 - **STA: Spatial-Temporal Attention for Large-Scale Video-based Person Re-Identification.** *Yang Fu, Xiaoyang Wang, Yunchao Wei, Thomas Huang*
 
