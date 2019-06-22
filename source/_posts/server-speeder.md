@@ -29,8 +29,8 @@ tags:
 
 root账户登录，执行
 ```
-    wget -N –no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh
-    bash serverspeeder-all.sh
+    wget -N --no-check-certificate https://github.com/91yun/serverspeeder/raw/master/serverspeeder.sh
+    bash serverspeeder.sh
 ```
 
 ## 卸载脚本
@@ -46,7 +46,7 @@ CentOS 7支持安装锐速的内核：3.10.0-327.el7.x86_64
 root账户登录，执行以下命令
 
 ```
-  rpm -ivh http://xz.wn789.com/CentOSkernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
+  rpm -ivh http://soft.91yun.org/ISO/Linux/CentOS/kernel/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
   rpm -qa | grep kernel  # 查看内核是否安装成功
 ```
 
