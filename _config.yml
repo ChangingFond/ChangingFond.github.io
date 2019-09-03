@@ -83,7 +83,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 ## Muse,Mist
-theme: next-6
+theme: next6
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
