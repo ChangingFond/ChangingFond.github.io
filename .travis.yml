@@ -1,0 +1,21 @@
+language: node_js
+node_js: 6
+
+install:
+  - npm install hexo-cli -g
+  - npm install -g gulp
+  - npm install
+
+# before_script:
+
+script:
+  - hexo g
+  - gulp
+  - hexo d
+
+branches:
+  only:
+    - hexo
+# env:
+#  global:
+#    - GH_REF: github.com/lujiahao0708/lujiahao0708.github.io.git
