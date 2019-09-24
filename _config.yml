@@ -83,7 +83,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 ## Muse,Mist
-theme: next6
+theme: next-6
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -91,6 +91,6 @@ deploy:
   type: git
   repo:
     github: git@github.com:ChangingFond/ChangingFond.github.io.git  #同步到GitHub
-    vps: fcj@142.11.249.71:hexo.git,master  #同步到自己的VPS
+    vps: fcj@142.11.240.95:hexo.git,master  #同步到自己的VPS
   branch: master
   message: Hexo Blog updated - {{ now('YYYY-MM-DD HH:mm:ss') }})
