@@ -1,21 +1,20 @@
 language: node_js
 node_js: 6
-
 install:
-  - npm install hexo-cli -g
-  - npm install -g gulp
-  - npm install
-
-# before_script:
-
+- npm install -g hexo-cli
+- npm install -g hexo-deployer-git
+- npm install -g gulp
+- npm install
+addons:
+  ssh_known_hosts: 142.11.240.95:22
 script:
-  - hexo g
-  - gulp
-  - hexo d
-
+- hexo g
+- gulp
+- hexo d
 branches:
   only:
-    - hexo
-# env:
-#  global:
-#    - GH_REF: github.com/lujiahao0708/lujiahao0708.github.io.git
+  - hexo
+before_install:
+- openssl aes-256-cbc -K $encrypted_34f58abb81d6_key -iv $encrypted_34f58abb81d6_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa

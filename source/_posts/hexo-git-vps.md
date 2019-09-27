@@ -142,8 +142,9 @@ deploy:
     尝试以下步骤：
     1.运行`vi /etc/ssh/sshd_config`，找到以下代码，按如下格式修改
     ```bash
-        RSAAuthentication yes  
-        PubkeyAuthentication yes  
+        RSAAuthentication yes
+        PubkeyAuthentication yes
+        StrictModes no
         AuthorizedKeysFile  .ssh/authorized_keys  
     ```
     保存后退出，重启sshd服务
