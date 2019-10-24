@@ -24,14 +24,24 @@ photos:
 > 两个站点只能看到各自的项目，不能通用。
 
 ## 步骤
-```
-$ git clone repository_url
-$ cd project_folder
-$ touch README.md
-$ git add README.md
-$ git commit -m "add README"
-$ git push -u origin master
-```
+
+通常更新一篇 Hexo 博客文章，基本流程是：
+
+1. 本地新建 post 页面
+2. 在文本编辑器里用 Markdown 语法编辑新建页面
+3. 本地生成 public 文件：`hexo g && gulp`
+4. 启动本地测试web server：`hexo s --debug`
+5. 浏览器打开 `http://localhost:4000/`, 浏览生成文章
+6. 如果满意，即可部署到Github page仓库或者 VPS 上：`hexo d`
+
+下面主要介绍如何利用 Travis CI 自动完成第 3-6 步.
+
+### 前置条件
+
+- 生成 SSH key
+- 托管 Hexo 博客的 Github仓库，hexo 分支为源代码，master 分支存放生成的静态博客文件。[参考](http://blog.fcj.one/hexo-multi-snyc.html)
+- 发布博客的 VPS，并可以通过 hexo-deployer-git 发布。[参考](http://blog.fcj.one/hexo-git-vps.html)
+- 已经配置好 gulp 实现博文压缩。[参考](http://blog.fcj.one/hexo-gulp-post.html)
 
 ### 开启 Travis CI
 
@@ -80,7 +90,16 @@ before_install:
 
 ```
 
+配置完成后，以后当你本地编辑完 md 文件后，只需要运行 git push，推送代码到 Github 就会触发 Travis CI 自动生成 build，部署新的博客内容。
+
 ## .travis.yml 字段解析
+
+### ssh known_hosts
+　　因为 travis-ci 默认只添加了 github.com, gist.github.com 和 ssh.github.com 为 known_hosts，hexo d 执行时会提示是否添加地址到 known_hosts，但是 travis-ci 里不能输入确认，所以需要将服务器的 IP 和端口添加到 known_hosts
+```bash
+addons:
+  ssh_known_hosts: ssh_known_hosts: host-ip:ssh-port
+```
 
 ## 参考资料
 
