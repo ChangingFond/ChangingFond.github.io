@@ -1,5 +1,5 @@
 language: node_js
-node_js: 6
+node_js: 8
 install:
 - npm install -g hexo-cli
 - npm install -g hexo-deployer-git
@@ -7,6 +7,9 @@ install:
 - npm install
 addons:
   ssh_known_hosts: 142.11.240.95:22
+cache:
+  directories:
+  - node_modules
 script:
 - hexo g
 - gulp
