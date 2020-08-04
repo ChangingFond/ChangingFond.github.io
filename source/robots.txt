@@ -10,4 +10,4 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://blog.fangchengjin.cn/baidusitemap.xml
+Sitemap: http://blog.fcj.one/baidusitemap.xml
