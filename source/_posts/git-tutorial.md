@@ -3,7 +3,7 @@ title: Git 常用命令指南
 categories: 编程笔记
 tags: Git
 date: 2019-3-25 18:12:20
-updated: 2019-7-11 14:10:55
+updated: 2020-9-25 17:57:55
 photos:
 - http://changingfond.oss-cn-hangzhou.aliyuncs.com/19-3-25/git.png
 ---
@@ -12,7 +12,8 @@ photos:
 
 ## 首次提交代码至远程仓库
 
-### Create a new repository
+### 新建仓库
+
 ```
 $ git clone repository_url
 $ cd project_folder
@@ -22,7 +23,8 @@ $ git commit -m "add README"
 $ git push -u origin master
 ```
 
-### Existing folder
+### 本地仓库目录已存在
+
 ```
 $ cd existing_folder
 $ git init
@@ -32,7 +34,7 @@ $ git commit -m "Initial commit"
 $ git push -u origin master
 ```
 
-## git 分支命令
+## Git 分支命令
 
 - 查看所有分支
 ```
@@ -102,4 +104,14 @@ $ git merge upstream/master
 ```
 $ git push origin master
 ```
-由于项目已经配置了上游项目的地址，所以如果 fork 的项目再次更新，重复步骤 3、4、5即可。
+
+6. 由于项目已经配置了上游项目的地址，所以如果 fork 的项目再次更新，重复步骤 3、4、5即可。
+
+## Git 远程分支覆盖本地分支
+
+```
+$ git fetch --all
+$ git reset --hard origin/master (master 为要拉取的远程分支名)
+$ git pull
+```
+ 
