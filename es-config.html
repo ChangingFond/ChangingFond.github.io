@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.5.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.5.0"><link rel="mask-icon" href="/images/favicon.ico?v=6.5.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"6.5.0",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!1,onmobile:!0},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="Elasticsearch的配置文件位于/es-path/conf/elasticsearch.yml，本文基于elasticsearch 6.x版本对配置文件进行详细说明。对于未提及的配置参数可查阅 https://www.elastic.co/guide/en/elasticsearch/reference/current/modules.html"><meta name="keywords" content="Elasticsearch"><meta property="og:type" content="article"><meta property="og:title" content="Elasticsearch配置文件详解"><meta property="og:url" content="http://blog.fcj.one/es-config.html"><meta property="og:site_name" content="ChangingFond"><meta property="og:description" content="Elasticsearch的配置文件位于/es-path/conf/elasticsearch.yml，本文基于elasticsearch 6.x版本对配置文件进行详细说明。对于未提及的配置参数可查阅 https://www.elastic.co/guide/en/elasticsearch/reference/current/modules.html"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2020-11-18T10:05:22.096Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Elasticsearch配置文件详解"><meta name="twitter:description" content="Elasticsearch的配置文件位于/es-path/conf/elasticsearch.yml，本文基于elasticsearch 6.x版本对配置文件进行详细说明。对于未提及的配置参数可查阅 https://www.elastic.co/guide/en/elasticsearch/reference/current/modules.html"><link rel="alternate" href="/atom.xml" title="ChangingFond" type="application/atom+xml"><link rel="canonical" href="http://blog.fcj.one/es-config.html"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>Elasticsearch配置文件详解 | ChangingFond</title><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b2496cd517e5ebce9b0691ec025cc548";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div> <a href="https://github.com/ChangingFond" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">ChangingFond</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">活着，努力着，并收获着快乐</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br>留言</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://blog.fcj.one/es-config.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="ChangingFond"><meta itemprop="description" content><meta itemprop="image" content="/images/avatar.ico"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="ChangingFond"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Elasticsearch配置文件详解</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-02-19 14:16:23" itemprop="dateCreated datePublished" datetime="2019-02-19T14:16:23+00:00">2019-02-19</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2020-11-18 10:05:22" itemprop="dateModified" datetime="2020-11-18T10:05:22+00:00">2020-11-18</time></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span> <a href="/es-config.html#comments" itemprop="discussionUrl"><span class="post-meta-item-text">评论数：</span><span class="post-comments-count valine-comment-count" data-xid="/es-config.html" itemprop="commentCount"></span></a></span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i> 阅读次数：<span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><p>Elasticsearch的配置文件位于/es-path/conf/elasticsearch.yml，本文基于elasticsearch 6.x版本对配置文件进行详细说明。<br>对于未提及的配置参数可查阅 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules.html</a></p><a id="more"></a><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># ======================== Elasticsearch Configuration =========================</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># NOTE: Elasticsearch comes with reasonable defaults for most settings.</span></span><br><span class="line"><span class="meta">#       Before you set out to tweak and tune the configuration, make sure you</span></span><br><span class="line"><span class="meta">#       understand what are you trying to accomplish and the consequences.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># The primary way of configuring a node is via this file. This template lists</span></span><br><span class="line"><span class="meta"># the most important settings you may want to configure for a production cluster.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Please consult the documentation for further information on configuration options:</span></span><br><span class="line"><span class="meta"># https://www.elastic.co/guide/en/elasticsearch/reference/index.html</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ---------------------------------- Cluster -----------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Use a descriptive name for your cluster:</span></span><br><span class="line"><span class="meta"># 配置es的集群名称，默认为elasticsearch。es会自动发现在同一网段下的es集群，如果在同一网段下有多个集群，可以用此属性来区分不同的集群。</span></span><br><span class="line">cluster.name: elasticsearch</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ------------------------------------ Node ------------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Use a descriptive name for the node:</span></span><br><span class="line"><span class="meta"># 节点名称</span></span><br><span class="line">node.name: node-master</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 指定该节点是否有资格被选举成为master，默认是true，es默认集群中的第一台机器为master，如果这台机器宕机就会重新选举master。</span></span><br><span class="line">node.master: <span class="literal">true</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 指定该节点是否存储索引数据，默认为true。</span></span><br><span class="line">node.data: <span class="literal">true</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 默认情况下，多个节点可以在同一个安装路径启动，如果想让es只启动一个节点，可以进行如下设置</span></span><br><span class="line"><span class="meta"># node.max_local_storage_nodes: 1</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Add custom attributes to the node:</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 指定节点的部落属性，这是一个比集群更大的范围。</span></span><br><span class="line"><span class="meta">#node.attr.rack: r1</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ----------------------------------- Index ------------------------------------</span></span><br><span class="line"><span class="meta"># 设置索引的分片数,默认为5</span></span><br><span class="line"><span class="meta">#index.number_of_shards: 5</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 设置索引的副本数,默认为1:</span></span><br><span class="line"><span class="meta">#index.number_of_replicas: 1</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 配置文件中提到的最佳实践是,如果服务器够多,可以将分片提高,尽量将数据平均分布到大集群中去</span></span><br><span class="line"><span class="meta"># 同时,如果增加副本数量可以有效的提高搜索性能</span></span><br><span class="line"><span class="meta"># 需要注意的是,"number_of_shards" 是索引创建后一次生成的,后续不可更改设置</span></span><br><span class="line"><span class="meta"># "number_of_replicas" 是可以通过API去实时修改设置的</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># ----------------------------------- Paths ------------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Path to directory where to store the data (separate multiple locations by comma):</span></span><br><span class="line"><span class="meta"># 设置索引数据的存储路径，默认是es根目录下的data文件夹，可以设置多个存储路径，用逗号隔开，如 path.data: /path/to/data1,/path/to/data2</span></span><br><span class="line"><span class="meta">#path.data: /path/to/data</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Path to conf files:</span></span><br><span class="line"><span class="meta"># 设置配置文件的存储路径，默认是es根目录下的config文件夹。</span></span><br><span class="line"><span class="meta">#path.conf: /path/to/conf</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Path to log files:</span></span><br><span class="line"><span class="meta"># 设置日志文件的存储路径，默认是es根目录下的logs文件夹。</span></span><br><span class="line"><span class="meta">#path.logs: /path/to/logs</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Path to temp files:</span></span><br><span class="line"><span class="meta"># 设置临时文件的存储路径，默认是es根目录下的work文件夹。</span></span><br><span class="line"><span class="meta">#path.work: /path/to/work</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Path to plugin files:</span></span><br><span class="line"><span class="meta"># 设置插件的存放路径，默认是es根目录下的plugins文件夹。</span></span><br><span class="line"><span class="meta">#path.plugins: /path/to/plugins</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ----------------------------------- Memory -----------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Lock the memory on startup:</span></span><br><span class="line"><span class="meta"># 设置为true来锁住内存。因为当jvm开始swapping时es的效率会降低，所以要保证它不swap。</span></span><br><span class="line"><span class="meta"># 可以把ES_MIN_MEM和ES_MAX_MEM两个环境变量设置成同一个值，并且保证机器有足够的内存分配给es。</span></span><br><span class="line"><span class="meta"># 同时也要允许elasticsearch的进程可以锁住内存，linux下可以通过`ulimit -l unlimited`命令。</span></span><br><span class="line"><span class="meta">#bootstrap.memory_lock: true</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Make sure that the heap size is set to about half the memory available</span></span><br><span class="line"><span class="meta"># on the system and that the owner of the process is allowed to use this</span></span><br><span class="line"><span class="meta"># limit.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Elasticsearch performs poorly when the system is swapping the memory.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Cache部分:</span></span><br><span class="line"><span class="meta"># es有很多种方式来缓存其内部与索引有关的数据.其中包括filter cache</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># filter cache部分:</span></span><br><span class="line"><span class="meta"># filter cache是用来缓存filters的结果的.默认的cache type是node type.</span></span><br><span class="line"><span class="meta"># node type的机制是所有的索引内部的分片共享filter cache.node type采用的方式是LRU方式.</span></span><br><span class="line"><span class="meta"># 即:当缓存达到了某个临界值之后，es会将最近没有使用的数据清除出filter cache.使让新的数据进入es.</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 这个临界值的设置方法如下：indices.cache.filter.size 值类型：eg.:512mb 20%。默认的值是10%。</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># out of memory错误避免过于频繁的查询时集群假死</span></span><br><span class="line"><span class="meta"># 1.设置es的缓存类型为Soft Reference,它的主要特点是据有较强的引用功能.</span></span><br><span class="line"><span class="meta"># 只有当内存不够的时候,才进行回收这类内存,因此在内存足够的时候,它们通常不被回收.</span></span><br><span class="line"><span class="meta"># 另外,这些引用对象还能保证在Java抛出OutOfMemory异常之前,被设置为null.</span></span><br><span class="line"><span class="meta"># 它可以用于实现一些常用图片的缓存,实现Cache的功能,保证最大限度的使用内存而不引起OutOfMemory.</span></span><br><span class="line"><span class="meta"># 在es的配置文件加上index.cache.field.type: soft即可.</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 2.设置es最大缓存数据条数和缓存失效时间,通过设置index.cache.field.max_size: 50000把缓存field的最大值设置为50000,</span></span><br><span class="line"><span class="meta"># 设置index.cache.field.expire: 10m把过期时间设置成10分钟.</span></span><br><span class="line"><span class="meta"># index.cache.field.max_size: 50000</span></span><br><span class="line"><span class="meta"># index.cache.field.expire: 10m</span></span><br><span class="line"><span class="meta"># index.cache.field.type: soft</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># field data部分&amp;&amp;circuit breaker部分：</span></span><br><span class="line"><span class="meta"># 用于fielddata缓存的内存数量,主要用于当使用排序,faceting操作时,elasticsearch会将一些热点数据加载到内存中来提供给客户端访问,</span></span><br><span class="line"><span class="meta"># 但是这种缓存是比较珍贵的,所以对它进行合理的设置.</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 可以使用值：eg:50mb 或者 30％(节点 node heap内存量),默认是：unbounded #indices.fielddata.cache.size： unbounded</span></span><br><span class="line"><span class="meta"># field的超时时间.默认是-1,可以设置的值类型: 5m #indices.fielddata.cache.expire: -1</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># circuit breaker部分:</span></span><br><span class="line"><span class="meta"># 断路器是elasticsearch为了防止内存溢出的一种操作,每一种circuit breaker都可以指定一个内存界限触发此操作,</span></span><br><span class="line"><span class="meta"># 这种circuit breaker的设定有一个最高级别的设定:indices.breaker.total.limit 默认值是JVM heap的70%.</span></span><br><span class="line"><span class="meta"># 当内存达到这个数量的时候会触发内存回收。</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 另外还有两组子设置：</span></span><br><span class="line"><span class="meta">#indices.breaker.fielddata.limit:当系统发现fielddata的数量达到一定数量时会触发内存回收.默认值是JVM heap的70%</span></span><br><span class="line"><span class="meta">#indices.breaker.fielddata.overhead:在系统要加载fielddata时会预估,发现要加载进内存的值超过limit * overhead时会进行进行内存回收.默认是1.03</span></span><br><span class="line"><span class="meta">#indices.breaker.request.limit:这种断路器是elasticsearch为了防止OOM(内存溢出),在每次请求数据时设定了一个固定的内存数量.默认值是40%</span></span><br><span class="line"><span class="meta">#indices.breaker.request.overhead:同上,也是elasticsearch在发送请求时设定的一个预估系数,用来防止内存溢出.默认值是1</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># Translog部分:</span></span><br><span class="line"><span class="meta"># 每一个分片(shard)都有一个transaction log或者是与它有关的预写日志,(write log),</span></span><br><span class="line"><span class="meta"># 在es进行索引(index)或者删除(delete)操作时会将没有提交的数据记录在translog之中,</span></span><br><span class="line"><span class="meta"># 当进行flush 操作的时候会将tranlog中的数据发送给Lucene进行相关的操作.一次flush操作的发生基于如下的几个配置</span></span><br><span class="line"><span class="meta">#index.translog.flush_threshold_ops:当发生多少次操作时进行一次flush.默认是 unlimited #index.translog.</span></span><br><span class="line"><span class="meta">#flush_threshold_size:当translog的大小达到此值时会进行一次flush操作.默认是512mb</span></span><br><span class="line"><span class="meta">#index.translog.flush_threshold_period:在指定的时间间隔内如果没有进行flush操作,会进行一次强制flush操作.默认是30m</span></span><br><span class="line"><span class="meta">#index.translog.interval:多少时间间隔内会检查一次translog,来进行一次flush操作.es会随机的在这个值到这个值的2倍大小之间进行一次操作,默认是5s</span></span><br><span class="line"><span class="meta">#index.gateway.local.sync:多少时间进行一次的写磁盘操作,默认是5s</span></span><br><span class="line"><span class="meta"># 以上的translog配置都可以通过API进行动态的设置</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ---------------------------------- Network -----------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Set the bind address to a specific IP (IPv4 or IPv6):</span></span><br><span class="line"><span class="meta"># 设置本机器绑定的监听ip地址，默认为0.0.0.0。</span></span><br><span class="line">network.host: <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Set a custom port for HTTP:</span></span><br><span class="line"><span class="meta"># 设置对外服务的http端口，默认为9200。</span></span><br><span class="line">http.port: <span class="number">9200</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置内容的最大容量，默认100mb</span></span><br><span class="line"><span class="meta"># http.max_content_length: 100mb</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 是否使用http协议对外提供服务，默认为true，开启。</span></span><br><span class="line"><span class="meta"># http.enabled: false</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置节点间交互的tcp端口，默认是9300。</span></span><br><span class="line">transport.tcp.port: <span class="number">9300</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置是否压缩tcp传输时的数据，默认为false，不压缩。</span></span><br><span class="line"><span class="meta"># transport.tcp.compress: false</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># For more information, consult the network module documentation.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># --------------------------------- Discovery ----------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Pass an initial list of hosts to perform discovery when new node is started:</span></span><br><span class="line"><span class="meta"># The default list of hosts is ["127.0.0.1", "[::1]"]</span></span><br><span class="line"><span class="meta"># 设置集群中master节点的初始列表，可以通过这些节点来自动发现新加入集群的节点，默认的通讯端口是9300。</span></span><br><span class="line">discovery.zen.ping.unicast.hosts: [<span class="string">"host1"</span>, <span class="string">"host2:port"</span>, <span class="string">"host3[portX-portY]"</span>]</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):</span></span><br><span class="line"><span class="meta"># 设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）</span></span><br><span class="line"><span class="meta">#discovery.zen.minimum_master_nodes: 1</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置集群中自动发现其它节点时ping连接超时时间，默认为3秒，对于比较差的网络环境可以高点的值来防止自动发现时出错(脑裂)。</span></span><br><span class="line"><span class="meta">#discovery.zen.ping.timeout: 3s</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置是否打开多播发现节点，默认是true。当多播不可用或者集群跨网段的时候集群通信建议用单播。</span></span><br><span class="line"><span class="meta"># discovery.zen.ping.multicast.enabled: false</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># For more information, consult the zen discovery module documentation.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ---------------------------------- Gateway -----------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Block initial recovery after a full cluster restart until N nodes are started:</span></span><br><span class="line"><span class="meta"># 设置集群中N个节点启动时进行数据恢复，默认为3。</span></span><br><span class="line"><span class="meta">#gateway.recover_after_nodes: 3</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># gateway的类型，默认为local即为本地文件系统，可以设置为本地文件系统，分布式文件系统，hadoop的HDFS，和amazon的s3服务器等</span></span><br><span class="line"><span class="meta">#gateway.type: local</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置初始化数据恢复进程的超时时间，超时时间从上一个配置中配置的N个节点启动后算起，默认是5分钟。</span></span><br><span class="line"><span class="meta">#gateway.recover_after_time: 5m</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 设置这个集群中节点的数量，默认为2，一旦这N个节点启动，就会立即进行数据恢复。</span></span><br><span class="line"><span class="meta">#gateway.expected_nodes: 2</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># For more information, consult the gateway module documentation.</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ---------------------------- Recovery Throttling -----------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># 下面这些配置允许在初始化恢复,副本分配,再平衡,或者添加和删除节点时控制节点间的分片分配</span></span><br><span class="line"><span class="meta"># 设置一个节点的并行恢复数</span></span><br><span class="line"><span class="meta"># 1.初始化数据恢复时,并发恢复线程的个数,默认为4</span></span><br><span class="line"><span class="meta"># cluster.routing.allocation.node_initial_primaries_recoveries: 4</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 2.添加删除节点或负载均衡时并发恢复线程的个数,默认为2</span></span><br><span class="line"><span class="meta"># cluster.routing.allocation.node_concurrent_recoveries: 2</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 设置恢复时的吞吐量(例如:100mb,默认为0无限制.如果机器还有其他业务在跑的话还是限制一下的好)</span></span><br><span class="line"><span class="meta"># indices.recovery.max_bytes_per_sec: 20mb</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 设置来限制从其它分片恢复数据时最大同时打开并发流的个数,默认为5</span></span><br><span class="line"><span class="meta"># indices.recovery.concurrent_streams: 5</span></span><br><span class="line"><span class="meta"># 注意: 合理的设置以上参数能有效的提高集群节点的数据恢复以及初始化速度</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># ---------------------------------- Various -----------------------------------</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta"># Require explicit names when deleting indices:</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#action.destructive_requires_name: true</span></span><br><span class="line"><span class="meta"># 如果启用了 HTTP 端口，开启跨域访问支持，默认为false</span></span><br><span class="line">http.cors.enabled: <span class="literal">true</span></span><br><span class="line"><span class="meta"># 如果 http.cors.enabled 的值为 true，那么该属性会指定访问允许的域名地址，(允许所有域名)以上使用正则</span></span><br><span class="line">http.cors.allow-origin: /.*/</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="http://www.cnblogs.com/xiaochina/p/6855591.html" target="_blank" rel="noopener">http://www.cnblogs.com/xiaochina/p/6855591.html</a></li><li><a href="https://www.cnblogs.com/sunxucool/p/3799190.html" target="_blank" rel="noopener">https://www.cnblogs.com/sunxucool/p/3799190.html</a></li></ul></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/Elasticsearch/" rel="tag"># Elasticsearch</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/centos-crontab.html" rel="next" title="CentOS 7 使用 cron 执行计划任务"><i class="fa fa-chevron-left"></i> CentOS 7 使用 cron 执行计划任务</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/git-tutorial.html" rel="prev" title="Git 常用命令指南">Git 常用命令指南<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.ico" alt="ChangingFond"><p class="site-author-name" itemprop="name">ChangingFond</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">39</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">4</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">24</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友情链接</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://abcops.cn/" title="https://abcops.cn/" rel="noopener" target="_blank">abcops运维博客</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">ChangingFond</span></div><div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Vultr</b></a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv" title="总访客量"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv" title="总访问量"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">var GUEST=["nick","mail","link"],guest="nick,mail,link";guest=guest.split(",").filter(function(e){return-1<GUEST.indexOf(e)}),new Valine({el:"#comments",verify:!1,notify:!1,appId:"aW6XlFUNratBmLW8CfW2jqhS-gzGzoHsz",appKey:"7tjG9kHG4QIM8m9JjDBzVoFq",placeholder:"Say……",avatar:"mm",meta:guest,pageSize:"10",visitor:!1})</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>

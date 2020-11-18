@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.5.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.5.0"><link rel="mask-icon" href="/images/favicon.ico?v=6.5.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"6.5.0",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!1,onmobile:!0},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="JavaScript学习过程中的一些笔记，不定期更新。"><meta name="keywords" content="Frontend,JavaScript"><meta property="og:type" content="article"><meta property="og:title" content="JavaScript学习笔记"><meta property="og:url" content="http://blog.fcj.one/javascript-note.html"><meta property="og:site_name" content="ChangingFond"><meta property="og:description" content="JavaScript学习过程中的一些笔记，不定期更新。"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2017-09-19T19:51:35.000Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="JavaScript学习笔记"><meta name="twitter:description" content="JavaScript学习过程中的一些笔记，不定期更新。"><link rel="alternate" href="/atom.xml" title="ChangingFond" type="application/atom+xml"><link rel="canonical" href="http://blog.fcj.one/javascript-note.html"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>JavaScript学习笔记 | ChangingFond</title><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b2496cd517e5ebce9b0691ec025cc548";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div> <a href="https://github.com/ChangingFond" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">ChangingFond</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">活着，努力着，并收获着快乐</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br>留言</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://blog.fcj.one/javascript-note.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="ChangingFond"><meta itemprop="description" content><meta itemprop="image" content="/images/avatar.ico"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="ChangingFond"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">JavaScript学习笔记</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2017-09-19 19:51:35" itemprop="dateCreated datePublished" datetime="2017-09-19T19:51:35+00:00">2017-09-19</time></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span> <a href="/javascript-note.html#comments" itemprop="discussionUrl"><span class="post-meta-item-text">评论数：</span><span class="post-comments-count valine-comment-count" data-xid="/javascript-note.html" itemprop="commentCount"></span></a></span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i> 阅读次数：<span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><p>JavaScript学习过程中的一些笔记，不定期更新。</p><a id="more"></a><h2 id="JavaScript与Html"><a href="#JavaScript与Html" class="headerlink" title="JavaScript与Html"></a>JavaScript与Html</h2><ul><li>JavaScript = ECMAScript + DOM(文档对象模型) + BOM(浏览器对象模型)</li><li>HTML页面中<code>&lt;script&gt;</code>标签type属性默认为text/javascript。</li><li>在使用<code>&lt;script&gt;</code>标签嵌入html页面时，只需指定type属性即可。嵌入的js代码中不要包含<code>&lt;/script&gt;</code>字符串，浏览器会认为其是结束标签。</li><li>html包含外部js文件时，必需指定src属性，必需有闭合标签<code>&lt;/script&gt;</code>，两个标签之中不能含有js代码（不会被执行）。</li><li>现代Web应用程序一般把js引用全部放在body元素中内容的后面，使附录中的步骤2,3滞后。</li><li>defer属性会使js<strong>外部脚本</strong>延迟到整个html页面加载完毕后再执行。</li><li>async属性会使js<strong>外部脚本</strong>会在页面load事件之前执行，但可能会在DOMContentLoaded事件之前或之后执行。</li><li>所有<code>&lt;script&gt;</code>元素都会按照在页面中出现的顺序依次解析（不包含defer、async属性）。</li></ul><p>附: DOM文档加载的步骤：参考<a href="http://www.cnblogs.com/caizhenbo/p/6679478.html" target="_blank" rel="noopener">事件DOMContentLoaded和load的区别</a></p><ol><li>解析HTML结构。</li><li>加载外部脚本和样式表文件。</li><li>解析并执行脚本代码。</li><li>DOM树构建完成。//DOMContentLoaded</li><li>加载图片等外部文件。</li><li>页面加载完毕。//load</li></ol><ul><li>文档开始处没有文档类型声明，则浏览器默认开启混杂模式（包含非标准类型）。HTML5页面的标准模式文档类型声明为<code>&lt;!DOCTYPE html&gt;</code>。</li><li><code>&lt;noscript&gt;</code>元素中的内容在浏览器不支持脚本或者脚本被禁用时显示。</li><li>js启用严格模式<code>&quot;use strict&quot;</code>(脚本文件的顶部或函数体内容的开头声明)，严格模式的不同如下：<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>八进制Number变量无效</span><br><span class="line"><span class="number">2.</span>不允许使用严格模式</span><br><span class="line"><span class="number">3.</span>初始化未经声明的变量会导致错误</span><br></pre></td></tr></table></figure></li></ul><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul><li>标识符第一个字符可以为<code>$</code>，采用驼峰大小写格式，第一个字母小写，剩下的每个有意义的单词的首字母大写。</li><li>建议使用分号结尾，建议使用<code>{}</code>组织代码块（即使代码块只有一行）。</li><li>js变量为松散类型（可以用来保存任何类型-弱类型语言），不建议修改变量所保存值的类型，但是修改有效。</li><li>使用var定义的变量成为定义该变量的作用域中的局部变量，不使用var定义则为全局变量（不推荐）。</li><li><p>一条语句定义多个变量</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">"hi"</span>,</span><br><span class="line">    found = <span class="literal">false</span>,</span><br><span class="line">    age = <span class="number">29</span>;</span><br></pre></td></tr></table></figure></li><li><p>js包括五种基本数据类型:<code>Undefined</code>, <code>Null</code>, <code>Boolean</code>, <code>Number</code>, <code>String</code>和一种复杂类型<code>Object</code>（本质是一组无序的键值对组成)。</p></li><li><code>typeof</code>操作符结果有：<code>undefined</code>, <code>boolean</code>, <code>string</code>, <code>number</code>, <code>object</code>, <code>function</code>，<code>typeof</code>后可不接圆括号，<code>typeof null = object</code>(空的对象引用)。</li><li><code>Undefined</code>类型只有唯一值<code>undefined</code>，如用<code>var</code>进行变量声明但未初始化时该变量的值即为<code>undefined</code>，对未初始化和未声明的变量执行<code>typeof</code>操作都返回<code>undefined</code>。</li><li><code>Null</code>类型只有唯一值<code>null</code>,如果定义的变量用来保存对象，最好将其初始化为<code>null</code>,可与<code>undefined</code>区分开。</li><li><code>undefined == null // true</code></li><li><code>Boolean</code>类型有两个字面值<code>true</code>和<code>false</code>(与<code>True</code>,<code>False</code>两个<strong>标识符</strong>区分)。对任何数据类型调用Boolean()函数都可返回Boolean值，取决于该数据类型及其对应转化规则</li></ul><table><thead><tr><th>数据类型</th><th style="text-align:center">转换为true</th><th style="text-align:center">转换为false</th></tr></thead><tbody><tr><td>Boolean</td><td style="text-align:center">true</td><td style="text-align:center">false</td></tr><tr><td>String</td><td style="text-align:center">非空字符串</td><td style="text-align:center">“”空字符串</td></tr><tr><td>Number</td><td style="text-align:center">非零数值（无穷大）</td><td style="text-align:center">0和NaN</td></tr><tr><td>Object</td><td style="text-align:center">任何对象</td><td style="text-align:center">null</td></tr><tr><td>Undefined</td><td style="text-align:center">无</td><td style="text-align:center">undefined</td></tr><tr><td>Null</td><td style="text-align:center">无</td><td style="text-align:center">null</td></tr></tbody></table><ul><li>浮点数值必须包含一个小数点，小数点前可以没数字（不推荐），但小数点后至少有一个数字。</li><li>保存浮点数的内存空间是保存整值的两倍（为节省空间，1.0会自动解析为1）。</li><li>浮点数值最高精度是17位小数，0.1 + 0.2 = 0.30000000000000004.</li><li><code>Number.MIN_VALUE = 5e-324</code> <code>Number.MAX_VALUE = 1.7976931348623157e+308</code>，计算结果超出此范围则转换为(+/-)Infinity,Infinity值无法参与计算，<code>ifFinite()</code>可判断某个数值是否在此范围内。</li><li>NaN(Not a Number)表示本来要返回数值的操作数未返回数值的情况。</li><li>isNaN判断一个值能否被转换为数值，是为false，否为true</li><li>Number() parseInt() parseFloat()的用法。</li><li>双字节字符：单字节指只占一个字，英文字符。双字是占两个字节的，中文字符占两个字节。</li><li>ECMAScript中字符串不可变，拼接字符串会先创建两字符串拼接后长度的字符串，然后填充，最后销毁拼接的两个字符串。</li><li>null和undefined无toString()方法，toString()可带一个指定输出数值的基数作为参数，如num.toString(2)=1000(num=8)，String()函数可以对null和undefined输出。</li><li>Object的每个实例都有如下属性和方法：<ol><li>Constructor：构建函数，<code>var o = Object()</code>的构建函数就是<code>Object()</code></li><li>hasOwnProperty(propertyName)：用于检查给定属性是否存在于当前对象实例中，参数必须为字符串。</li><li>isPrototypeOf(object)：检查传入的对象是否是另一个对象的原型。</li><li>propertyIsEnumerable(propertyName)：检查给定属性是否能用<code>for-in</code>语句进行枚举。</li><li>toLocaleString()：返回对象的字符串表示，该字符串与执行环境的地区对应。</li><li>toString()：返回对象的字符串表示。</li><li>valueOf()：返回对象的字符串、数值或布尔值表示。</li></ol></li><li>有符号整数存储：第31位保存符(0正1负)，正数为二进制，负数为取反加一。</li><li>按位非<code>~</code>:操作数的负值减一；按位与<code>&amp;</code>,按位或<code>|</code>,按位异或<code>^</code></li><li>左移：左移n位，原数值的右侧多出n个空位，会以0填充这些空位，但左移不影响符号位。</li><li>有符号右移(<code>&gt;&gt;</code>)：右移n位(除符号位)，原数值的左侧、符号位的右侧多出n个空位，会以符号位的值填充这些空位。</li><li>无符号右移(<code>&gt;&gt;&gt;</code>)：将所有位(包括)右移n位，右侧用0填充这些空位。</li><li>逻辑与与逻辑或都为<strong>短路操作符</strong>，即第一个操作数结果决定，就不会对后面操作数求值。</li><li>相等(==)——先转换后比较，全等(===)——仅比较不转换。转换原则如下：<ol><li>有一个操作数为布尔值，将其转换为数值——false转0，true转1</li><li>字符串与数值相比较，字符串先转成数值</li><li>有一个操作数为对象，另一个不是，则调用对象的valueOf()方法</li><li>如果两个操作数都是对象，则比较是不是同一个对象。</li><li><code>null == undefined(√)</code> <code>null === undefined(×)</code> <code>NaN == NaN(×)</code></li></ol></li><li>switch语句在比较值时使用的是全等操作符，因此不会发生类型转换。</li><li>函数return语句可不带返回值，此时函数在停止执行后会返回undefined值。</li><li>定义两个名字相同的函数，则该名字只属于后定义的函数(无重载)。通过检查传入函数中参数(arguments对象)的类型和数量并作出不同的反应，可模仿函数的重载。</li><li>基本类型变量复制，会在变量对象上创建一个新值，然后把该值复制到为新变量分配的位置上，复制后这两个变量参与的操作互不影响。</li><li>引用类型变量复制，将存储在变量对象中的值复制一份放到为新变量分配的空间，此值为一个指针，指向存储在堆中的一个对象，复制后两个变量实际上引用同一个对象。</li><li>ECMAScript中所有函数的参数都是按值传递的，可以把函数的参数看作局部变量。</li><li>确定一个值是哪种基本类型使用<code>typeof</code>操作符，是哪种引用类型使用<code>instanceof</code>操作符。所有引用类型的值都是Object的实例。</li><li>内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。如果内部环境中存在着同名标识符，就不会使用位于外部环境的标识符。</li><li>不存在块级作用域，如由for循环创建的变量i即使在for循环执行结束后，也会存在于循环外部的执行环境中。</li><li>‘标记清除’是目前主流的垃圾收集算法，给当前不使用的值加上标记，然后回收其内存。</li></ul><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><ul><li><p>函数的Rest参数</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...m</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> total = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">of</span> m) &#123;</span><br><span class="line">    total += i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>扩展</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(...[<span class="number">4</span>, <span class="number">8</span>]); <span class="comment">// 4 8</span></span><br><span class="line">[...arr1, ...arr2]      <span class="comment">// 拼接数组arr1和arr2</span></span><br><span class="line"><span class="keyword">var</span> [x, ...y] = [<span class="number">4</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">30</span>]   <span class="comment">// y = [8, 10, 30]</span></span><br><span class="line"><span class="keyword">let</span> [a, b, c] = <span class="string">'ES6'</span>  <span class="comment">// a='E' b='S' c='6'</span></span><br><span class="line"><span class="keyword">let</span> d = [...<span class="string">'ES6'</span>]     <span class="comment">// d = ['E', 'S', '6']</span></span><br></pre></td></tr></table></figure></li><li><p>Promise</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> checkLogin = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 固定写法 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span>(flag) &#123;</span><br><span class="line">      resolve(&#123;</span><br><span class="line">        status: <span class="number">0</span>,</span><br><span class="line">        result: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      reject(<span class="string">"error"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> getUserInfo = <span class="function"><span class="params">()</span>=&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> userInfo = &#123;</span><br><span class="line">      userId: <span class="string">'101'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    resolve(userInfo);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">checkLogin().then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(res.status == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"login success"</span>);</span><br><span class="line">    <span class="keyword">return</span> getUserInfo();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`errors:<span class="subst">$&#123; err &#125;</span>`</span>);</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res2</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`userId:<span class="subst">$&#123; res2.userId &#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">/* 同时调用多个接口 */</span></span><br><span class="line"><span class="built_in">Promise</span>.all([checkLogin(), getUserInfo)()]).then(<span class="function">(<span class="params">[res1, res2]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`res1:<span class="subst">$&#123; res1.result&#125;</span>, res2:<span class="subst">$&#123; res2.userId &#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li></ul><h2 id="import与export"><a href="#import与export" class="headerlink" title="import与export"></a>import与export</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* util.js */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> sum = <span class="function">(<span class="params">x, y</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; sum &#125; <span class="keyword">from</span> <span class="string">'./util'</span>    <span class="comment">// sum()直接调用</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> util <span class="keyword">from</span> <span class="string">'./util'</span>  <span class="comment">// util.sum()调用</span></span><br></pre></td></tr></table></figure></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/Frontend/" rel="tag"># Frontend</a> <a href="/tags/JavaScript/" rel="tag"># JavaScript</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/hexo-git-vps.html" rel="next" title="VPS配置Git Hooks实现hexo博客更新"><i class="fa fa-chevron-left"></i> VPS配置Git Hooks实现hexo博客更新</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/next-config.html" rel="prev" title="NexT主题个性化配置">NexT主题个性化配置<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.ico" alt="ChangingFond"><p class="site-author-name" itemprop="name">ChangingFond</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">39</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">4</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">24</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友情链接</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://abcops.cn/" title="https://abcops.cn/" rel="noopener" target="_blank">abcops运维博客</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript与Html"><span class="nav-number">1.</span> <span class="nav-text">JavaScript与Html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6"><span class="nav-number">3.</span> <span class="nav-text">ES6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import与export"><span class="nav-number">4.</span> <span class="nav-text">import与export</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">ChangingFond</span></div><div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Vultr</b></a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv" title="总访客量"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv" title="总访问量"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">var GUEST=["nick","mail","link"],guest="nick,mail,link";guest=guest.split(",").filter(function(e){return-1<GUEST.indexOf(e)}),new Valine({el:"#comments",verify:!1,notify:!1,appId:"aW6XlFUNratBmLW8CfW2jqhS-gzGzoHsz",appKey:"7tjG9kHG4QIM8m9JjDBzVoFq",placeholder:"Say……",avatar:"mm",meta:guest,pageSize:"10",visitor:!1})</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>

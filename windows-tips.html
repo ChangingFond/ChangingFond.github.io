@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.5.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.5.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.5.0"><link rel="mask-icon" href="/images/favicon.ico?v=6.5.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"6.5.0",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!1,onmobile:!0},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="收集整理Windows系统使用过程中遇到的一些问题和解决办法，不定期更新。"><meta name="keywords" content="Windows"><meta property="og:type" content="article"><meta property="og:title" content="Windows常见问题及解决技巧"><meta property="og:url" content="http://blog.fcj.one/windows-tips.html"><meta property="og:site_name" content="ChangingFond"><meta property="og:description" content="收集整理Windows系统使用过程中遇到的一些问题和解决办法，不定期更新。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/86848871.jpg"><meta property="og:updated_time" content="2018-08-31T12:04:12.000Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Windows常见问题及解决技巧"><meta name="twitter:description" content="收集整理Windows系统使用过程中遇到的一些问题和解决办法，不定期更新。"><meta name="twitter:image" content="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/86848871.jpg"><link rel="alternate" href="/atom.xml" title="ChangingFond" type="application/atom+xml"><link rel="canonical" href="http://blog.fcj.one/windows-tips.html"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>Windows常见问题及解决技巧 | ChangingFond</title><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b2496cd517e5ebce9b0691ec025cc548";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div> <a href="https://github.com/ChangingFond" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"/></svg></a><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">ChangingFond</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">活着，努力着，并收获着快乐</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-guestbook"><a href="/guestbook" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i><br>留言</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://blog.fcj.one/windows-tips.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="ChangingFond"><meta itemprop="description" content><meta itemprop="image" content="/images/avatar.ico"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="ChangingFond"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Windows常见问题及解决技巧</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-05-01 17:31:56" itemprop="dateCreated datePublished" datetime="2018-05-01T17:31:56+00:00">2018-05-01</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2018-08-31 12:04:12" itemprop="dateModified" datetime="2018-08-31T12:04:12+00:00">2018-08-31</time></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span> <a href="/windows-tips.html#comments" itemprop="discussionUrl"><span class="post-meta-item-text">评论数：</span><span class="post-comments-count valine-comment-count" data-xid="/windows-tips.html" itemprop="commentCount"></span></a></span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i> 阅读次数：<span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery"><div class="post-gallery-row"> <a class="post-gallery-img fancybox" href="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/86848871.jpg" rel="gallery_ckhn8q9ju0037dgpzcu9mdl4w" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"><img src="http://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/86848871.jpg" itemprop="contentUrl"></a></div></div><blockquote><p>收集整理Windows系统使用过程中遇到的一些问题和解决办法，不定期更新。</p></blockquote><a id="more"></a><h2 id="Windows8-8-1-10安装-NET-Framework-3-5"><a href="#Windows8-8-1-10安装-NET-Framework-3-5" class="headerlink" title="Windows8/8.1/10安装.NET Framework 3.5"></a>Windows8/8.1/10安装.NET Framework 3.5</h2><p>　　之前在重装win 10系统后安装Microsoft SQL Server 2012，却提示需要.net framework3.5环境，但是Windows8/8.1/10现在都是默认的4.0，用微软自带的在线安装等了半天进度条根本不动。</p><p>方法一：<br>　　先挂载Win8&amp;Win8.1&amp;Win10的镜像（安装系统的那个iso镜像文件，可以使用Daemon虚拟光驱挂载，加载之后注意盘符名称，假设为G）;<br>　　然后以管理员身份运行命令提示符，输入并回车运行以下命令：<br>　　<code>Dism /online /enable-feature /featurename:NetFx3 /All /Source:G:\sources\sxs /LimitAccess</code><br>　　注意将G:替换成你挂载系统所在的盘符，等待部署进度100%即可。</p><p>方法二：<br>　　上述方法安装过程中可能会出现错误提示安装失败，可使用cab格式的.NET Framework 3.5离线安装包进行安装。<br>　　cab格式.NET Framework 3.5离线安装包下载地址：<a href="https://pan.baidu.com/s/1geAjsaf" target="_blank" rel="noopener">百度网盘</a><br>　　先把下载的名为NetFx3.cab的离线安装包放到Win10系统盘C:\Windows文件夹里；<br>　　然后以管理员身份运行命令提示符，输入并回车运行以下命令：<br>　　<code>Dism /online /Enable-Feature /FeatureName:NetFx3 /Source:&quot;%windir%&quot; /LimitAccess</code><br>　　等待部署进度100%即可。</p><h2 id="关闭Win-10自动更新"><a href="#关闭Win-10自动更新" class="headerlink" title="关闭Win 10自动更新"></a>关闭Win 10自动更新</h2><ol><li><p>第一种方法适用win10所有版本系统。打开控制面板-&gt;管理工具-&gt;服务-&gt;双击Windows Update，点击停止按钮停止服务，将启动类型改为禁用。打开恢复选项卡，将第一次失败改为无操作<br><img src="https://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/2543953.jpg" alt><br><img src="https://changingfond.oss-cn-hangzhou.aliyuncs.com/18-5-2/34164800.jpg" alt></p></li><li><p>第二种方法适用于除了win10家庭版的其他系统。先按 win键+R 运行<code>gpedit.msc</code>，打开计算机配置–&gt;管理模板–&gt;Windows组件–&gt;Windows更新，点击配置自动更新，选择已禁用后保存</p></li></ol><h2 id="Win-10家庭中文版开启远程桌面"><a href="#Win-10家庭中文版开启远程桌面" class="headerlink" title="Win 10家庭中文版开启远程桌面"></a>Win 10家庭中文版开启远程桌面</h2><p>　　Win 10家庭版默认是不支持远程桌面的，下载安装一个自动化工具，解压后以管理员身份运行install.bat即可。<a href="https://github.com/binarymaster/rdpwrap/releases" target="_blank" rel="noopener">链接地址</a></p><h2 id="按住Shift键右键点击空白处“在此处打开命令提示符”而不是PowerShell窗口"><a href="#按住Shift键右键点击空白处“在此处打开命令提示符”而不是PowerShell窗口" class="headerlink" title="按住Shift键右键点击空白处“在此处打开命令提示符”而不是PowerShell窗口"></a>按住Shift键右键点击空白处“在此处打开命令提示符”而不是PowerShell窗口</h2><ol><li>打开注册表编辑器，定位至：<br>　<code>\HKEY_CLASSES_ROOT\Directory\Background\shell\Powershell\command</code></li><li>更改注册表项所有者权限，在command项上点击右键，选择权限，点击高级按钮打开“command的高级安全设置”窗口，点击“所有者：TrustedInstaller”右侧的“更改”按钮，打开“选择用户或组”窗口。在“输入要选择的对象名称”框中输入当前用户名，然后点击右侧的“检查名称”按钮。如果输入正确，点击“检查名称”之后就会自动把你输入的对象名称显示为标准的用户名称，并添加下划线（如上图）；反之，如果输入的用户名错误，点击“检查名称”之后就会显示提示。（如果不清楚当前登录系统的用户名，你也可以输入“Everyone”，这个不会有错，但是却会修改所有用户的权限，可能存在安全隐患。）点击“确定”关闭“选择用户或组”窗口，回到“command的高级安全设置”窗口，你会发现“所有者”已经变成了你刚才输入的用户。然后点击“确定”关闭“command的高级安全设置”窗口，回到“command的权限”设置窗口。选中“组或用户名”列表中的“Administrators”，在下面的“Administrators的权限”设置框中勾选“完全控制”。点击“确定”关闭“command的权限”设置窗口，回到注册表编辑器。</li><li>在右侧窗口双击默认值打开编辑字符串窗口，把数值数据修改为<br>　<code>cmd.exe /s /k pushd &quot;%V&quot;</code></li><li>如果想要取消修改的话，把默认值的数值数据改回如下值即可：<br>　<code>powershell.exe -noexit -command Set-Location -literalPath &#39;%V&#39;</code></li></ol><h2 id="Win-10家庭中文版打开组策略"><a href="#Win-10家庭中文版打开组策略" class="headerlink" title="Win 10家庭中文版打开组策略"></a>Win 10家庭中文版打开组策略</h2><p>　　在桌面新建记事本文件，粘贴下列代码，并将文件格式改为bat。<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">pushd</span> <span class="string">"%~dp0"</span></span><br><span class="line">dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum &gt;List.txt</span><br><span class="line">dir /b C:\Windows\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum &gt;&gt;List.txt</span><br><span class="line"><span class="keyword">for</span> /f %%i <span class="keyword">in</span> (<span class="string">'findstr /i . List.txt 2^&gt;nul'</span>) <span class="keyword">do</span> dism /online /norestart /add-package:<span class="string">"C:\Windows\servicing\Packages\%%i"</span></span><br><span class="line">pause</span><br></pre></td></tr></table></figure><p></p></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/Windows/" rel="tag"># Windows</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/reid-papers.html" rel="next" title="行人重识别(Person Re-identification)顶级会议论文汇总"><i class="fa fa-chevron-left"></i> 行人重识别(Person Re-identification)顶级会议论文汇总</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/ubuntu-openmpi.html" rel="prev" title="Ubuntu 16.04安装OpenMPI">Ubuntu 16.04安装OpenMPI<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.ico" alt="ChangingFond"><p class="site-author-name" itemprop="name">ChangingFond</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">39</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">4</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">24</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> 友情链接</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://abcops.cn/" title="https://abcops.cn/" rel="noopener" target="_blank">abcops运维博客</a></li></ul></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows8-8-1-10安装-NET-Framework-3-5"><span class="nav-number">1.</span> <span class="nav-text">Windows8/8.1/10安装.NET Framework 3.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭Win-10自动更新"><span class="nav-number">2.</span> <span class="nav-text">关闭Win 10自动更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Win-10家庭中文版开启远程桌面"><span class="nav-number">3.</span> <span class="nav-text">Win 10家庭中文版开启远程桌面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按住Shift键右键点击空白处“在此处打开命令提示符”而不是PowerShell窗口"><span class="nav-number">4.</span> <span class="nav-text">按住Shift键右键点击空白处“在此处打开命令提示符”而不是PowerShell窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Win-10家庭中文版打开组策略"><span class="nav-number">5.</span> <span class="nav-text">Win 10家庭中文版打开组策略</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2020</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">ChangingFond</span></div><div class="footer-custom">Hosted by <a target="_blank" rel="external nofollow" href="https://pages.coding.me"><b>Vultr</b></a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv" title="总访客量"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span><span class="site-pv" title="总访问量"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">var GUEST=["nick","mail","link"],guest="nick,mail,link";guest=guest.split(",").filter(function(e){return-1<GUEST.indexOf(e)}),new Valine({el:"#comments",verify:!1,notify:!1,appId:"aW6XlFUNratBmLW8CfW2jqhS-gzGzoHsz",appKey:"7tjG9kHG4QIM8m9JjDBzVoFq",placeholder:"Say……",avatar:"mm",meta:guest,pageSize:"10",visitor:!1})</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
