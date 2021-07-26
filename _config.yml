@@ -91,6 +91,6 @@ deploy:
   type: git
   repo:
     github: git@github.com:ChangingFond/ChangingFond.github.io.git  #同步到GitHub
-    vps: fcj@142.11.253.161:hexo.git,master  #同步到自己的VPS
+    vps: fcj@142.11.206.186:hexo.git,master  #同步到自己的VPS
   branch: master
   message: Hexo Blog updated - {{ now('YYYY-MM-DD HH:mm:ss') }})
