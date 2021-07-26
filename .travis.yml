@@ -6,7 +6,7 @@ install:
 - npm install -g gulp
 - npm install
 addons:
-  ssh_known_hosts: 142.11.253.161:22
+  ssh_known_hosts: 142.11.206.186:22
 cache:
   directories:
   - node_modules
