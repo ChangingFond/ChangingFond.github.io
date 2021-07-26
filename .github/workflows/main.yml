@@ -23,15 +23,27 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout Git repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
       
+      - name: Install SSH key
+        env:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        run: |
+          cd ~/.ssh && echo "$ssh_key" > id_rsa && chmod 600 id_rsa
+          ssh-keyscan -H "$known_hosts" > known_hosts 
+          ssh-keyscan -H github.com >> known_hosts && chmod 600 known_hosts && cd ..
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.3.0
         with:
           node-version: 12.14.1 # optional
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Deploy
         run: |
           npm install -g hexo-cli
           npm install -g hexo-deployer-git

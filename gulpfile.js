@@ -1,3 +1,4 @@
+const babel = require('gulp-babel');
 var gulp = require('gulp');
 var minifycss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
@@ -24,6 +25,7 @@ gulp.task('minify-html', function() {
 // 压缩 public/js 目录 js
 gulp.task('minify-js', function() {
     return gulp.src('./public/**/*.js')
+        .pipe(babel({presets:['es2015']}))
         .pipe(uglify())
         .pipe(gulp.dest('./public'));
 });
