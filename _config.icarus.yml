@@ -275,7 +275,7 @@ widgets:
         position: left
         type: toc
         # Whether to show the index of each heading
-        index: true
+        index: false
         # Whether to collapse sub-headings when they are out-of-view
         collapsed: true
         # Maximum level of headings to show (1-6)
