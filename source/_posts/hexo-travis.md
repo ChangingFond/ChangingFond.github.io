@@ -15,6 +15,7 @@ photos:
 ## Travis-CI 介绍
 
 　　CI 即 Continuous Integration，译为持续集成。持续集成指的是只要代码有变更，都会触发 CI 服务器自动对项目运行构建和测试，反馈结果，最终甚至自动部署到测试或生产环境。
+
 　　Travis CI 是一个提供持续集成功能的平台，在 Github 上，可以添加 Travis CI　应用，当有 code push 时候，会推送通知到 Travis，根据设置的脚本运行指定任务。和 Jenkins 不同，Travis CI 是由官方远端提供服务器而无需自己搭建，且只支持 Github，不支持其他代码托管服务。
 
 目前有两个站点:

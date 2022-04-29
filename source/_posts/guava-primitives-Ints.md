@@ -13,14 +13,14 @@ tags:
 
 ## 常量
 
-###  `BYTES` 
+###  BYTES
 
 ```Java
 //在 Java 8 中可以被 Integer.BYTES 替代，代表字节数 bytes
 public static final int BYTES = Integer.SIZE / Byte.SIZE;
 ```
 
-### `MAX_POWER_OF_TWO`
+### MAX_POWER_OF_TWO
 
 ```Java
 // int 最大存储值，使用 1<<(Integer.SIZE-2) 计算得到，2是因为一位代表正负，1同时占一位
@@ -29,7 +29,7 @@ public static final int MAX_POWER_OF_TWO = 1 << (Integer.SIZE - 2);
 
 ## 静态方法
 
-### `public static int hasCode(int)`
+### public static int hasCode(int)
 
 计算传入 int 值的 hashcode。与 JDK 8 中 `Integer.hashCode(int)` 一样，直接返回数值本身。
 
@@ -39,7 +39,7 @@ public static int hashCode(int value) {
 }
 ```
 
-### `public static int checkedCast(long)`
+### public static int checkedCast(long)
 
 将 long 强制类型转换为 int。
 当传入参数超出 int 的取值范围 [2^31-1, -2^31] 时，抛出 `IllegalArgumentException` 异常，否则返回参数本身。
@@ -52,7 +52,7 @@ public static int checkedCast(long value) {
 }
 ```
 
-### `public static int saturatedCast(long)`
+### public static int saturatedCast(long)
 
 将 long 转换成 int 范围内的值。
 与 `checkedCast` 不同的是，当传入参数大于 int 最大值或小于 int 最小值，直接返回最大值或最大值，而不是抛异常。
@@ -69,7 +69,7 @@ public static int saturatedCast(long value) {
 }
 ```
 
-### `public static int compare(int, int)`
+### public static int compare(int, int)`
 
 比较两个 int 值的大小，等价于 `((Integer) a).compareTo(b)`。返回值分为三种情况: a 小于/等于/大于 b 时分别返回 -1/0/1。
 注：JDK 7 及以后建议使用 `Integer.compar(int, int)` 而非此方法。
@@ -80,7 +80,9 @@ public static int compare(int a, int b) {
 }
 ```
 
-### `public static boolean contains(int[], int)`
+### public static boolean contains(int[], int)`
+
+判断给定
 
 ```Java
 public static boolean contains(int[] array, int target) {
@@ -93,7 +95,7 @@ public static boolean contains(int[] array, int target) {
 }
 ```
 
-### `public static int indexOf(int[], int)`
+### public static int indexOf(int[], int)`
 
 ```Java
 public static int indexOf(int[] array, int target) {
@@ -101,7 +103,7 @@ public static int indexOf(int[] array, int target) {
 }
 ```
 
-### `private static int indexOf(int[], int, int, int)`
+### private static int indexOf(int[], int, int, int)
 
 ```Java
 private static int indexOf(int[] array, int target, int start, int end) {
@@ -114,7 +116,7 @@ private static int indexOf(int[] array, int target, int start, int end) {
 }
 ```
 
-### `public static int indexOf(int[], int[])`
+### public static int indexOf(int[], int[])
 
 ```Java
 public static int indexOf(int[] array, int[] target) {
@@ -137,7 +139,7 @@ public static int indexOf(int[] array, int[] target) {
 }
 ```
 
-### `public int lastIndexOf(int[], int)`
+### public int lastIndexOf(int[], int)
 
 ```Java
 public static int lastIndexOf(int[] array, int target) {
@@ -145,7 +147,7 @@ public static int lastIndexOf(int[] array, int target) {
 }
 ```
 
-### `private int lastIndexOf(int[], int, int, int)`
+### private int lastIndexOf(int[], int, int, int)
 
 ```Java
 private static int lastIndexOf(int[] array, int target, int start, int end) {
@@ -158,7 +160,7 @@ private static int lastIndexOf(int[] array, int target, int start, int end) {
 }
 ```
 
-### `public static int min(int...)`
+### public static int min(int...)
 
 ```Java
 public static int min(int... array) {
@@ -173,7 +175,7 @@ public static int min(int... array) {
 }
 ```
 
-### `public static int max(int...)`
+### public static int max(int...)
 
 ```Java
 public static int max(int... array) {
@@ -188,7 +190,7 @@ public static int max(int... array) {
 }
 ```
 
-### `public static int constrainToRange(int, int, int)`
+### public static int constrainToRange(int, int, int)
 
 ```Java
 public static int constrainToRange(int value, int min, int max) {
@@ -197,7 +199,7 @@ public static int constrainToRange(int value, int min, int max) {
 }
 ```
 
-### `public static int[] concat(int[]...)`
+### public static int[] concat(int[]...)
 
 ```Java
 public static int[] concat(int[]... arrays) {
@@ -215,7 +217,7 @@ public static int[] concat(int[]... arrays) {
 }
 ```
 
-### `public static byte[] toByteArray(int)`
+### public static byte[] toByteArray(int)
 
 ```Java
 public static byte[] toByteArray(int value) {
@@ -225,7 +227,7 @@ public static byte[] toByteArray(int value) {
 }
 ```
 
-### `public static int fromByteArray(byte[])`
+### public static int fromByteArray(byte[])
 
 ```Java
 public static int fromByteArray(byte[] bytes) {
@@ -234,7 +236,7 @@ public static int fromByteArray(byte[] bytes) {
 }
 ```
 
-### `public static int fromBytes(byte, byte, byte, byte)`
+### public static int fromBytes(byte, byte, byte, byte)
 
 ```Java
 public static int fromBytes(byte b1, byte b2, byte b3, byte b4) {
@@ -242,7 +244,7 @@ public static int fromBytes(byte b1, byte b2, byte b3, byte b4) {
 }
 ```
 
-### `public static Converter<String, Integer> stringConverter()`
+### public static Converter<String, Integer> stringConverter()
 
 ```Java
 public static Converter<String, Integer> stringConverter() {
@@ -250,7 +252,7 @@ public static Converter<String, Integer> stringConverter() {
 }
 ```
 
-### `public static int[] ensureCapacity(int[], int, int)`
+### public static int[] ensureCapacity(int[], int, int)
 
 ```Java
 public static int[] ensureCapacity(int[] array, int minLength, int padding) {
@@ -260,7 +262,7 @@ public static int[] ensureCapacity(int[] array, int minLength, int padding) {
 }
 ```
 
-### `public static String join(String, int...)`
+### public static String join(String, int...)
 
 ```Java
 public static String join(String separator, int... array) {
@@ -279,7 +281,7 @@ public static String join(String separator, int... array) {
 }
 ```
 
-### `public static void sortDescending(int[])`
+### public static void sortDescending(int[])
 
 ```Java
 /**
@@ -293,7 +295,7 @@ public static void sortDescending(int[] array) {
 }
 ```
 
-### `public static void sortDescending(int[], int, int)`
+### public static void sortDescending(int[], int, int)
 
 ```Java
 public static void sortDescending(int[] array, int fromIndex, int toIndex) {
@@ -304,7 +306,7 @@ public static void sortDescending(int[] array, int fromIndex, int toIndex) {
 }
 ```
 
-### `public static void reverse(int[])`
+### public static void reverse(int[])
 
 ```Java
 public static void reverse(int[] array) {
@@ -313,7 +315,7 @@ public static void reverse(int[] array) {
 }
 ```
 
-### `public static void reverse(int[], int, int)`
+### public static void reverse(int[], int, int)
 
 ```Java
 public static void reverse(int[] array, int fromIndex, int toIndex) {
@@ -327,7 +329,7 @@ public static void reverse(int[] array, int fromIndex, int toIndex) {
 }
 ```
 
-### `public static int[] toArray(Collection<? extends Number>)`
+### public static int[] toArray(Collection<? extends Number>)
 
 ```Java
 public static int[] toArray(Collection<? extends Number> collection) {
@@ -346,7 +348,7 @@ public static int[] toArray(Collection<? extends Number> collection) {
 }
 ```
 
-### `public static List<Integer> asList(int...)`
+### public static List<Integer> asList(int...)
 
 ```Java
 public static List<Integer> asList(int... backingArray) {
@@ -357,7 +359,7 @@ public static List<Integer> asList(int... backingArray) {
 }
 ```
 
-### `public static Integer tryParse(String)`
+### public static Integer tryParse(String)
 
 ```Java
 public static Integer tryParse(String string) {
@@ -365,7 +367,7 @@ public static Integer tryParse(String string) {
 }
 ```
 
-### `public static Integer tryParse(String, int)`
+### public static Integer tryParse(String, int)
 
 ```Java
 public static Integer tryParse(String string, int radix) {
@@ -380,8 +382,8 @@ public static Integer tryParse(String string, int radix) {
 
 ## 静态内部类
 
-### `class IntConverter extends Converter<String, Integer> implements Serializable`
+### class IntConverter extends Converter<String, Integer> implements Serializable
 
-### `enum LexicographicalComparator implements Comparator<int[]>`
+### enum LexicographicalComparator implements Comparator<int[]>
 
-### `class IntArrayAsList extends AbstractList<Integer>implements RandomAccess, Serializable`
+### class IntArrayAsList extends AbstractList<Integer>implements RandomAccess, Serializable
